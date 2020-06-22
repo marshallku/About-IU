@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Home from "./router/Home";
 import Profile from "./router/Profile";
 import Discography from "./router/Discography";
+import Filmography from "./router/Filmography";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/discography" component={Discography} />
+            <Route path="/Filmography" component={Filmography} />
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")
