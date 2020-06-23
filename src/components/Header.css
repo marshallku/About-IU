@@ -1,0 +1,15 @@
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    transition: 0.5s;
+}
+
+#header.shrink {
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+}

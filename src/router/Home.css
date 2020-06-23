@@ -1,0 +1,82 @@
+#home {
+    padding-top: 100vh;
+}
+
+#homeVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    z-index: -1;
+}
+
+.videoWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .videoWrapper {
+        height: 300%;
+        top: -100%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .videoWrapper {
+        width: 600%;
+        left: -250%;
+    }
+}
+
+@media (min-aspect-ratio: 16/9) and (max-aspect-ratio: 16/9) {
+    .videoWrapper {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.videoWrapper.expand iframe {
+    transform: scale(1.325);
+}
+
+.fsb {
+    position: fixed;
+    font-size: 1.5rem;
+    bottom: 15px;
+    color: #fff;
+}
+
+.fsb.ts {
+    right: 15px;
+    cursor: pointer;
+}
+
+.fsb.icon-youtube-play {
+    left: 15px;
+}
+
+.fsb:hover {
+    color: #aaa;
+}

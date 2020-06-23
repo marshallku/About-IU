@@ -13,10 +13,12 @@ ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <Header />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/profile" component={Profile} />
-            <Route path="/discography" component={Discography} />
-            <Route path="/Filmography" component={Filmography} />
+            <main id="main">
+                <Route exact path="/" component={Home} />
+                <Route exact path="/profile" component={Profile} />
+                <Route path="/discography" component={Discography} />
+                <Route path="/Filmography" component={Filmography} />
+            </main>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")
