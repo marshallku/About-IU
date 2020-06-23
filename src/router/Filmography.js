@@ -3,6 +3,7 @@ import React from "react";
 class Filmography extends React.Component {
     constructor(props) {
         super(props);
+        document.body.classList.remove("home");
     }
 
     render() {

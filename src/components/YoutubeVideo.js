@@ -1,10 +1,6 @@
 import React from "react";
 
 class YoutubeVideo extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount = () => {
         if (!window.YT) {
             const script = document.createElement("script");

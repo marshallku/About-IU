@@ -4,6 +4,7 @@ import YoutubeVideo from "../components/YoutubeVideo";
 import "./Home.css";
 
 function Home() {
+    document.body.classList.add("home");
     return (
         <section id="home">
             <div id="homeVideo">

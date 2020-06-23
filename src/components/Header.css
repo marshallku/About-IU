@@ -2,6 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
     width: 100%;
     height: 70px;
     line-height: 70px;
@@ -12,4 +13,33 @@
     height: 50px;
     line-height: 50px;
     background: #fff;
+}
+
+#header > .left,
+#header > .right {
+    flex: 1 1 0;
+}
+
+#header > .left {
+    text-align: right;
+}
+
+#logo {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+#header a {
+    display: inline-block;
+    padding: 0 5px;
+    margin: 0 5px;
+}
+
+.home #header:not(.shrink) a {
+    color: #f1f1f1;
+}
+
+.home #header:not(.shrink) svg {
+    fill: #f1f1f1;
 }
