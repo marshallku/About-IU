@@ -1,0 +1,100 @@
+[
+    {
+        "name": "Lost And Found",
+        "category": "미니",
+        "releaseDate": "2008-09-20",
+        "language": "ko",
+        "coverImage": "https://miro.medium.com/max/900/1*JXr3L2kxi7tkad0W5DHjMA.jpeg"
+    },
+    {
+        "name": "Growing Up",
+        "category": "정규",
+        "releaseDate": "2009-04-23",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "IU...IM",
+        "category": "미니",
+        "releaseDate": "2009-10-27",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "Real",
+        "category": "미니",
+        "releaseDate": "2010-12-09",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "Real+",
+        "category": "싱글",
+        "releaseDate": "2001-02-17",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "Last Fantasy",
+        "category": "정규",
+        "releaseDate": "2011-11-29",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "스무 살의 봄",
+        "category": "싱글",
+        "releaseDate": "2012-05-11",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "Modern Times",
+        "category": "정규",
+        "releaseDate": "2013-10-10",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "Modern Times Epilogue",
+        "category": "정규 (리패키지)",
+        "releaseDate": "2013-12-20",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "꽃갈피",
+        "category": "리메이크",
+        "releaseDate": "2014-05-16",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "CHAT-SHIRE",
+        "category": "미니",
+        "releaseDate": "2015-10-23",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "Palette",
+        "category": "정규",
+        "releaseDate": "2017-04-21",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "꽃갈피 둘",
+        "category": "리메이크",
+        "releaseDate": "2017-09-22",
+        "language": "ko",
+        "coverImage": "something"
+    },
+    {
+        "name": "Love Poem",
+        "category": "미니",
+        "releaseDate": "2019-11-18",
+        "language": "ko",
+        "coverImage": "something"
+    }
+]

@@ -1,4 +1,5 @@
 import React from "react";
+import List from "../components/List";
 
 class Discography extends React.Component {
     constructor(props) {
@@ -7,7 +8,11 @@ class Discography extends React.Component {
     }
 
     render() {
-        return <section>Discography</section>;
+        return (
+            <section id="discography">
+                <List uri="album" />
+            </section>
+        );
     }
 }
 
