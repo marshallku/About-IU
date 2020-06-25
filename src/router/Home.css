@@ -1,5 +1,11 @@
-#home {
-    padding-top: 100vh;
+@keyframes text-ring {
+    0% {
+        transform: rotateX(-100deg) rotate(0);
+    }
+
+    100% {
+        transform: rotateX(-100deg) rotate(-360deg);
+    }
 }
 
 #homeVideo {
@@ -79,4 +85,86 @@
 
 .fsb:hover {
     color: #aaa;
+}
+
+#ringWrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #f1f1f1;
+    transition: opacity 0.5s;
+}
+
+.text-ring {
+    margin: 0;
+    list-style: none;
+    font-size: 77px;
+    transform-style: preserve-3d;
+    animation: text-ring 30s linear infinite;
+}
+
+.text-ring li {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.text-ring li:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(0) translateY(-260px) rotateX(90deg);
+}
+
+.text-ring li:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(30deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(60deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(5) {
+    transform: translate(-50%, -50%) rotate(120deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(6) {
+    transform: translate(-50%, -50%) rotate(150deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(7) {
+    transform: translate(-50%, -50%) rotate(180deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(8) {
+    transform: translate(-50%, -50%) rotate(210deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(9) {
+    transform: translate(-50%, -50%) rotate(240deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(10) {
+    transform: translate(-50%, -50%) rotate(270deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(11) {
+    transform: translate(-50%, -50%) rotate(300deg) translateY(-260px)
+        rotateX(90deg);
+}
+
+.text-ring li:nth-child(12) {
+    transform: translate(-50%, -50%) rotate(330deg) translateY(-260px)
+        rotateX(90deg);
 }

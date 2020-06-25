@@ -17,6 +17,7 @@
     background: none;
     box-sizing: border-box;
     font-family: inherit;
+    font-weight: normal;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -51,7 +52,7 @@ a:hover {
     margin: 0 auto;
 }
 
-#main > section:not(.home) {
+#main > section:not(#home) {
     margin-top: 140px;
 }
 

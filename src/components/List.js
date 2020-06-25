@@ -34,14 +34,17 @@ class List extends React.Component {
                         <Link
                             key={index}
                             to={`/discography/${item.name}`}
+                            className="grid-item"
                             data-language={item.language}
                             style={{
                                 backgroundImage: `url(${item.coverImage})`,
                             }}
                         >
-                            <div>{item.category}</div>
-                            <h3>{item.name}</h3>
-                            <time>{item.releaseDate}</time>
+                            <div className="grid-item-content">
+                                <div>{item.category}</div>
+                                <h3>{item.name}</h3>
+                                <time>{item.releaseDate}</time>
+                            </div>
                         </Link>
                     );
                 });
