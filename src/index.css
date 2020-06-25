@@ -45,3 +45,16 @@ a:hover {
     align-items: center;
     justify-content: center;
 }
+
+/* container */
+#main > section {
+    margin: 0 auto;
+}
+
+#main > section:not(.home) {
+    margin-top: 140px;
+}
+
+#main > section.max-1400 {
+    max-width: 1400px;
+}

@@ -1,0 +1,49 @@
+.list.grid {
+    display: flex;
+    flex-wrap: wrap;
+    --item-width: 100%;
+}
+
+.list.grid > a {
+    position: relative;
+    display: inline-block;
+    width: var(--item-width);
+    height: 0;
+    padding-bottom: var(--item-width);
+    margin-bottom: 10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 680px) {
+    .list.grid {
+        --item-width: calc((100% - 10px) / 2);
+    }
+
+    .list.grid > a {
+        margin-right: 10px;
+    }
+
+    .list.grid > a:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .list.grid {
+        --item-width: calc((100% - 40px) / 3);
+    }
+
+    .list.grid > a {
+        margin-bottom: 20px;
+    }
+
+    .list.grid > a:nth-child(2n) {
+        margin-right: 20px;
+    }
+
+    .list.grid > a:nth-child(3n) {
+        margin-right: 0;
+    }
+}

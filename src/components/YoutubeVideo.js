@@ -13,9 +13,11 @@ class YoutubeVideo extends React.Component {
     };
 
     loadVideo = () => {
-        const { id } = this.props;
+        const { id, vars } = this.props;
+
         this.player = new window.YT.Player("player", {
             videoId: id,
+            playerVars: vars,
             events: {
                 onReady: this.onPlayerReady,
             },

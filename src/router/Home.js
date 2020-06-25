@@ -9,7 +9,18 @@ function Home() {
         <section id="home">
             <div id="homeVideo">
                 <div className="videoWrapper">
-                    <YoutubeVideo id="TgOu00Mf3kI" />
+                    <YoutubeVideo
+                        id="TgOu00Mf3kI"
+                        vars={{
+                            rel: 0,
+                            muted: 1,
+                            loop: 1,
+                            playsinline: 1,
+                            playlist: "TgOu00Mf3kI",
+                            controls: 0,
+                            showinfo: 0,
+                        }}
+                    />
                 </div>
             </div>
             <Instagram />

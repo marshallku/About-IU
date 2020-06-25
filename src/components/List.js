@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "./List.css";
 
 class List extends React.Component {
     constructor(props) {
@@ -9,7 +11,7 @@ class List extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`/data/${this.props.uri}.json`)
+        fetch(this.props.uri)
             .then((response) => {
                 return response.json();
             })
@@ -23,15 +25,27 @@ class List extends React.Component {
 
     render() {
         const { isLoading, list } = this.state;
+        const { type } = this.props;
 
         if (!isLoading) {
-            return list.map((item, index) => {
-                return (
-                    <li key={index}>
-                        <div>{item.name}</div>
-                    </li>
-                );
-            });
+            if (type === "grid") {
+                return list.map((item, index) => {
+                    return (
+                        <Link
+                            key={index}
+                            to={`/discography/${item.name}`}
+                            data-language={item.language}
+                            style={{
+                                backgroundImage: `url(${item.coverImage})`,
+                            }}
+                        >
+                            <div>{item.category}</div>
+                            <h3>{item.name}</h3>
+                            <time>{item.releaseDate}</time>
+                        </Link>
+                    );
+                });
+            }
         } else {
             return null;
         }
