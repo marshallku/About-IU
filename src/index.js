@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Home from "./router/Home";
 import Profile from "./router/Profile";
 import Discography from "./router/Discography";
+import DiscographyDetails from "./router/DiscographyDetails";
 import Filmography from "./router/Filmography";
 import * as serviceWorker from "./serviceWorker";
 
@@ -17,6 +18,11 @@ ReactDOM.render(
                 <Route exact path="/" component={Home} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/discography" component={Discography} />
+                <Route
+                    strict
+                    path="/discography/"
+                    component={DiscographyDetails}
+                />
                 <Route exact path="/Filmography" component={Filmography} />
             </main>
         </BrowserRouter>
