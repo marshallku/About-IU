@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./DiscographyDetails.css";
 
 class DiscographyDetails extends React.Component {
     constructor(props) {
         super(props);
+        document.body.classList.add("hideHeader");
+        document.body.classList.remove("home");
         this.state = {
             isLoading: true,
         };
@@ -35,47 +38,85 @@ class DiscographyDetails extends React.Component {
             });
     }
 
+    setActivated = (index) => {
+        this.setState({
+            activated: index,
+        });
+    };
+
     render() {
         if (!this.state.isLoading) {
-            const { data } = this.state;
+            const { data, activated } = this.state;
             return (
-                <section>
-                    <Link to="../discography">Back</Link>
-                    <div class="back-to-tracklist icon-arrow-left"></div>
+                <section
+                    id="discographyDetail"
+                    className={activated !== false ? "lyric-activated" : ""}
+                >
+                    <Link to="../discography" className="back-to-tracklist">
+                        Back
+                    </Link>
                     <div
-                        class="album-bg"
+                        className="back-to-tracklist icon-arrow-left"
+                        onClick={() => {
+                            this.setState({ activated: false });
+                        }}
+                    ></div>
+                    <div
+                        className="album-bg"
                         style={{ backgroundImage: `url(${data.coverImage})` }}
                     ></div>
-                    <div class="album-art">
+                    <div className="album-art">
                         <div id="albumart">
                             <img
                                 src={data.coverImage}
-                                class="album-art-img"
+                                className="album-art-img"
                                 alt={data.name}
                             />
                         </div>
                         <div id="bgmVid">
                             <div id="player"></div>
                         </div>
-                        <div class="song-info">
-                            <div class="song-title"></div>
-                            <div class="song-artist">아이유</div>
-                            <div class="song-album">{data.name}</div>
+                        <div className="song-info">
+                            <div className="song-title"></div>
+                            <div className="song-artist">아이유</div>
+                            <div className="song-album">{data.name}</div>
                         </div>
                     </div>
-                    <div class="detail">
-                        <div class="tracklist">
-                            <h2 class="detail-title">Tracklist</h2>
+                    <div className="detail">
+                        <div className="tracklist">
+                            <h2 className="detail-title">Tracklist</h2>
                             <ul>
                                 {data.tracks.map((track, index) => {
-                                    return <li key={index}>{track.title}</li>;
+                                    return (
+                                        <li
+                                            key={index}
+                                            onClick={() => {
+                                                this.setActivated(index);
+                                            }}
+                                        >
+                                            {track.title}
+                                        </li>
+                                    );
                                 })}
                             </ul>
                         </div>
                     </div>
-                    <div class="lyrics">
+                    <div
+                        className={`lyrics ${
+                            activated !== false ? "reveal" : ""
+                        }`}
+                    >
                         {data.lyrics.map((lyric, index) => {
-                            return <div key={index}>{lyric}</div>;
+                            return (
+                                <div
+                                    key={index}
+                                    className={`lyric ${
+                                        activated === index ? "reveal" : ""
+                                    }`}
+                                >
+                                    {lyric}
+                                </div>
+                            );
                         })}
                     </div>
                 </section>

@@ -38,6 +38,10 @@
     margin: 0 5px;
 }
 
+.hideHeader #header {
+    display: none;
+}
+
 .home #header {
     border-bottom: 0;
 }

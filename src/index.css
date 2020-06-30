@@ -52,7 +52,7 @@ a:hover {
     margin: 0 auto;
 }
 
-#main > section:not(#home) {
+body:not(.hideHeader) #main > section:not(#home) {
     margin-top: 140px;
 }
 

@@ -7,6 +7,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         document.body.classList.add("home");
+        document.body.classList.remove("hideHeader");
         this.state = {
             scrolled: window.scrollY > 0,
         };

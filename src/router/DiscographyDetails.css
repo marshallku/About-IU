@@ -1,0 +1,260 @@
+#discographyDetail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5%;
+    padding-bottom: 100px;
+    width: 100%;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    z-index: 10000;
+}
+
+#discographyDetail a {
+    color: #fff;
+}
+
+#discographyDetail a:hover {
+    color: #e0e0e0;
+}
+
+#discographyDetail .album-closer,
+#discographyDetail .back-to-tracklist {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: #666;
+    border-radius: 50%;
+    z-index: 10010;
+}
+
+#discographyDetail .back-to-tracklist,
+#discographyDetail.lyric-activated .album-closer {
+    display: none;
+}
+
+#discographyDetail.lyric-activated .back-to-tracklist {
+    display: flex;
+}
+
+#discographyDetail .album-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    -webkit-filter: url(#blur);
+    filter: url(#blur);
+    opacity: 0.65;
+    z-index: 10000;
+}
+
+#discographyDetail .album-art {
+    position: fixed;
+    width: 30%;
+    z-index: 10005;
+}
+
+#albumart {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+}
+
+#discographyDetail .song-title {
+    font-size: 1.5rem;
+}
+
+#discographyDetail .song-artist {
+    margin: 10px 0;
+}
+
+#discographyDetail .song-album {
+    margin-bottom: 10px;
+}
+
+#discographyDetail .detail,
+#discographyDetail .lyrics {
+    position: relative;
+    margin-left: 35%;
+    z-index: 10005;
+}
+
+#discographyDetail .detail .tracklist {
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+#discographyDetail .detail-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+#discographyDetail .song-list,
+#discographyDetail p {
+    line-height: 2.5;
+}
+
+.album-art-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#bgmVid {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+#bgmVid #player {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#bgmHandle {
+    display: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#bgmHandle.reveal {
+    display: block;
+}
+
+#playVideo {
+    margin: 0 10px;
+}
+
+#bgmVid.reveal #player {
+    display: block;
+}
+
+#discographyDetail .lyric,
+#discographyDetail .lyrics {
+    display: none;
+}
+
+#discographyDetail .lyric.reveal,
+#discographyDetail .lyrics.reveal {
+    display: block;
+}
+
+#discographyDetail .lyrics > div {
+    white-space: pre-wrap;
+    line-height: 1.7;
+}
+
+.album-gutter {
+    width: 5%;
+}
+
+@media screen and (max-width: 860px) {
+    #album-wrapper .cross-fade {
+        width: 47.5%;
+        padding-bottom: 47.5%;
+    }
+
+    .album-column {
+        width: 47.5%;
+    }
+
+    #discographyDetail .detail,
+    #discographyDetail .lyrics {
+        margin-left: 0;
+    }
+
+    #discographyDetail .album-art {
+        position: relative;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto 15px;
+    }
+
+    #discographyDetail .song-title {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #album-wrapper .cross-fade {
+        width: 100%;
+        padding-bottom: 100%;
+    }
+
+    .album-gutter {
+        width: 0;
+    }
+
+    .album-column {
+        width: 80%;
+    }
+}
+
+.song-info a {
+    color: #fff;
+}
+
+.song-info a:hover {
+    color: #666;
+}
+
+.video-popup {
+    display: none;
+}
+
+.video-popup.reveal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 10020;
+}
+
+.video-popup .video-wrapper {
+    position: relative;
+    width: 80%;
+    padding-bottom: 45%;
+    z-index: 10021;
+}
+
+.video-popup .video-wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.video-popup.reveal .video-popup-closer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    z-index: 10020;
+}
