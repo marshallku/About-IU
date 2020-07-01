@@ -14,6 +14,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .grid-item-content {
@@ -27,10 +28,54 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #f1f1f1;
+    z-index: 2;
 }
 
 .grid-item-content h3 {
+    font-size: 24px;
     margin: auto 0;
+}
+
+.grid-item::after,
+.grid-item::before {
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    content: "";
+    opacity: 0;
+    background: #ff5fa2;
+    -webkit-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+    z-index: 1;
+}
+
+.grid-item:after {
+    top: 0;
+    left: 0;
+    -webkit-transform: skew(-45deg) translateX(-150%);
+    transform: skew(-45deg) translateX(-150%);
+}
+
+.grid-item:before {
+    right: 0;
+    bottom: 0;
+    -webkit-transform: skew(-45deg) translateX(150%);
+    transform: skew(-45deg) translateX(150%);
+}
+
+.grid-item.hover:after,
+.grid-item:hover:after {
+    -webkit-transform: skew(-45deg) translateX(-50%);
+    transform: skew(-45deg) translateX(-50%);
+    opacity: 0.3;
+}
+
+.grid-item.hover:before,
+.grid-item:hover:before {
+    -webkit-transform: skew(-45deg) translateX(50%);
+    transform: skew(-45deg) translateX(50%);
+    opacity: 0.5;
 }
 
 @media screen and (min-width: 680px) {
@@ -62,5 +107,14 @@
 
     .grid-item:nth-child(3n) {
         margin-right: 0;
+    }
+
+    .grid-item-content {
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+    .grid-item:hover .grid-item-content {
+        opacity: 1;
     }
 }

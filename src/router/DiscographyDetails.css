@@ -31,6 +31,7 @@
     height: 40px;
     background: #666;
     border-radius: 50%;
+    cursor: pointer;
     z-index: 10010;
 }
 
@@ -100,6 +101,10 @@
     margin-bottom: 1rem;
 }
 
+#discographyDetail .song-list {
+    cursor: pointer;
+}
+
 #discographyDetail .song-list,
 #discographyDetail p {
     line-height: 2.5;
@@ -162,7 +167,7 @@
 
 #discographyDetail .lyrics > div {
     white-space: pre-wrap;
-    line-height: 1.7;
+    line-height: 2.5;
 }
 
 .album-gutter {

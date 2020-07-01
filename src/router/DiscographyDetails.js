@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import YoutubeVideo from "../components/YoutubeVideo";
 import "./DiscographyDetails.css";
 
 class DiscographyDetails extends React.Component {
@@ -40,6 +41,7 @@ class DiscographyDetails extends React.Component {
     }
 
     setActivated = (index) => {
+        console.log(this.state.data.tracks[index]);
         this.setState({
             activated: index,
         });
@@ -76,11 +78,37 @@ class DiscographyDetails extends React.Component {
                                 alt={data.name}
                             />
                         </div>
-                        <div id="bgmVid">
-                            <div id="player"></div>
+                        <div
+                            id="bgmVid"
+                            className={
+                                activated !== false
+                                    ? data.tracks[activated].music
+                                        ? "reveal"
+                                        : ""
+                                    : ""
+                            }
+                        >
+                            <YoutubeVideo
+                                id={
+                                    activated !== false
+                                        ? data.tracks[activated].music
+                                        : ""
+                                }
+                                vars={{
+                                    rel: 0,
+                                    muted: 0,
+                                    loop: 1,
+                                    playsinline: 1,
+                                    controls: 0,
+                                    showinfo: 0,
+                                }}
+                            />
                         </div>
                         <div className="song-info">
-                            <div className="song-title"></div>
+                            <div className="song-title">
+                                {activated !== false &&
+                                    data.tracks[activated].title}
+                            </div>
                             <div className="song-artist">아이유</div>
                             <div className="song-album">{data.name}</div>
                         </div>
@@ -134,6 +162,26 @@ class DiscographyDetails extends React.Component {
                             );
                         })}
                     </div>
+
+                    <svg>
+                        <defs>
+                            <filter
+                                id="blur"
+                                x="0"
+                                y="0"
+                                width="100%"
+                                height="100%"
+                            >
+                                <feGaussianBlur stdDeviation="20" />
+                                <feComponentTransfer>
+                                    <feFuncA
+                                        type="discrete"
+                                        tableValues="1 1"
+                                    />
+                                </feComponentTransfer>
+                            </filter>
+                        </defs>
+                    </svg>
                 </section>
             );
         } else {
