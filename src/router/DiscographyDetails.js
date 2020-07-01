@@ -9,6 +9,7 @@ class DiscographyDetails extends React.Component {
         document.body.classList.remove("home");
         this.state = {
             isLoading: true,
+            activated: false,
         };
     }
 
@@ -52,9 +53,11 @@ class DiscographyDetails extends React.Component {
                     id="discographyDetail"
                     className={activated !== false ? "lyric-activated" : ""}
                 >
-                    <Link to="../discography" className="back-to-tracklist">
-                        Back
-                    </Link>
+                    <Link
+                        to="../discography"
+                        className="album-closer icon-times"
+                        aria-label="back"
+                    ></Link>
                     <div
                         className="back-to-tracklist icon-arrow-left"
                         onClick={() => {
@@ -83,7 +86,18 @@ class DiscographyDetails extends React.Component {
                         </div>
                     </div>
                     <div className="detail">
-                        <div className="tracklist">
+                        <div
+                            className="tracklist"
+                            style={
+                                activated !== false
+                                    ? { maxHeight: 0 }
+                                    : {
+                                          maxHeight: `${
+                                              data.tracks.length * 2.5 + 2.3
+                                          }rem`,
+                                      }
+                            }
+                        >
                             <h2 className="detail-title">Tracklist</h2>
                             <ul>
                                 {data.tracks.map((track, index) => {
@@ -93,6 +107,7 @@ class DiscographyDetails extends React.Component {
                                             onClick={() => {
                                                 this.setActivated(index);
                                             }}
+                                            className="song-list"
                                         >
                                             {track.title}
                                         </li>
