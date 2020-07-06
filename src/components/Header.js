@@ -11,16 +11,20 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener("scroll", () => {
-            window.scrollY === 0
-                ? this.setState({
-                      scrolled: false,
-                  })
-                : !this.state.scrolled &&
-                  this.setState({
-                      scrolled: true,
-                  });
-        });
+        window.addEventListener(
+            "scroll",
+            () => {
+                window.scrollY === 0
+                    ? this.setState({
+                          scrolled: false,
+                      })
+                    : !this.state.scrolled &&
+                      this.setState({
+                          scrolled: true,
+                      });
+            },
+            { passive: true }
+        );
     }
 
     render() {
