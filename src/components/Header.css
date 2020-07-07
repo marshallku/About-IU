@@ -14,7 +14,7 @@
 #header.shrink {
     height: 50px;
     line-height: 50px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.85);
 }
 
 #header > .left,

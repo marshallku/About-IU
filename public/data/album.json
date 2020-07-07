@@ -4,97 +4,97 @@
         "category": "미니",
         "releaseDate": "2008-09-20",
         "language": "ko",
-        "coverImage": "./cover/lost-and-found.jpg"
+        "image": "./cover/lost-and-found.jpg"
     },
     {
         "name": "Growing Up",
         "category": "정규",
         "releaseDate": "2009-04-23",
         "language": "ko",
-        "coverImage": "./cover/growing-up.jpg"
+        "image": "./cover/growing-up.jpg"
     },
     {
         "name": "IU...IM",
         "category": "미니",
         "releaseDate": "2009-10-27",
         "language": "ko",
-        "coverImage": "./cover/iu...im.jpg"
+        "image": "./cover/iu...im.jpg"
     },
     {
         "name": "Real",
         "category": "미니",
         "releaseDate": "2010-12-09",
         "language": "ko",
-        "coverImage": "./cover/real.jpg"
+        "image": "./cover/real.jpg"
     },
     {
         "name": "Real+",
         "category": "싱글",
         "releaseDate": "2001-02-17",
         "language": "ko",
-        "coverImage": "./cover/real+.jpg"
+        "image": "./cover/real+.jpg"
     },
     {
         "name": "Last Fantasy",
         "category": "정규",
         "releaseDate": "2011-11-29",
         "language": "ko",
-        "coverImage": "./cover/last-fantasy.jpg"
+        "image": "./cover/last-fantasy.jpg"
     },
     {
         "name": "스무 살의 봄",
         "category": "싱글",
         "releaseDate": "2012-05-11",
         "language": "ko",
-        "coverImage": "./cover/spring-of-a-20-yo.jpg"
+        "image": "./cover/spring-of-a-20-yo.jpg"
     },
     {
         "name": "Modern Times",
         "category": "정규",
         "releaseDate": "2013-10-10",
         "language": "ko",
-        "coverImage": "./cover/modern-times.jpg"
+        "image": "./cover/modern-times.jpg"
     },
     {
         "name": "Modern Times Epilogue",
         "category": "정규 (리패키지)",
         "releaseDate": "2013-12-20",
         "language": "ko",
-        "coverImage": "./cover/modern-times-epilogue.jpg"
+        "image": "./cover/modern-times-epilogue.jpg"
     },
     {
         "name": "꽃갈피",
         "category": "리메이크",
         "releaseDate": "2014-05-16",
         "language": "ko",
-        "coverImage": "./cover/flower-bookmark.jpg"
+        "image": "./cover/flower-bookmark.jpg"
     },
     {
         "name": "CHAT-SHIRE",
         "category": "미니",
         "releaseDate": "2015-10-23",
         "language": "ko",
-        "coverImage": "./cover/chat-shire.jpg"
+        "image": "./cover/chat-shire.jpg"
     },
     {
         "name": "Palette",
         "category": "정규",
         "releaseDate": "2017-04-21",
         "language": "ko",
-        "coverImage": "./cover/palette.jpg"
+        "image": "./cover/palette.jpg"
     },
     {
         "name": "꽃갈피 둘",
         "category": "리메이크",
         "releaseDate": "2017-09-22",
         "language": "ko",
-        "coverImage": "./cover/flower-bookmark-2.jpg"
+        "image": "./cover/flower-bookmark-2.jpg"
     },
     {
         "name": "Love Poem",
         "category": "미니",
         "releaseDate": "2019-11-18",
         "language": "ko",
-        "coverImage": "./cover/love-poem.jpg"
+        "image": "./cover/love-poem.jpg"
     }
 ]

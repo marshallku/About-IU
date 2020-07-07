@@ -37,7 +37,7 @@ class List extends React.Component {
                             className="grid-item"
                             data-language={item.language}
                             style={{
-                                backgroundImage: `url(${item.coverImage})`,
+                                backgroundImage: `url(${item.image})`,
                             }}
                         >
                             <div className="grid-item-content">
@@ -46,6 +46,24 @@ class List extends React.Component {
                                 <time>{item.releaseDate}</time>
                             </div>
                         </Link>
+                    );
+                });
+            } else {
+                return list.map((item, index) => {
+                    return (
+                        <div key={index} className="thumb-item">
+                            <div
+                                className="bg"
+                                style={{
+                                    backgroundImage: `url(${item.image})`,
+                                }}
+                            ></div>
+                            <div className="detail">
+                                <div className="title">{item.title}</div>
+                                <h3 className="name">{item.name}</h3>
+                                <div className="category">{item.category}</div>
+                            </div>
+                        </div>
                     );
                 });
             }
