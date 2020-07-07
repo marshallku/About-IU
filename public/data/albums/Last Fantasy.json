@@ -1,6 +1,6 @@
 {
     "name": "Last Fantasy",
-    "coverImage": "/assets/images/cover/last-fantasy.jpg",
+    "image": "/assets/images/cover/last-fantasy.jpg",
     "tracks": [
         {
             "title": "비밀"

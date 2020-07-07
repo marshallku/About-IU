@@ -1,6 +1,6 @@
 {
     "name": "Real+",
-    "coverImage": "/assets/images/cover/real+.jpg",
+    "image": "/assets/images/cover/real+.jpg",
     "tracks": [
         {
             "title": "나만 몰랐던 이야기",

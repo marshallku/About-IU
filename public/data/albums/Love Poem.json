@@ -1,6 +1,6 @@
 {
     "name": "Love Poem",
-    "coverImage": "/assets/images/cover/love-poem.jpg",
+    "image": "/assets/images/cover/love-poem.jpg",
     "tracks": [
         {
             "title": "unlucky",

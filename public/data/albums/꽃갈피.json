@@ -1,6 +1,6 @@
 {
     "name": "꽃갈피",
-    "coverImage": "/assets/images/cover/flower-bookmark.jpg",
+    "image": "/assets/images/cover/flower-bookmark.jpg",
     "tracks": [
         {
             "title": "나의 옛날이야기",

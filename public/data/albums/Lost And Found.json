@@ -1,6 +1,6 @@
 {
     "name": "Lost And Found",
-    "coverImage": "/assets/images/cover/lost-and-found.jpg",
+    "image": "/assets/images/cover/lost-and-found.jpg",
     "tracks": [
         {
             "title": "미운 오리"

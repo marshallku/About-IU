@@ -1,6 +1,6 @@
 {
     "name": "CHAT-SHIRE",
-    "coverImage": "/assets/images/cover/chat-shire.jpg",
+    "image": "/assets/images/cover/chat-shire.jpg",
     "tracks": [
         {
             "title": "새 신발",

@@ -1,6 +1,6 @@
 {
     "name": "Palette",
-    "coverImage": "/assets/images/cover/palette.jpg",
+    "image": "/assets/images/cover/palette.jpg",
     "tracks": [
         {
             "title": "이 지금",

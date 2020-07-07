@@ -1,6 +1,6 @@
 {
     "name": "스무 살의 봄",
-    "coverImage": "/assets/images/cover/spring-of-a-20-yo.jpg",
+    "image": "/assets/images/cover/spring-of-a-20-yo.jpg",
     "tracks": [
         {
             "title": "복숭아",

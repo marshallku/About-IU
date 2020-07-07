@@ -1,6 +1,6 @@
 {
     "name": "Growing Up",
-    "coverImage": "/assets/images/cover/growing-up.jpg",
+    "image": "/assets/images/cover/growing-up.jpg",
     "tracks": [
         {
             "title": "바라보기"

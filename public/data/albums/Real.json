@@ -1,6 +1,6 @@
 {
     "name": "Real",
-    "coverImage": "/assets/images/cover/real.jpg",
+    "image": "/assets/images/cover/real.jpg",
     "tracks": [
         {
             "title": "이게 아닌데"

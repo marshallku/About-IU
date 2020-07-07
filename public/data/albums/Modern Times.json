@@ -1,6 +1,6 @@
 {
     "name": "Modern Times",
-    "coverImage": "/assets/images/cover/modern-times.jpg",
+    "image": "/assets/images/cover/modern-times.jpg",
     "tracks": [
         {
             "title": "을의 연애 (With 박주원)",
