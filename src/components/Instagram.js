@@ -15,18 +15,21 @@ class Instagram extends React.Component {
                 return response.text();
             })
             .then((response) => {
-                const media = JSON.parse(
-                    response.slice(
-                        response.indexOf("edge_owner_to_timeline_media") + 30,
-                        response.indexOf("edge_saved_media") - 2
-                    )
-                );
-                const { edges } = media;
+                if (response.indexOf("edge_owner_to_timeline_media") !== -1) {
+                    const media = JSON.parse(
+                        response.slice(
+                            response.indexOf("edge_owner_to_timeline_media") +
+                                30,
+                            response.indexOf("edge_saved_media") - 2
+                        )
+                    );
+                    const { edges } = media;
 
-                this.setState({
-                    posts: edges,
-                    isLoading: false,
-                });
+                    this.setState({
+                        posts: edges,
+                        isLoading: false,
+                    });
+                }
             });
     }
 
@@ -47,7 +50,7 @@ class Instagram extends React.Component {
                             >
                                 <img
                                     src={node.display_url}
-                                    alt="이지금 인스타 게시물"
+                                    alt={node.accessibility_caption}
                                 />
                             </a>
                         );

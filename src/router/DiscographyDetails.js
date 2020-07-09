@@ -41,7 +41,6 @@ class DiscographyDetails extends React.Component {
     }
 
     setActivated = (index) => {
-        console.log(this.state.data.tracks[index]);
         this.setState({
             activated: index,
         });
