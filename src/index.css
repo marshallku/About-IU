@@ -425,6 +425,11 @@ a:hover {
     justify-content: center;
 }
 
+img,
+video {
+    max-width: 100%;
+}
+
 /* container */
 #main > section {
     margin: 0 auto;
