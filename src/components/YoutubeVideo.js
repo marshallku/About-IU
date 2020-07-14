@@ -29,6 +29,10 @@ class YoutubeVideo extends React.Component {
     };
 
     onPlayerReady = (event) => {
+        if (this.props?.vars?.muted) {
+            event.target.mute();
+        }
+
         event.target.playVideo();
     };
 
