@@ -162,7 +162,7 @@ class DiscographyDetails extends React.Component {
                         })}
                     </div>
 
-                    <svg>
+                    <svg width="0" height="0">
                         <defs>
                             <filter
                                 id="blur"
