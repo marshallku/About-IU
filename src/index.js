@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { BrowserRouter, Route } from "react-router-dom";
-import Header from "./components/Header";
+import HeaderNavigation from "./components/HeaderNavigation";
 import Home from "./router/Home";
 import Profile from "./router/Profile";
 import Discography from "./router/Discography";
@@ -13,7 +13,7 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <Header />
+            <HeaderNavigation />
             <main id="main">
                 <Route exact path="/" component={Home} />
                 <Route exact path="/profile" component={Profile} />

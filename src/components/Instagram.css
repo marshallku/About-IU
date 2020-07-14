@@ -1,7 +1,8 @@
 #instagram {
     flex-wrap: wrap;
     margin: 100vh auto 0 auto;
-    max-width: 860px;
+    padding: 0 10px;
+    max-width: 880px;
 }
 
 #instagram > a {
