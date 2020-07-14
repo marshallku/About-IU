@@ -1,0 +1,33 @@
+#profileBG {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(/assets/images/IU.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+#profile {
+    padding: calc(40vh - 140px) 5vw 0 5vw;
+    color: #f1f1f1;
+}
+
+
+#profile h1 {
+    font-size: calc(1.5vw + 28px);
+}
+
+#profile h2 {
+    font-size: calc(1vw + 18px);
+}
+
+#profile div {
+    font-size: 14px;
+}
+
+#profile .mainInfo>* {
+    margin-bottom: 10px;
+}

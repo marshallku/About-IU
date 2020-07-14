@@ -16,12 +16,11 @@ class Profile extends React.Component {
     render() {
         return (
             <section id="profile">
+                <div id="profileBG"></div>
                 <div className="mainInfo">
-                    <div className="profileImgWrap">
-                        <img src="/assets/images/profile.jpeg" alt="profile" />
-                    </div>
-                    <h1>아이유 IU</h1>
+                    <h1>아이유 / IU</h1>
                     <h2>이지은</h2>
+                    <div>생년월일 : 1993.05.16</div>
                 </div>
             </section>
         );
