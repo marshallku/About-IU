@@ -33,13 +33,16 @@ class List extends React.Component {
                     return (
                         <Link
                             key={index}
-                            to={`/discography/${item.name}`}
+                            to={`${process.env.PUBLIC_URL}/discography/${item.name}`}
                             className="grid-item"
                             data-language={item.language}
-                            style={{
-                                backgroundImage: `url(${item.image})`,
-                            }}
                         >
+                            <div
+                                className="grid-item-bg"
+                                style={{
+                                    backgroundImage: `url(${process.env.PUBLIC_URL}${item.image})`,
+                                }}
+                            ></div>
                             <div className="grid-item-content">
                                 <div>{item.category}</div>
                                 <h3>{item.name}</h3>

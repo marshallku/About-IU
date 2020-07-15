@@ -16,7 +16,12 @@ class Profile extends React.Component {
     render() {
         return (
             <section id="profile">
-                <div id="profileBG"></div>
+                <div
+                    id="profileBG"
+                    style={{
+                        backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/IU.jpg)`,
+                    }}
+                ></div>
                 <div className="mainInfo">
                     <h1>아이유 / IU</h1>
                     <h2>이지은</h2>

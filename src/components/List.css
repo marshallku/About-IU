@@ -11,10 +11,20 @@
     height: 0;
     padding-bottom: var(--item-width);
     margin-bottom: 10px;
+    overflow: hidden;
+    background: #000;
+}
+
+.grid-item-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden;
+    opacity: 0.75;
 }
 
 .grid-item-content {
@@ -151,6 +161,14 @@
     }
 
     .grid-item:hover .grid-item-content {
+        opacity: 1;
+    }
+
+    .grid-item {
+        background: #fff;
+    }
+
+    .grid-item-bg {
         opacity: 1;
     }
 }

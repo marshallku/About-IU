@@ -15,15 +15,31 @@ ReactDOM.render(
         <BrowserRouter>
             <HeaderNavigation />
             <main id="main">
-                <Route exact path="/" component={Home} />
-                <Route exact path="/profile" component={Profile} />
-                <Route exact path="/discography" component={Discography} />
+                <Route
+                    exact
+                    path={`${process.env.PUBLIC_URL}/`}
+                    component={Home}
+                />
+                <Route
+                    exact
+                    path={`${process.env.PUBLIC_URL}/profile`}
+                    component={Profile}
+                />
+                <Route
+                    exact
+                    path={`${process.env.PUBLIC_URL}/discography`}
+                    component={Discography}
+                />
                 <Route
                     strict
-                    path="/discography/"
+                    path={`${process.env.PUBLIC_URL}/discography/`}
                     component={DiscographyDetails}
                 />
-                <Route exact path="/Filmography" component={Filmography} />
+                <Route
+                    exact
+                    path={`${process.env.PUBLIC_URL}/Filmography`}
+                    component={Filmography}
+                />
             </main>
         </BrowserRouter>
     </React.StrictMode>,

@@ -67,12 +67,14 @@ class DiscographyDetails extends React.Component {
                     ></div>
                     <div
                         className="album-bg"
-                        style={{ backgroundImage: `url(${data.image})` }}
+                        style={{
+                            backgroundImage: `url(${process.env.PUBLIC_URL}${data.image})`,
+                        }}
                     ></div>
                     <div className="album-art">
                         <div id="albumart">
                             <img
-                                src={data.image}
+                                src={`${process.env.PUBLIC_URL}${data.image}`}
                                 className="album-art-img"
                                 alt={data.name}
                             />

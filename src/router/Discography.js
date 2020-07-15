@@ -10,7 +10,10 @@ class Discography extends React.Component {
     render() {
         return (
             <section id="discography" className="list grid max-1400">
-                <List uri="/data/album.json" type="grid" />
+                <List
+                    uri={`${process.env.PUBLIC_URL}/data/album.json`}
+                    type="grid"
+                />
             </section>
         );
     }

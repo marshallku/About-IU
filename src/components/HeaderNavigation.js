@@ -45,11 +45,16 @@ class HeaderNavigation extends React.Component {
                     }`}
                 >
                     <div className="left">
-                        <Link to="/">Home</Link>
-                        <Link to="/profile">Profile</Link>
+                        <Link to={`${process.env.PUBLIC_URL}/`}>Home</Link>
+                        <Link to={`${process.env.PUBLIC_URL}/profile`}>
+                            Profile
+                        </Link>
                     </div>
                     <div className="flex center">
-                        <Link to="/" className="logoWrap">
+                        <Link
+                            to={`${process.env.PUBLIC_URL}/`}
+                            className="logoWrap"
+                        >
                             <svg
                                 version="1.1"
                                 id="logo"
@@ -77,39 +82,55 @@ class HeaderNavigation extends React.Component {
                         </Link>
                     </div>
                     <div className="right">
-                        <Link to="/discography">Discography</Link>
-                        <Link to="/filmography">Filmography</Link>
+                        <Link to={`${process.env.PUBLIC_URL}/discography`}>
+                            Discography
+                        </Link>
+                        <Link to={`${process.env.PUBLIC_URL}/filmography`}>
+                            Filmography
+                        </Link>
                         <div
-                            class="hbg openbtn"
+                            className="hbg openbtn"
                             onClick={() => {
                                 this.setState({
                                     navOpened: true,
                                 });
                             }}
                         >
-                            <div class="hbg-top"></div>
-                            <div class="hbg-mid"></div>
-                            <div class="hbg-bot"></div>
+                            <div className="hbg-top"></div>
+                            <div className="hbg-mid"></div>
+                            <div className="hbg-bot"></div>
                         </div>
                     </div>
                 </header>
 
                 <nav id="nav" className={navOpened ? "navrevealed" : ""}>
-                    <div class="hbg" onClick={this.hideNav}>
-                        <div class="hbg-top"></div>
-                        <div class="hbg-mid"></div>
-                        <div class="hbg-bot"></div>
+                    <div className="hbg" onClick={this.hideNav}>
+                        <div className="hbg-top"></div>
+                        <div className="hbg-mid"></div>
+                        <div className="hbg-bot"></div>
                     </div>
-                    <Link onClick={this.hideNav} to="/">
+                    <Link
+                        onClick={this.hideNav}
+                        to={`${process.env.PUBLIC_URL}/`}
+                    >
                         Home
                     </Link>
-                    <Link onClick={this.hideNav} to="/profile">
+                    <Link
+                        onClick={this.hideNav}
+                        to={`${process.env.PUBLIC_URL}/profile`}
+                    >
                         Profile
                     </Link>
-                    <Link onClick={this.hideNav} to="/discography">
+                    <Link
+                        onClick={this.hideNav}
+                        to={`${process.env.PUBLIC_URL}/discography`}
+                    >
                         Discography
                     </Link>
-                    <Link onClick={this.hideNav} to="/filmography">
+                    <Link
+                        onClick={this.hideNav}
+                        to={`${process.env.PUBLIC_URL}/filmography`}
+                    >
                         Filmography
                     </Link>
                 </nav>

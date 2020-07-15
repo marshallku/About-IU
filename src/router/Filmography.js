@@ -10,7 +10,10 @@ class Filmography extends React.Component {
     render() {
         return (
             <section id="filmography" className="list thumbBg max-1400">
-                <List uri="/data/filmography.json" type="thumbBg" />
+                <List
+                    uri={`${process.env.PUBLIC_URL}/data/filmography.json`}
+                    type="thumbBg"
+                />
             </section>
         );
     }

@@ -4,7 +4,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(/assets/images/IU.jpg);
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -14,7 +13,6 @@
     padding: calc(40vh - 140px) 5vw 0 5vw;
     color: #f1f1f1;
 }
-
 
 #profile h1 {
     font-size: calc(1.5vw + 28px);
@@ -28,6 +26,6 @@
     font-size: 14px;
 }
 
-#profile .mainInfo>* {
+#profile .mainInfo > * {
     margin-bottom: 10px;
 }

@@ -1,5 +1,6 @@
 {
     "name": "about-iu",
+    "homepage": "https://marshall-ku.com/IU",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
