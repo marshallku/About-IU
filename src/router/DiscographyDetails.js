@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./DiscographyDetails.css";
 
-class DiscographyDetails extends React.Component {
+export default class DiscographyDetails extends React.Component {
     constructor(props) {
         super(props);
         document.body.classList.add("hideHeader");
@@ -110,7 +110,9 @@ class DiscographyDetails extends React.Component {
                                 {activated !== false &&
                                     data.tracks[activated].title}
                             </div>
-                            <div className="song-artist">아이유</div>
+                            <div className="song-artist">
+                                {data.artist ? data.artist : "아이유"}
+                            </div>
                             <div className="song-album">{data.name}</div>
                         </div>
                     </div>
@@ -190,5 +192,3 @@ class DiscographyDetails extends React.Component {
         }
     }
 }
-
-export default DiscographyDetails;

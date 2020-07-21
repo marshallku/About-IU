@@ -54,7 +54,7 @@
     position: absolute;
     content: "";
     opacity: 0;
-    background: #ff5fa2;
+    background: #a277bc;
     -webkit-transition: all 0.7s ease-in-out;
     transition: all 0.7s ease-in-out;
     z-index: 1;

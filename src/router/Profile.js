@@ -1,7 +1,7 @@
 import React from "react";
 import "./Profile.css";
 
-class Profile extends React.Component {
+export default class Profile extends React.Component {
     constructor(props) {
         super(props);
         document.body.classList.remove("hideHeader", "home");
@@ -31,5 +31,3 @@ class Profile extends React.Component {
         );
     }
 }
-
-export default Profile;

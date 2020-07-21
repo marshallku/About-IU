@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./HeaderNavigation.css";
 
-class HeaderNavigation extends React.Component {
+export default class HeaderNavigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -138,5 +138,3 @@ class HeaderNavigation extends React.Component {
         );
     }
 }
-
-export default HeaderNavigation;

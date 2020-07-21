@@ -1,7 +1,7 @@
 import React from "react";
 import List from "../components/List";
 
-class Discography extends React.Component {
+export default class Discography extends React.Component {
     constructor(props) {
         super(props);
         document.body.classList.remove("hideHeader", "home");
@@ -18,5 +18,3 @@ class Discography extends React.Component {
         );
     }
 }
-
-export default Discography;

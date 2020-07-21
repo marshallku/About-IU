@@ -3,7 +3,7 @@ import Instagram from "../components/Instagram";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./Home.css";
 
-class Home extends React.Component {
+export default class Home extends React.Component {
     constructor(props) {
         super(props);
         document.body.classList.add("home");
@@ -68,5 +68,3 @@ class Home extends React.Component {
         );
     }
 }
-
-export default Home;

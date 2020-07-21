@@ -1,7 +1,7 @@
 import React from "react";
 import List from "../components/List";
 
-class Filmography extends React.Component {
+export default class Filmography extends React.Component {
     constructor(props) {
         super(props);
         document.body.classList.remove("hideHeader", "home");
@@ -21,5 +21,3 @@ class Filmography extends React.Component {
         );
     }
 }
-
-export default Filmography;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Instagram.css";
 
-class Instagram extends React.Component {
+export default class Instagram extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -60,5 +60,3 @@ class Instagram extends React.Component {
         }
     }
 }
-
-export default Instagram;
