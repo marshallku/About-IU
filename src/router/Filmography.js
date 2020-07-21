@@ -4,7 +4,7 @@ import List from "../components/List";
 export default class Filmography extends React.Component {
     constructor(props) {
         super(props);
-        document.body.classList.remove("hideHeader", "home");
+        document.body.classList.remove("hideHeader");
     }
 
     render() {

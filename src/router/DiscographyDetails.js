@@ -7,7 +7,6 @@ export default class DiscographyDetails extends React.Component {
     constructor(props) {
         super(props);
         document.body.classList.add("hideHeader");
-        document.body.classList.remove("home");
         this.state = {
             isLoading: true,
             activated: false,

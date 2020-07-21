@@ -14,15 +14,19 @@
 
 html {
     font-family: "BMJUA", sans-serif;
+    background: #121212;
+    color: #f1f1f1;
 }
 
-a {
-    color: #000;
+a,
+button {
+    color: #f1f1f1;
     text-decoration: none;
 }
 
-a:hover {
-    color: #aaa;
+a:hover,
+button:hover {
+    color: #e0e0e0;
 }
 
 button {

@@ -7,18 +7,7 @@
     width: 100%;
     min-height: 100vh;
     background: #000;
-    color: #fff;
     z-index: 10000;
-}
-
-#discographyDetail a,
-#discographyDetail button {
-    color: #fff;
-}
-
-#discographyDetail a:hover,
-#discographyDetail button:hover {
-    color: #e0e0e0;
 }
 
 #discographyDetail .album-closer,
