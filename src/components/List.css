@@ -93,7 +93,7 @@
     padding: 100px 0;
 }
 
-.list.timeline::after {
+.list.timeline::before {
     content: "";
     position: absolute;
     width: 6px;
@@ -172,7 +172,7 @@
         margin-right: 0;
     }
 
-    .list.timeline::after {
+    .list.timeline::before {
         left: calc(50% - 3px);
         right: auto;
     }

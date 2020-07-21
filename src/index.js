@@ -8,6 +8,7 @@ import Profile from "./router/Profile";
 import Discography from "./router/Discography";
 import DiscographyDetails from "./router/DiscographyDetails";
 import Filmography from "./router/Filmography";
+import BodyClassUpdater from "./components/BodyClassUpdater";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
@@ -41,6 +42,7 @@ ReactDOM.render(
                     component={Filmography}
                 />
             </main>
+            <BodyClassUpdater />
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")

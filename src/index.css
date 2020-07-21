@@ -56,11 +56,11 @@ video {
     margin: 0 auto;
 }
 
-body:not(.hideHeader) #main > section:not(#home):not(.less-top-margin) {
+body:not(.lyrics) #main > section:not(#home):not(.less-top-margin) {
     margin-top: 140px;
 }
 
-body:not(.hideHeader) #main > section.less-top-margin {
+body:not(.lyrics) #main > section.less-top-margin {
     margin-top: 50px;
 }
 
@@ -69,7 +69,7 @@ body:not(.hideHeader) #main > section.less-top-margin {
 }
 
 @media screen and (min-width: 961px) {
-    body:not(.hideHeader) #main > section.less-top-margin {
+    body:not(.lyrics) #main > section.less-top-margin {
         margin-top: 70px;
     }
 }
