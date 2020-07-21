@@ -1,100 +1,114 @@
 [
     {
-        "name": "Lost And Found",
+        "name": "Love Poem",
         "category": "미니",
-        "releaseDate": "2008-09-20",
+        "categoryId": "mini",
+        "releaseDate": "2019-11-18",
         "language": "ko",
-        "image": "/assets/images/cover/lost-and-found.jpg"
-    },
-    {
-        "name": "Growing Up",
-        "category": "정규",
-        "releaseDate": "2009-04-23",
-        "language": "ko",
-        "image": "/assets/images/cover/growing-up.jpg"
-    },
-    {
-        "name": "IU...IM",
-        "category": "미니",
-        "releaseDate": "2009-10-27",
-        "language": "ko",
-        "image": "/assets/images/cover/iu...im.jpg"
-    },
-    {
-        "name": "Real",
-        "category": "미니",
-        "releaseDate": "2010-12-09",
-        "language": "ko",
-        "image": "/assets/images/cover/real.jpg"
-    },
-    {
-        "name": "Real+",
-        "category": "싱글",
-        "releaseDate": "2001-02-17",
-        "language": "ko",
-        "image": "/assets/images/cover/real+.jpg"
-    },
-    {
-        "name": "Last Fantasy",
-        "category": "정규",
-        "releaseDate": "2011-11-29",
-        "language": "ko",
-        "image": "/assets/images/cover/last-fantasy.jpg"
-    },
-    {
-        "name": "스무 살의 봄",
-        "category": "싱글",
-        "releaseDate": "2012-05-11",
-        "language": "ko",
-        "image": "/assets/images/cover/spring-of-a-20-yo.jpg"
-    },
-    {
-        "name": "Modern Times",
-        "category": "정규",
-        "releaseDate": "2013-10-10",
-        "language": "ko",
-        "image": "/assets/images/cover/modern-times.jpg"
-    },
-    {
-        "name": "Modern Times Epilogue",
-        "category": "정규 (리패키지)",
-        "releaseDate": "2013-12-20",
-        "language": "ko",
-        "image": "/assets/images/cover/modern-times-epilogue.jpg"
-    },
-    {
-        "name": "꽃갈피",
-        "category": "리메이크",
-        "releaseDate": "2014-05-16",
-        "language": "ko",
-        "image": "/assets/images/cover/flower-bookmark.jpg"
-    },
-    {
-        "name": "CHAT-SHIRE",
-        "category": "미니",
-        "releaseDate": "2015-10-23",
-        "language": "ko",
-        "image": "/assets/images/cover/chat-shire.jpg"
-    },
-    {
-        "name": "Palette",
-        "category": "정규",
-        "releaseDate": "2017-04-21",
-        "language": "ko",
-        "image": "/assets/images/cover/palette.jpg"
+        "image": "/assets/images/cover/love-poem.jpg"
     },
     {
         "name": "꽃갈피 둘",
         "category": "리메이크",
+        "categoryId": "remake",
         "releaseDate": "2017-09-22",
         "language": "ko",
         "image": "/assets/images/cover/flower-bookmark-2.jpg"
     },
     {
-        "name": "Love Poem",
-        "category": "미니",
-        "releaseDate": "2019-11-18",
+        "name": "Palette",
+        "category": "정규",
+        "categoryId": "ep",
+        "releaseDate": "2017-04-21",
         "language": "ko",
-        "image": "/assets/images/cover/love-poem.jpg"
+        "image": "/assets/images/cover/palette.jpg"
+    },
+    {
+        "name": "CHAT-SHIRE",
+        "category": "미니",
+        "categoryId": "mini",
+        "releaseDate": "2015-10-23",
+        "language": "ko",
+        "image": "/assets/images/cover/chat-shire.jpg"
+    },
+    {
+        "name": "꽃갈피",
+        "category": "리메이크",
+        "categoryId": "remake",
+        "releaseDate": "2014-05-16",
+        "language": "ko",
+        "image": "/assets/images/cover/flower-bookmark.jpg"
+    },
+    {
+        "name": "Modern Times Epilogue",
+        "category": "정규 (리패키지)",
+        "categoryId": "ep",
+        "releaseDate": "2013-12-20",
+        "language": "ko",
+        "image": "/assets/images/cover/modern-times-epilogue.jpg"
+    },
+    {
+        "name": "Modern Times",
+        "category": "정규",
+        "categoryId": "ep",
+        "releaseDate": "2013-10-10",
+        "language": "ko",
+        "image": "/assets/images/cover/modern-times.jpg"
+    },
+    {
+        "name": "스무 살의 봄",
+        "category": "싱글",
+        "categoryId": "single",
+        "releaseDate": "2012-05-11",
+        "language": "ko",
+        "image": "/assets/images/cover/spring-of-a-20-yo.jpg"
+    },
+    {
+        "name": "Last Fantasy",
+        "category": "정규",
+        "categoryId": "ep",
+        "releaseDate": "2011-11-29",
+        "language": "ko",
+        "image": "/assets/images/cover/last-fantasy.jpg"
+    },
+    {
+        "name": "Real+",
+        "category": "싱글",
+        "categoryId": "single",
+        "releaseDate": "2001-02-17",
+        "language": "ko",
+        "image": "/assets/images/cover/real+.jpg"
+    },
+    {
+        "name": "Real",
+        "category": "미니",
+        "categoryId": "mini",
+        "releaseDate": "2010-12-09",
+        "language": "ko",
+        "image": "/assets/images/cover/real.jpg"
+    },
+    {
+        "name": "IU...IM",
+        "category": "미니",
+        "categoryId": "mini",
+        "releaseDate": "2009-10-27",
+        "language": "ko",
+        "image": "/assets/images/cover/iu...im.jpg"
+    },
+    {
+        "name": "Growing Up",
+        "category": "정규",
+        "categoryId": "ep",
+        "releaseDate": "2009-04-23",
+        "language": "ko",
+        "image": "/assets/images/cover/growing-up.jpg"
+    },
+    {
+        "name": "Lost And Found",
+        "category": "미니",
+        "categoryId": "mini",
+        "releaseDate": "2008-09-20",
+        "language": "ko",
+        "image": "/assets/images/cover/lost-and-found.jpg"
     }
 ]
