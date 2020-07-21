@@ -51,24 +51,32 @@ class List extends React.Component {
                         </Link>
                     );
                 });
-            } else {
+            } else if (type === "timeline") {
                 return list.map((item, index) => {
                     return (
-                        <div key={index} className="thumb-item">
-                            <div
-                                className="bg"
-                                style={{
-                                    backgroundImage: `url(${item.image})`,
-                                }}
-                            ></div>
-                            <div className="detail">
-                                <div className="title">{item.title}</div>
-                                <h3 className="name">{item.name}</h3>
-                                <div className="category">{item.category}</div>
-                            </div>
+                        <div key={index} className="timeline-item">
+                            <h2 className="title">
+                                {item.title}
+                                <time className="date">({item.date})</time>
+                            </h2>
+                            <h3 className="name">{item.name}</h3>
+                            {item.image ? (
+                                <img src={item.image} alt={item.title} />
+                            ) : (
+                                <video
+                                    autoPlay
+                                    playsInline
+                                    loop
+                                    muted
+                                    src={item.video}
+                                ></video>
+                            )}
+                            <div className="category">{item.category}</div>
                         </div>
                     );
                 });
+            } else {
+                return null;
             }
         } else {
             return null;

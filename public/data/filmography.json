@@ -3,49 +3,70 @@
         "title": "드림하이",
         "date": "2011",
         "name": "김필숙",
-        "image": "image",
+        "video": "https://t1.daumcdn.net/cfile/tistory/99EECC3C5F16597433?original",
         "category": "드라마"
+    },
+    {
+        "title": "초대받지 못한 손님",
+        "date": "2011",
+        "name": "아이유",
+        "image": "https://t1.daumcdn.net/cfile/tistory/99B7524E5F165A0B2F?original",
+        "category": "영화"
+    },
+    {
+        "title": "새미의 어드벤쳐 2",
+        "date": "2012",
+        "name": "엘라",
+        "image": "https://t1.daumcdn.net/cfile/tistory/99DD613E5F1657D22F",
+        "category": "영화"
     },
     {
         "title": "최고다 이순신",
         "date": "2013",
         "name": "이순신",
-        "image": "image",
+        "video": "https://t1.daumcdn.net/cfile/tistory/9919AE445F16624901?original",
         "category": "드라마"
     },
     {
         "title": "예쁜 남자",
         "date": "2013",
         "name": "김보통",
-        "image": "image",
+        "video": "https://t1.daumcdn.net/cfile/tistory/991FCB365F16624903?original",
         "category": "드라마"
     },
     {
         "title": "프로듀사",
         "date": "2015",
         "name": "신디",
-        "image": "image",
+        "video": "https://t1.daumcdn.net/cfile/tistory/991C2E3F5F16624938?original",
         "category": "드라마"
     },
     {
         "title": "달의 연인 - 보보경심 려",
         "date": "2016",
         "name": "해수",
-        "image": "image",
+        "image": "https://t1.daumcdn.net/cfile/tistory/9981563A5F165FEF36?original",
         "category": "드라마"
     },
     {
         "title": "나의 아저씨",
         "date": "2018",
         "name": "이지안",
-        "image": "image",
+        "video": "https://t1.daumcdn.net/cfile/tistory/99ACA4375F16624938?original",
         "category": "드라마"
+    },
+    {
+        "title": "페르소나",
+        "date": "2019",
+        "name": "딸, 은, 한나, 지은",
+        "video": "https://t1.daumcdn.net/cfile/tistory/9914E53F5F165FE337?original",
+        "category": "영화"
     },
     {
         "title": "호텔 델루나",
         "date": "2019",
         "name": "장만월",
-        "image": "image",
+        "video": "https://t1.daumcdn.net/cfile/tistory/99DBD23E5F16624935?original",
         "category": "드라마"
     }
 ]
