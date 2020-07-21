@@ -46,9 +46,41 @@ export default class DiscographyDetails extends React.Component {
         });
     };
 
+    pauseVideo = () => {
+        this.setState(
+            {
+                paused: true,
+            },
+            () => {
+                window.player.pauseVideo();
+            }
+        );
+    };
+
+    playVideo = () => {
+        this.setState(
+            {
+                paused: false,
+            },
+            () => {
+                window.player.playVideo();
+            }
+        );
+    };
+
+    toggleVideo = () => {
+        const { paused } = this.state;
+
+        if (paused) {
+            this.playVideo();
+        } else {
+            this.pauseVideo();
+        }
+    };
+
     render() {
         if (!this.state.isLoading) {
-            const { data, activated } = this.state;
+            const { data, activated, paused, videoRevealed } = this.state;
             return (
                 <section
                     id="discographyDetail"
@@ -105,6 +137,47 @@ export default class DiscographyDetails extends React.Component {
                                 }}
                             />
                         </div>
+                        {activated !== false && data.tracks[activated].music ? (
+                            <div className="center">
+                                <button
+                                    id="rewind10"
+                                    className="icon-backward"
+                                    title="10초 되감기"
+                                    aria-label="10초 되감기"
+                                    onClick={() => {
+                                        window.player.seekTo(
+                                            Math.floor(
+                                                window.player.getCurrentTime()
+                                            ) - 10
+                                        );
+                                    }}
+                                ></button>
+                                <button
+                                    id="playVideo"
+                                    className={
+                                        paused ? "icon-play" : "icon-pause"
+                                    }
+                                    title="일시 정지 / 재생"
+                                    aria-label="일시 정지 / 재생"
+                                    onClick={this.toggleVideo}
+                                ></button>
+                                <button
+                                    id="forward10"
+                                    className="icon-forward"
+                                    title="10초 빨리 감기"
+                                    aria-label="10초 빨리 감기"
+                                    onClick={() => {
+                                        window.player.seekTo(
+                                            Math.floor(
+                                                window.player.getCurrentTime()
+                                            ) + 10
+                                        );
+                                    }}
+                                ></button>
+                            </div>
+                        ) : (
+                            ""
+                        )}
                         <div className="song-info">
                             <div className="song-title">
                                 {activated !== false &&
@@ -114,6 +187,22 @@ export default class DiscographyDetails extends React.Component {
                                 {data.artist ? data.artist : "아이유"}
                             </div>
                             <div className="song-album">{data.name}</div>
+                            {activated !== false &&
+                            data.tracks[activated].video ? (
+                                <div>
+                                    <button
+                                        className="icon-youtube-play"
+                                        onClick={() => {
+                                            this.pauseVideo();
+                                            this.setState({
+                                                videoRevealed: true,
+                                            });
+                                        }}
+                                    ></button>
+                                </div>
+                            ) : (
+                                ""
+                            )}
                         </div>
                     </div>
                     <div className="detail">
@@ -165,6 +254,32 @@ export default class DiscographyDetails extends React.Component {
                             );
                         })}
                     </div>
+
+                    {activated !== false &&
+                    data.tracks[activated].video &&
+                    videoRevealed ? (
+                        <div className="video-popup">
+                            <div
+                                className="video-popup-closer"
+                                onClick={() => {
+                                    this.playVideo();
+                                    this.setState({
+                                        videoRevealed: false,
+                                    });
+                                }}
+                            ></div>
+                            <div className="video-wrapper">
+                                <iframe
+                                    width="560"
+                                    height="315"
+                                    title="Music Video Popup"
+                                    src={`https://youtube.com/embed/${data.tracks[activated].video}?rel=0&playsinline=1&autoplay=1`}
+                                ></iframe>
+                            </div>
+                        </div>
+                    ) : (
+                        ""
+                    )}
 
                     <svg width="0" height="0">
                         <defs>

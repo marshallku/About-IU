@@ -13,17 +13,23 @@ export default class Home extends React.Component {
         };
     }
 
+    onScroll = () => {
+        window.scrollY === 0
+            ? this.setState({
+                  scrolled: false,
+              })
+            : this.state.scrolled ||
+              this.setState({
+                  scrolled: true,
+              });
+    };
+
     componentDidMount() {
-        window.addEventListener("scroll", () => {
-            window.scrollY === 0
-                ? this.setState({
-                      scrolled: false,
-                  })
-                : this.state.scrolled ||
-                  this.setState({
-                      scrolled: true,
-                  });
-        });
+        window.addEventListener("scroll", this.onScroll, { passive: true });
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.onScroll);
     }
 
     render() {

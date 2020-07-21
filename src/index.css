@@ -25,6 +25,10 @@ a:hover {
     color: #aaa;
 }
 
+button {
+    cursor: pointer;
+}
+
 .flex {
     display: flex;
 }

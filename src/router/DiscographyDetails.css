@@ -11,11 +11,13 @@
     z-index: 10000;
 }
 
-#discographyDetail a {
+#discographyDetail a,
+#discographyDetail button {
     color: #fff;
 }
 
-#discographyDetail a:hover {
+#discographyDetail a:hover,
+#discographyDetail button:hover {
     color: #e0e0e0;
 }
 
@@ -72,16 +74,16 @@
     overflow: hidden;
 }
 
+#discographyDetail .song-info {
+    margin-top: 10px;
+}
+
+#discographyDetail .song-info > div {
+    margin-bottom: 10px;
+}
+
 #discographyDetail .song-title {
     font-size: 1.5rem;
-}
-
-#discographyDetail .song-artist {
-    margin: 10px 0;
-}
-
-#discographyDetail .song-album {
-    margin-bottom: 10px;
 }
 
 #discographyDetail .detail,
@@ -170,10 +172,6 @@
     line-height: 2.5;
 }
 
-.album-gutter {
-    width: 5%;
-}
-
 @media screen and (max-width: 860px) {
     #album-wrapper .cross-fade {
         width: 47.5%;
@@ -225,10 +223,6 @@
 }
 
 .video-popup {
-    display: none;
-}
-
-.video-popup.reveal {
     display: flex;
     position: fixed;
     top: 0;
@@ -253,7 +247,7 @@
     height: 100%;
 }
 
-.video-popup.reveal .video-popup-closer {
+.video-popup .video-popup-closer {
     position: fixed;
     top: 0;
     left: 0;

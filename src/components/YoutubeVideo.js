@@ -15,17 +15,18 @@ class YoutubeVideo extends React.Component {
     loadVideo = () => {
         const { id, vars } = this.props;
 
-        this.player = new window.YT.Player("player", {
+        window.player = new window.YT.Player("player", {
             videoId: id,
             playerVars: vars,
             events: {
                 onReady: this.onPlayerReady,
+                onStateChange: this.restartVideo,
             },
         });
     };
 
     loadVideoById = (id) => {
-        this.player.loadVideoById(id);
+        window.player.loadVideoById(id);
     };
 
     onPlayerReady = (event) => {
@@ -34,6 +35,10 @@ class YoutubeVideo extends React.Component {
         }
 
         event.target.playVideo();
+    };
+
+    restartVideo = () => {
+        0 === window.player.getPlayerState() && window.player.playVideo();
     };
 
     componentDidUpdate(prevProps) {
