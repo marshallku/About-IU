@@ -168,3 +168,10 @@
     transform: translate(-50%, -50%) rotate(330deg) translateY(-260px)
         rotateX(90deg);
 }
+
+#instaWrap {
+    display: flex;
+    align-items: center;
+    margin-top: 100vh;
+    min-height: 100vh;
+}

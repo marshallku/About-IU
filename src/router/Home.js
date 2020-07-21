@@ -68,7 +68,9 @@ export default class Home extends React.Component {
                         <li>나</li>
                     </ul>
                 </div>
-                <Instagram />
+                <div id="instaWrap">
+                    <Instagram />
+                </div>
             </section>
         );
     }
