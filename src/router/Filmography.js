@@ -1,5 +1,6 @@
 import React from "react";
 import List from "../components/List";
+import "./Filmography.css";
 
 export default function Filmography() {
     return (
