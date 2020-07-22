@@ -14,7 +14,7 @@ export default class DiscographyDetails extends React.Component {
 
     componentDidMount() {
         const data = `${this.props.location.pathname.replace(
-            "discography",
+            "Discography",
             "data/albums"
         )}.json`;
 
@@ -85,7 +85,7 @@ export default class DiscographyDetails extends React.Component {
                     className={activated !== false ? "lyric-activated" : ""}
                 >
                     <Link
-                        to="../discography"
+                        to="../Discography"
                         className="album-closer icon-times"
                         aria-label="back"
                     ></Link>

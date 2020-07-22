@@ -8,7 +8,7 @@ import Profile from "./router/Profile";
 import Discography from "./router/Discography";
 import DiscographyDetails from "./router/DiscographyDetails";
 import Filmography from "./router/Filmography";
-import BodyClassUpdater from "./components/BodyClassUpdater";
+import LocationUpdater from "./components/LocationUpdater";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
@@ -23,17 +23,17 @@ ReactDOM.render(
                 />
                 <Route
                     exact
-                    path={`${process.env.PUBLIC_URL}/profile`}
+                    path={`${process.env.PUBLIC_URL}/Profile`}
                     component={Profile}
                 />
                 <Route
                     exact
-                    path={`${process.env.PUBLIC_URL}/discography`}
+                    path={`${process.env.PUBLIC_URL}/Discography`}
                     component={Discography}
                 />
                 <Route
                     strict
-                    path={`${process.env.PUBLIC_URL}/discography/`}
+                    path={`${process.env.PUBLIC_URL}/Discography/`}
                     component={DiscographyDetails}
                 />
                 <Route
@@ -42,7 +42,7 @@ ReactDOM.render(
                     component={Filmography}
                 />
             </main>
-            <BodyClassUpdater />
+            <LocationUpdater />
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")

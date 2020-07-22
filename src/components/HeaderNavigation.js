@@ -46,7 +46,7 @@ export default class HeaderNavigation extends React.Component {
                 >
                     <div className="left">
                         <Link to={`${process.env.PUBLIC_URL}/`}>Home</Link>
-                        <Link to={`${process.env.PUBLIC_URL}/profile`}>
+                        <Link to={`${process.env.PUBLIC_URL}/Profile`}>
                             Profile
                         </Link>
                     </div>
@@ -82,10 +82,10 @@ export default class HeaderNavigation extends React.Component {
                         </Link>
                     </div>
                     <div className="right">
-                        <Link to={`${process.env.PUBLIC_URL}/discography`}>
+                        <Link to={`${process.env.PUBLIC_URL}/Discography`}>
                             Discography
                         </Link>
-                        <Link to={`${process.env.PUBLIC_URL}/filmography`}>
+                        <Link to={`${process.env.PUBLIC_URL}/Filmography`}>
                             Filmography
                         </Link>
                         <div
@@ -117,19 +117,19 @@ export default class HeaderNavigation extends React.Component {
                     </Link>
                     <Link
                         onClick={this.hideNav}
-                        to={`${process.env.PUBLIC_URL}/profile`}
+                        to={`${process.env.PUBLIC_URL}/Profile`}
                     >
                         Profile
                     </Link>
                     <Link
                         onClick={this.hideNav}
-                        to={`${process.env.PUBLIC_URL}/discography`}
+                        to={`${process.env.PUBLIC_URL}/Discography`}
                     >
                         Discography
                     </Link>
                     <Link
                         onClick={this.hideNav}
-                        to={`${process.env.PUBLIC_URL}/filmography`}
+                        to={`${process.env.PUBLIC_URL}/Filmography`}
                     >
                         Filmography
                     </Link>

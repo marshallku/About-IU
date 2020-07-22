@@ -33,7 +33,7 @@ class List extends React.Component {
                     return (
                         <Link
                             key={index}
-                            to={`${process.env.PUBLIC_URL}/discography/${item.name}`}
+                            to={`${process.env.PUBLIC_URL}/Discography/${item.name}`}
                             className="grid-item"
                             data-language={item.language}
                         >
