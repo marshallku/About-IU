@@ -62,7 +62,7 @@ class LocationUpdater extends React.Component {
         this.update();
     }
 
-    UNSAFE_componentWillUpdate({ location, history }) {
+    componentDidUpdate({ location, history }) {
         if (location.pathname === this.props.location.pathname) {
             return;
         }

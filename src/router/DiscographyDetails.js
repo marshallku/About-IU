@@ -79,6 +79,7 @@ export default class DiscographyDetails extends React.Component {
     render() {
         if (!this.state.isLoading) {
             const { data, activated, paused, videoRevealed } = this.state;
+            const { state } = this.props.location;
             return (
                 <section
                     id="discographyDetail"
@@ -98,15 +99,15 @@ export default class DiscographyDetails extends React.Component {
                     <div
                         className="album-bg"
                         style={{
-                            backgroundImage: `url(${process.env.PUBLIC_URL}${data.image})`,
+                            backgroundImage: `url(${process.env.PUBLIC_URL}${state.image})`,
                         }}
                     ></div>
                     <div className="album-art">
                         <div id="albumart">
                             <img
-                                src={`${process.env.PUBLIC_URL}${data.image}`}
+                                src={`${process.env.PUBLIC_URL}${state.image}`}
                                 className="album-art-img"
-                                alt={data.name}
+                                alt={state.name}
                             />
                         </div>
                         <div
@@ -301,7 +302,57 @@ export default class DiscographyDetails extends React.Component {
                 </section>
             );
         } else {
-            return null;
+            const { state } = this.props.location;
+            return (
+                <section id="discographyDetail" className="loading">
+                    <Link
+                        to="../Discography"
+                        className="album-closer icon-times"
+                        aria-label="back"
+                    ></Link>
+                    <div
+                        className="back-to-tracklist icon-arrow-left"
+                        onClick={() => {
+                            this.setState({ activated: false });
+                        }}
+                    ></div>
+                    <div
+                        className="album-bg"
+                        style={{
+                            backgroundImage: `url(${process.env.PUBLIC_URL}${state.image})`,
+                        }}
+                    ></div>
+                    <div className="album-art">
+                        <div id="albumart">
+                            <img
+                                src={`${process.env.PUBLIC_URL}${state.image}`}
+                                className="album-art-img"
+                                alt={state.name}
+                            />
+                        </div>
+                    </div>
+
+                    <svg width="0" height="0">
+                        <defs>
+                            <filter
+                                id="blur"
+                                x="0"
+                                y="0"
+                                width="100%"
+                                height="100%"
+                            >
+                                <feGaussianBlur stdDeviation="20" />
+                                <feComponentTransfer>
+                                    <feFuncA
+                                        type="discrete"
+                                        tableValues="1 1"
+                                    />
+                                </feComponentTransfer>
+                            </filter>
+                        </defs>
+                    </svg>
+                </section>
+            );
         }
     }
 }
