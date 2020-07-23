@@ -9,6 +9,7 @@ export default function Filmography() {
             className="list timeline max-1400 less-top-margin"
         >
             <List
+                name="filmography"
                 uri={`${process.env.PUBLIC_URL}/data/filmography.json`}
                 type="timeline"
             />

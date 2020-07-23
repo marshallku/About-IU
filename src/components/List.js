@@ -6,30 +6,31 @@ class List extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: true,
+            isStored: !!window[this.props.name],
         };
     }
 
     componentDidMount() {
-        fetch(this.props.uri)
-            .then((response) => {
-                return response.json();
-            })
-            .then((response) => {
-                this.setState({
-                    isLoading: false,
-                    list: response,
+        if (!this.state.isStored) {
+            fetch(this.props.uri)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((response) => {
+                    window[this.props.name] = response;
+                    this.setState({
+                        isStored: true,
+                    });
                 });
-            });
+        }
     }
 
     render() {
-        const { isLoading, list } = this.state;
-        const { type } = this.props;
+        const { name, type } = this.props;
 
-        if (!isLoading) {
+        if (this.state.isStored) {
             if (type === "grid") {
-                return list.map((item, index) => {
+                return window[name].map((item, index) => {
                     return (
                         <Link
                             key={index}
@@ -58,7 +59,7 @@ class List extends React.Component {
                     );
                 });
             } else if (type === "timeline") {
-                return list.map((item, index) => {
+                return window[name].map((item, index) => {
                     return (
                         <div key={index} className="timeline-item">
                             <h2 className="title">
