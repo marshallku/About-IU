@@ -1,6 +1,13 @@
 import React from "react";
 
 class YoutubeVideo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            quened: "",
+        };
+    }
+
     componentDidMount = () => {
         if (!window.YT) {
             const script = document.createElement("script");
@@ -26,12 +33,24 @@ class YoutubeVideo extends React.Component {
     };
 
     loadVideoById = (id) => {
-        window.player.loadVideoById(id);
+        if (typeof window.player.loadVideoById === "function") {
+            window.player.loadVideoById(id);
+        } else {
+            this.setState({
+                quened: id,
+            });
+        }
     };
 
     onPlayerReady = (event) => {
+        const { quened } = this.state;
+
         if (this.props?.vars?.muted) {
             event.target.mute();
+        }
+
+        if (quened) {
+            window.player.loadVideoById(quened);
         }
 
         event.target.playVideo();
