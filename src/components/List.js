@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
 import "./List.css";
 
 class List extends React.Component {
@@ -86,7 +87,7 @@ class List extends React.Component {
                 return null;
             }
         } else {
-            return null;
+            return <Loading />;
         }
     }
 }

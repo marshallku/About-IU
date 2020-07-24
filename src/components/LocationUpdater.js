@@ -36,7 +36,11 @@ class LocationUpdater extends React.Component {
                             ? "아이유 프로필"
                             : path2 === "Discography"
                             ? "아이유 가사집"
-                            : "이지은 연기 활동 목록(필모그래피)";
+                            : path2 === "Filmography"
+                            ? "이지은 연기 활동 목록(필모그래피)"
+                            : path2 === "Youtube"
+                            ? "아이유 유튜브 피드"
+                            : "아이유 인스타그램 피드";
                 });
             } else {
                 const albumTitle = decodeURI(

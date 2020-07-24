@@ -89,3 +89,8 @@ body:not(.lyrics) #main > section.less-top-margin {
 #info h1 {
     margin: 10px 0;
 }
+
+/* Loading */
+#loading {
+    padding: 150px 0;
+}

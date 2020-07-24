@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "../components/Loading";
 import "./Instagram.css";
 
 export default class Instagram extends React.Component {
@@ -73,7 +74,7 @@ export default class Instagram extends React.Component {
                 </section>
             );
         } else {
-            return null;
+            return <Loading />;
         }
     }
 }

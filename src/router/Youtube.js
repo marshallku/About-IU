@@ -1,5 +1,6 @@
 import React from "react";
 import YoutubeVideo from "../components/YoutubeVideo";
+import Loading from "../components/Loading";
 import "./Youtube.css";
 
 export default class Youtube extends React.Component {
@@ -208,7 +209,7 @@ export default class Youtube extends React.Component {
                     </section>
                 );
             } else {
-                return null;
+                return <Loading />;
             }
         }
     }
