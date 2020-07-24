@@ -1,5 +1,4 @@
 import React from "react";
-import Instagram from "../components/Instagram";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./Home.css";
 
@@ -66,9 +65,6 @@ export default class Home extends React.Component {
                         <li>애</li>
                         <li>나</li>
                     </ul>
-                </div>
-                <div id="instaWrap">
-                    <Instagram />
                 </div>
             </section>
         );

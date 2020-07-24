@@ -18,6 +18,10 @@ html {
     color: #f1f1f1;
 }
 
+html.overHidden {
+    overflow: hidden;
+}
+
 a,
 button {
     color: #f1f1f1;
@@ -46,6 +50,10 @@ button {
     justify-content: center;
 }
 
+.circle {
+    border-radius: 50%;
+}
+
 img,
 video {
     max-width: 100%;
@@ -72,4 +80,12 @@ body:not(.lyrics) #main > section.less-top-margin {
     body:not(.lyrics) #main > section.less-top-margin {
         margin-top: 70px;
     }
+}
+
+#info {
+    margin-bottom: 50px;
+}
+
+#info h1 {
+    margin: 10px 0;
 }

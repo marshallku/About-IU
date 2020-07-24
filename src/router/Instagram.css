@@ -1,4 +1,4 @@
-#instagram {
+#inList {
     flex-wrap: wrap;
     width: 100%;
     margin: 0 auto;
@@ -6,7 +6,7 @@
     max-width: 880px;
 }
 
-#instagram > a {
+#inList > a {
     position: relative;
     display: inline-block;
     width: calc((100% - 30px) / 3);
@@ -16,11 +16,11 @@
     background: #000;
 }
 
-#instagram > a:not(:nth-child(3n)) {
+#inList > a:not(:nth-child(3n)) {
     margin-right: 10px;
 }
 
-#instagram > a > img {
+#inList > a > img {
     position: absolute;
     top: 50%;
     left: 0;

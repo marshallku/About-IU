@@ -8,6 +8,8 @@ import Profile from "./router/Profile";
 import Discography from "./router/Discography";
 import DiscographyDetails from "./router/DiscographyDetails";
 import Filmography from "./router/Filmography";
+import Youtube from "./router/Youtube";
+import Instagram from "./router/Instagram";
 import LocationUpdater from "./components/LocationUpdater";
 import * as serviceWorker from "./serviceWorker";
 
@@ -40,6 +42,16 @@ ReactDOM.render(
                     exact
                     path={`${process.env.PUBLIC_URL}/Filmography`}
                     component={Filmography}
+                />
+                <Route
+                    exact
+                    path={`${process.env.PUBLIC_URL}/Youtube`}
+                    component={Youtube}
+                />
+                <Route
+                    exact
+                    path={`${process.env.PUBLIC_URL}/Instagram`}
+                    component={Instagram}
                 />
             </main>
             <LocationUpdater />

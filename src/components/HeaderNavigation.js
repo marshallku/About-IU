@@ -49,6 +49,9 @@ export default class HeaderNavigation extends React.Component {
                         <Link to={`${process.env.PUBLIC_URL}/Profile`}>
                             Profile
                         </Link>
+                        <Link to={`${process.env.PUBLIC_URL}/Instagram`}>
+                            Instagram
+                        </Link>
                     </div>
                     <div className="flex center">
                         <Link
@@ -82,6 +85,9 @@ export default class HeaderNavigation extends React.Component {
                         </Link>
                     </div>
                     <div className="right">
+                        <Link to={`${process.env.PUBLIC_URL}/Youtube`}>
+                            Youtube
+                        </Link>
                         <Link to={`${process.env.PUBLIC_URL}/Discography`}>
                             Discography
                         </Link>
@@ -120,6 +126,18 @@ export default class HeaderNavigation extends React.Component {
                         to={`${process.env.PUBLIC_URL}/Profile`}
                     >
                         Profile
+                    </Link>
+                    <Link
+                        onClick={this.hideNav}
+                        to={`${process.env.PUBLIC_URL}/Instagram`}
+                    >
+                        Instagram
+                    </Link>
+                    <Link
+                        onClick={this.hideNav}
+                        to={`${process.env.PUBLIC_URL}/Youtube`}
+                    >
+                        Youtube
                     </Link>
                     <Link
                         onClick={this.hideNav}
