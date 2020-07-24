@@ -62,7 +62,7 @@ export default class Youtube extends React.Component {
 
         if (!this.state.isStored) {
             fetch(
-                "https://script.google.com/macros/s/AKfycbwmqG55tt2d2FcT_WQ3WjCSKmtyFpkOcdprSITn45-4UgVJnzp9/exec?url=https://www.youtube.com/c/dlwlrma/videos"
+                "https://marshall-ku.com/get?uri=https://www.youtube.com/c/dlwlrma/videos"
             )
                 .then((response) => {
                     return response.text();
@@ -73,10 +73,8 @@ export default class Youtube extends React.Component {
                             response
                                 .slice(
                                     response.indexOf("tabs"),
-                                    response.indexOf('"header') - 4
+                                    response.indexOf('"header') - 3
                                 )
-                                .replace(/\\/g, "")
-                                .replace(/u00/g, "\\u00")
                                 .replace('tabs":', "")
                         );
                         const ytList =
