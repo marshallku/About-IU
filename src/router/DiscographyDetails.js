@@ -3,6 +3,30 @@ import { Link } from "react-router-dom";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./DiscographyDetails.css";
 
+class BackButton extends React.Component {
+    render() {
+        if (this.props.location.state) {
+            return (
+                <button
+                    onClick={() => {
+                        window.history.back();
+                    }}
+                    className="album-closer icon-times"
+                    aria-label="back"
+                ></button>
+            );
+        } else {
+            return (
+                <Link
+                    to="../Discography"
+                    className="album-closer icon-times"
+                    aria-label="back"
+                ></Link>
+            );
+        }
+    }
+}
+
 export default class DiscographyDetails extends React.Component {
     constructor(props) {
         super(props);
@@ -85,11 +109,7 @@ export default class DiscographyDetails extends React.Component {
                     id="discographyDetail"
                     className={activated !== false ? "lyric-activated" : ""}
                 >
-                    <Link
-                        to="../Discography"
-                        className="album-closer icon-times"
-                        aria-label="back"
-                    ></Link>
+                    <BackButton location={this.props.location} />
                     <div
                         className="back-to-tracklist icon-arrow-left"
                         onClick={() => {
@@ -310,11 +330,7 @@ export default class DiscographyDetails extends React.Component {
             if (state) {
                 return (
                     <section id="discographyDetail" className="loading">
-                        <Link
-                            to="../Discography"
-                            className="album-closer icon-times"
-                            aria-label="back"
-                        ></Link>
+                        <BackButton location={this.props.location} />
                         <div
                             className="back-to-tracklist icon-arrow-left"
                             onClick={() => {
