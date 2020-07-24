@@ -63,9 +63,7 @@ class LocationUpdater extends React.Component {
     }
 
     componentDidUpdate({ location }) {
-        if (location.pathname === this.props.location.pathname) {
-            return;
-        } else {
+        if (location.pathname !== this.props.location.pathname) {
             this.update();
         }
     }
