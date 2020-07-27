@@ -60,6 +60,14 @@ export default class DiscographyDetails extends React.Component {
                     });
                 }
             });
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                this.state.videoRevealed && this.shrinkVideo();
+            },
+            { passive: true }
+        );
     }
 
     setActivated = (index) => {
@@ -98,6 +106,13 @@ export default class DiscographyDetails extends React.Component {
         } else {
             this.pauseVideo();
         }
+    };
+
+    shrinkVideo = () => {
+        this.setState({
+            videoScrolled: this.prevScroll < window.scrollY,
+        });
+        this.prevScroll = window.scrollY;
     };
 
     render() {
@@ -282,23 +297,30 @@ export default class DiscographyDetails extends React.Component {
                     {activated !== false &&
                     data.tracks[activated].video &&
                     videoRevealed ? (
-                        <div className="video-popup">
+                        <div
+                            className={`video-popup${
+                                this.state.videoScrolled ? " scrolled" : ""
+                            }`}
+                        >
                             <div
                                 className="video-popup-closer"
                                 onClick={() => {
                                     this.playVideo();
                                     this.setState({
                                         videoRevealed: false,
+                                        videoScrolled: false,
                                     });
                                 }}
                             ></div>
                             <div className="video-wrapper">
-                                <iframe
-                                    width="560"
-                                    height="315"
-                                    title="Music Video Popup"
-                                    src={`https://youtube.com/embed/${data.tracks[activated].video}?rel=0&playsinline=1&autoplay=1`}
-                                ></iframe>
+                                <div className="iframe-wrapper">
+                                    <iframe
+                                        width="560"
+                                        height="315"
+                                        title="Music Video Popup"
+                                        src={`https://youtube.com/embed/${data.tracks[activated].video}?rel=0&playsinline=1&autoplay=1`}
+                                    ></iframe>
+                                </div>
                             </div>
                         </div>
                     ) : (

@@ -33,7 +33,7 @@ export default class Home extends React.Component {
         return (
             <section id="home">
                 <div id="homeVideo">
-                    <div className="videoWrapper">
+                    <div className="videoWrapper expand">
                         <YoutubeVideo
                             id="TgOu00Mf3kI"
                             vars={{
@@ -52,7 +52,7 @@ export default class Home extends React.Component {
                     id="ringWrap"
                     style={this.state.scrolled ? { opacity: 0 } : {}}
                 >
-                    <ul class="text-ring">
+                    <ul className="text-ring">
                         <li>
                             <span role="img" aria-label="purple heart">
                                 💜

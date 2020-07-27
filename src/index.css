@@ -92,5 +92,6 @@ body:not(.lyrics) #main > section.less-top-margin {
 
 /* Loading */
 #loading {
+    width: 100%;
     padding: 150px 0;
 }
