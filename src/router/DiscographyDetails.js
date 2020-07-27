@@ -101,6 +101,11 @@ export default class DiscographyDetails extends React.Component {
     };
 
     render() {
+        const pathname = window.location.pathname;
+        const albumTitle = decodeURI(
+            pathname.slice(pathname.lastIndexOf("/") + 1, pathname.length)
+        );
+        const coverImageUrl = `${process.env.PUBLIC_URL}/assets/images/cover/${albumTitle}.jpg`;
         if (!this.state.isLoading) {
             const { data, activated, paused, videoRevealed } = this.state;
             const { state } = this.props.location;
@@ -119,17 +124,13 @@ export default class DiscographyDetails extends React.Component {
                     <div
                         className="album-bg"
                         style={{
-                            backgroundImage: `url(${process.env.PUBLIC_URL}${
-                                state ? state.image : data.image
-                            })`,
+                            backgroundImage: `url("${coverImageUrl}")`,
                         }}
                     ></div>
                     <div className="album-art">
                         <div id="albumart">
                             <img
-                                src={`${process.env.PUBLIC_URL}${
-                                    state ? state.image : data.image
-                                }`}
+                                src={coverImageUrl}
                                 className="album-art-img"
                                 alt={state ? state.name : data.name}
                             />
@@ -326,57 +327,52 @@ export default class DiscographyDetails extends React.Component {
                 </section>
             );
         } else {
-            const { state } = this.props.location;
-            if (state) {
-                return (
-                    <section id="discographyDetail" className="loading">
-                        <BackButton location={this.props.location} />
-                        <div
-                            className="back-to-tracklist icon-arrow-left"
-                            onClick={() => {
-                                this.setState({ activated: false });
-                            }}
-                        ></div>
-                        <div
-                            className="album-bg"
-                            style={{
-                                backgroundImage: `url(${process.env.PUBLIC_URL}${state.image})`,
-                            }}
-                        ></div>
-                        <div className="album-art">
-                            <div id="albumart">
-                                <img
-                                    src={`${process.env.PUBLIC_URL}${state.image}`}
-                                    className="album-art-img"
-                                    alt={state.name}
-                                />
-                            </div>
+            return (
+                <section id="discographyDetail" className="loading">
+                    <BackButton location={this.props.location} />
+                    <div
+                        className="back-to-tracklist icon-arrow-left"
+                        onClick={() => {
+                            this.setState({ activated: false });
+                        }}
+                    ></div>
+                    <div
+                        className="album-bg"
+                        style={{
+                            backgroundImage: `url("${coverImageUrl}")`,
+                        }}
+                    ></div>
+                    <div className="album-art">
+                        <div id="albumart">
+                            <img
+                                src={coverImageUrl}
+                                className="album-art-img"
+                                alt={albumTitle}
+                            />
                         </div>
+                    </div>
 
-                        <svg width="0" height="0">
-                            <defs>
-                                <filter
-                                    id="blur"
-                                    x="0"
-                                    y="0"
-                                    width="100%"
-                                    height="100%"
-                                >
-                                    <feGaussianBlur stdDeviation="20" />
-                                    <feComponentTransfer>
-                                        <feFuncA
-                                            type="discrete"
-                                            tableValues="1 1"
-                                        />
-                                    </feComponentTransfer>
-                                </filter>
-                            </defs>
-                        </svg>
-                    </section>
-                );
-            } else {
-                return null;
-            }
+                    <svg width="0" height="0">
+                        <defs>
+                            <filter
+                                id="blur"
+                                x="0"
+                                y="0"
+                                width="100%"
+                                height="100%"
+                            >
+                                <feGaussianBlur stdDeviation="20" />
+                                <feComponentTransfer>
+                                    <feFuncA
+                                        type="discrete"
+                                        tableValues="1 1"
+                                    />
+                                </feComponentTransfer>
+                            </filter>
+                        </defs>
+                    </svg>
+                </section>
+            );
         }
     }
 }

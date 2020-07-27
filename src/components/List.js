@@ -38,8 +38,7 @@ class List extends React.Component {
                             to={{
                                 pathname: `${process.env.PUBLIC_URL}/Discography/${item.name}`,
                                 state: {
-                                    name: item.name,
-                                    image: item.image,
+                                    fromList: true,
                                 },
                             }}
                             className="grid-item"
@@ -48,7 +47,9 @@ class List extends React.Component {
                             <div
                                 className="grid-item-bg"
                                 style={{
-                                    backgroundImage: `url(${process.env.PUBLIC_URL}${item.image})`,
+                                    backgroundImage: `url("${
+                                        process.env.PUBLIC_URL
+                                    }${`/assets/images/cover/${item.name}.jpg`}")`,
                                 }}
                             ></div>
                             <div className="grid-item-content">
