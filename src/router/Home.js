@@ -52,7 +52,12 @@ export default class Home extends React.Component {
                     id="ringWrap"
                     style={this.state.scrolled ? { opacity: 0 } : {}}
                 >
-                    <ul className="text-ring">
+                    <ul class="text-ring">
+                        <li>
+                            <span role="img" aria-label="purple heart">
+                                💜
+                            </span>
+                        </li>
                         <li>아</li>
                         <li>이</li>
                         <li>유</li>
@@ -64,6 +69,26 @@ export default class Home extends React.Component {
                         <li>유</li>
                         <li>애</li>
                         <li>나</li>
+                        <li>
+                            <span role="img" aria-label="purple heart">
+                                💜
+                            </span>
+                        </li>
+                        <li>
+                            <span role="img" aria-label="purple heart">
+                                💜
+                            </span>
+                        </li>
+                        <li>
+                            <span role="img" aria-label="purple heart">
+                                💜
+                            </span>
+                        </li>
+                        <li>
+                            <span role="img" aria-label="purple heart">
+                                💜
+                            </span>
+                        </li>
                     </ul>
                 </div>
             </section>
