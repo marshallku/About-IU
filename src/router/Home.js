@@ -4,9 +4,33 @@ import "./Home.css";
 
 export default class Home extends React.Component {
     constructor(props) {
+        const mvList = [
+            "TgOu00Mf3kI",
+            "D1PvIWdJ8xo",
+            "R3Fwdnij49o",
+            "nM0xDI5R50E",
+            "cxcxskPKtiI",
+            "Rh5ok0ljrzA",
+            "d9IxdwEFk1c",
+            "BzYnNdJhZQw",
+            "42Gtm4-Ax2U",
+            "GHu39FEFIks",
+            "npttud7NkL0",
+            "EiVmQZwJhsA",
+            "Q0xvVgKJxfs",
+            "HiIjdaSlFug",
+            "Ct8NZdYWOFI",
+            "AWtwkrGpp4w",
+            "f_iQRO5BdCM",
+            "8fCksQtuVek",
+            "qGWZUtfV3IU",
+            "jeqdYqsrsA0",
+        ];
+
         super(props);
         this.state = {
             scrolled: window.scrollY > 0,
+            video: mvList[Math.round(Math.random() * (mvList.length - 1))],
         };
     }
 
@@ -21,6 +45,18 @@ export default class Home extends React.Component {
               });
     };
 
+    toggleMute = (event) => {
+        if (typeof window.player.mute === "function") {
+            if (window.player.isMuted()) {
+                window.player.unMute();
+                event.target.classList.remove("disabled");
+            } else {
+                window.player.mute();
+                event.target.classList.add("disabled");
+            }
+        }
+    };
+
     componentDidMount() {
         window.addEventListener("scroll", this.onScroll, { passive: true });
     }
@@ -30,18 +66,19 @@ export default class Home extends React.Component {
     }
 
     render() {
+        const { video } = this.state;
         return (
             <section id="home">
                 <div id="homeVideo">
-                    <div className="videoWrapper expand">
+                    <div className="videoWrapper">
                         <YoutubeVideo
-                            id="TgOu00Mf3kI"
+                            id={video}
                             vars={{
                                 rel: 0,
                                 muted: 1,
                                 loop: 1,
                                 playsinline: 1,
-                                playlist: "TgOu00Mf3kI",
+                                playlist: video,
                                 controls: 0,
                                 showinfo: 0,
                             }}
@@ -91,6 +128,14 @@ export default class Home extends React.Component {
                         </li>
                     </ul>
                 </div>
+                <button
+                    id="toggleMute"
+                    aria-label="음소거 / 해제"
+                    className="icon-note disabled"
+                    onClick={(event) => {
+                        this.toggleMute(event);
+                    }}
+                ></button>
             </section>
         );
     }

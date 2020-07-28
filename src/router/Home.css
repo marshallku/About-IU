@@ -168,3 +168,18 @@
     transform: translate(-50%, -50%) rotate(330deg) translateY(-260px)
         rotateX(90deg);
 }
+
+#toggleMute {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    font-size: 20px;
+    color: #fff;
+    opacity: 1;
+}
+
+#toggleMute.disabled {
+    color: #a0a0a0;
+    opacity: 0.8;
+    transition: 0.5s;
+}
