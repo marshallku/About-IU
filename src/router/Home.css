@@ -108,6 +108,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    text-shadow: 0 0 10px #121212;
 }
 
 .text-ring li:nth-child(1) {

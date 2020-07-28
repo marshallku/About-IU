@@ -53,6 +53,10 @@
     background: 0;
 }
 
+.home #header a {
+    text-shadow: 0 0 10px #121212;
+}
+
 #nav,
 .openbtn {
     display: none;
