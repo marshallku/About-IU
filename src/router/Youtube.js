@@ -143,6 +143,7 @@ export default class Youtube extends React.Component {
                     <div id="ytList" className="flex">
                         {window["ytList"].map((itemObj) => {
                             const item = itemObj.gridVideoRenderer;
+                            const title = item.title.runs[0].text;
 
                             return (
                                 <span
@@ -155,11 +156,11 @@ export default class Youtube extends React.Component {
                                     <div className="thumbnail">
                                         <img
                                             src={`https://i.ytimg.com/vi/${item.videoId}/sddefault.jpg`}
-                                            alt={item.title.simpleText}
+                                            alt={title}
                                         />
                                     </div>
                                     <div className="details">
-                                        <h2>{item.title.simpleText}</h2>
+                                        <h2>{title}</h2>
                                         <div>
                                             <span>
                                                 {item.viewCountText.simpleText}
