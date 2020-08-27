@@ -11,7 +11,7 @@ class LocationUpdater extends React.Component {
             url.content = window.location.href;
         });
 
-        if (pathname === "/") {
+        if (pathname === "/IU/") {
             document.body.className = "home";
 
             document.title = "About IU";
@@ -23,7 +23,7 @@ class LocationUpdater extends React.Component {
             });
         } else {
             if (pathname.indexOf("Discography/") === -1) {
-                const path2 = window.location.pathname.replace("/", "");
+                const path2 = window.location.pathname.replace("/IU/", "");
                 const text =
                     path2 === "Profile"
                         ? "프로필"
