@@ -41,7 +41,7 @@ export default class Instagram extends React.Component {
                     <div id="info" className="center">
                         <img
                             className="circle"
-                            src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/28434316_190831908314778_1954023563480530944_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=9uJiGWpgGHAAX8hcoXP&oh=859e6154b55b2a0befaf5a3913a3fe9d&oe=5F42BB60"
+                            src={`${process.env.PUBLIC_URL}/assets/images/insta_profile.jpg`}
                             alt="이지금"
                         ></img>
                         <h1>dlwlrma</h1>

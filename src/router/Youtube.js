@@ -61,9 +61,7 @@ export default class Youtube extends React.Component {
         }
 
         if (!this.state.isStored) {
-            fetch(
-                "https://marshall-ku.com/get?uri=https://www.youtube.com/c/dlwlrma/videos"
-            )
+            fetch("/get.php?uri=https://www.youtube.com/c/dlwlrma/videos")
                 .then((response) => {
                     return response.text();
                 })
