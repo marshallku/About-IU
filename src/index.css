@@ -76,6 +76,10 @@ body:not(.lyrics) #main > section.less-top-margin {
     max-width: 1400px;
 }
 
+#main > section.max-1060 {
+    max-width: 1060px;
+}
+
 @media screen and (min-width: 961px) {
     body:not(.lyrics) #main > section.less-top-margin {
         margin-top: 70px;
