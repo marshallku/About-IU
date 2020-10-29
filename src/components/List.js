@@ -49,7 +49,7 @@ class List extends React.Component {
                                 style={{
                                     backgroundImage: `url("${
                                         process.env.PUBLIC_URL
-                                    }${`/assets/images/cover/${item.name}.jpg`}")`,
+                                    }${`/assets/images/album_cover/${item.name}.jpg`}")`,
                                 }}
                             ></div>
                             <div className="grid-item-content">
