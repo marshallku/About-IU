@@ -11,6 +11,7 @@ import Filmography from "./router/Filmography";
 import Youtube from "./router/Youtube";
 import Instagram from "./router/Instagram";
 import LocationUpdater from "./components/LocationUpdater";
+import Autograph from "./components/Autograph";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
@@ -59,6 +60,8 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById("root")
 );
+
+ReactDOM.render(<Autograph></Autograph>, document.getElementById("loader"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,0 +1,21 @@
+@keyframes draw {
+    from {
+        stroke-dashoffset: -1878;
+    }
+    to {
+        stroke-dashoffset: -3756;
+    }
+}
+
+#loader {
+    pointer-events: none;
+    transition: opacity 0.25s ease-in-out;
+}
+
+#loader.hide {
+    opacity: 0;
+}
+
+#loader > svg {
+    animation: draw 3s ease-in-out;
+}

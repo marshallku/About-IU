@@ -120,7 +120,7 @@ export default class DiscographyDetails extends React.Component {
         const albumTitle = decodeURI(
             pathname.slice(pathname.lastIndexOf("/") + 1, pathname.length)
         );
-        const coverImageUrl = `${process.env.PUBLIC_URL}/assets/images/cover/${albumTitle}.jpg`;
+        const coverImageUrl = `${process.env.PUBLIC_URL}/assets/images/album_cover/${albumTitle}.jpg`;
         if (!this.state.isLoading) {
             const { data, activated, paused, videoRevealed } = this.state;
             const { state } = this.props.location;
