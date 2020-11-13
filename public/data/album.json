@@ -77,6 +77,13 @@
         "image": "/assets/images/cover/heart.jpg"
     },
     {
+        "name": "피아노포르테 (PIANOFORTE)",
+        "category": "미니",
+        "releaseDate": "2014-10-31",
+        "language": "ko",
+        "image": "/assets/images/cover/PIANOFORTE.jpg"
+    },
+    {
         "name": "소격동",
         "category": "싱글",
         "releaseDate": "2014-10-02",
