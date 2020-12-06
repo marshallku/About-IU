@@ -2,8 +2,18 @@ import React from "react";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./Home.css";
 
-export default class Home extends React.Component {
-    constructor(props) {
+interface HomeProps {}
+
+export default class Home extends React.Component<
+    HomeProps,
+    {
+        scrolled: boolean;
+        video: string;
+    }
+> {
+    constructor(props: HomeProps) {
+        super(props);
+
         const mvList = [
             "TgOu00Mf3kI",
             "D1PvIWdJ8xo",
@@ -27,7 +37,6 @@ export default class Home extends React.Component {
             "jeqdYqsrsA0",
         ];
 
-        super(props);
         this.state = {
             scrolled: window.scrollY > 0,
             video: mvList[Math.round(Math.random() * (mvList.length - 1))],
@@ -45,14 +54,15 @@ export default class Home extends React.Component {
               });
     };
 
-    toggleMute = (event) => {
+    toggleMute = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        const target = event.target as HTMLElement;
         if (typeof window.player.mute === "function") {
             if (window.player.isMuted()) {
                 window.player.unMute();
-                event.target.classList.remove("disabled");
+                target.classList.remove("disabled");
             } else {
                 window.player.mute();
-                event.target.classList.add("disabled");
+                target.classList.add("disabled");
             }
         }
     };
@@ -75,13 +85,13 @@ export default class Home extends React.Component {
                             id={video}
                             vars={{
                                 rel: 0,
-                                muted: 1,
                                 loop: 1,
                                 playsinline: 1,
                                 playlist: video,
                                 controls: 0,
                                 showinfo: 0,
                             }}
+                            mute={true}
                         />
                     </div>
                 </div>
@@ -112,9 +122,7 @@ export default class Home extends React.Component {
                     id="toggleMute"
                     aria-label="음소거 / 해제"
                     className="icon-note disabled"
-                    onClick={(event) => {
-                        this.toggleMute(event);
-                    }}
+                    onClick={this.toggleMute}
                 ></button>
             </section>
         );

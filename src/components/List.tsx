@@ -1,10 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Loading from "../components/Loading";
+import Loading from "./Loading";
 import "./List.css";
 
-class List extends React.Component {
-    constructor(props) {
+interface ListProps {
+    name: "filmography" | "discography";
+    uri: string;
+    type: string;
+}
+
+class List extends React.Component<
+    ListProps,
+    {
+        isStored: boolean;
+    }
+> {
+    constructor(props: ListProps) {
         super(props);
         this.state = {
             isStored: !!window[this.props.name],
@@ -31,7 +42,7 @@ class List extends React.Component {
 
         if (this.state.isStored) {
             if (type === "grid") {
-                return window[name].map((item, index) => {
+                return window[name].map((item: any, index: number) => {
                     return (
                         <Link
                             key={index}
@@ -61,7 +72,7 @@ class List extends React.Component {
                     );
                 });
             } else if (type === "timeline") {
-                return window[name].map((item, index) => {
+                return window[name].map((item: any, index: number) => {
                     return (
                         <div key={index} className="timeline-item">
                             <h2 className="title">

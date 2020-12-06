@@ -1,10 +1,21 @@
 import React from "react";
 
-class YoutubeVideo extends React.Component {
-    constructor(props) {
+interface YoutubeVideoProps {
+    id: string;
+    vars: YT.PlayerVars;
+    mute?: boolean;
+}
+
+class YoutubeVideo extends React.Component<
+    YoutubeVideoProps,
+    {
+        queued: string;
+    }
+> {
+    constructor(props: YoutubeVideoProps) {
         super(props);
         this.state = {
-            quened: "",
+            queued: "",
         };
     }
 
@@ -32,25 +43,25 @@ class YoutubeVideo extends React.Component {
         });
     };
 
-    loadVideoById = (id) => {
+    loadVideoById = (id: string) => {
         if (typeof window.player.loadVideoById === "function") {
             window.player.loadVideoById(id);
         } else {
             this.setState({
-                quened: id,
+                queued: id,
             });
         }
     };
 
-    onPlayerReady = (event) => {
-        const { quened } = this.state;
+    onPlayerReady = (event: YT.PlayerEvent) => {
+        const { queued } = this.state;
 
-        if (this.props?.vars?.muted) {
+        if (this.props.mute) {
             event.target.mute();
         }
 
-        if (quened) {
-            window.player.loadVideoById(quened);
+        if (queued) {
+            window.player.loadVideoById(queued);
         }
 
         event.target.playVideo();
@@ -60,7 +71,7 @@ class YoutubeVideo extends React.Component {
         0 === window.player.getPlayerState() && window.player.playVideo();
     };
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps: YoutubeVideoProps) {
         const { id } = this.props;
 
         if (prevProps.id !== id) {

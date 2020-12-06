@@ -1,26 +1,29 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
-class LocationUpdater extends React.Component {
+interface LocationUpdaterProps extends RouteComponentProps {}
+
+function updateMetaTag(title: string, desc: string) {
+    document.head.querySelectorAll("meta").forEach((element) => {
+        if (element.classList.contains(".meta-url")) {
+            element.content = window.location.href;
+        } else if (element.classList.contains("meta-title")) {
+            element.content = title;
+        } else if (element.classList.contains("meta-desc")) {
+            element.content = desc;
+        }
+    });
+}
+
+class LocationUpdater extends React.Component<LocationUpdaterProps> {
     update() {
         const pathname = window.location.pathname;
-        const metaTitle = document.querySelectorAll(".meta-title");
-        const metaDesc = document.querySelectorAll(".meta-desc");
-
-        document.querySelectorAll(".meta-url").forEach((url) => {
-            url.content = window.location.href;
-        });
 
         if (pathname === "/IU/") {
             document.body.className = "home";
 
             document.title = "About IU";
-            metaTitle.forEach((title) => {
-                title.content = "About IU";
-            });
-            metaDesc.forEach((desc) => {
-                desc.content = "About IU";
-            });
+            updateMetaTag("About IU", "About IU");
         } else {
             if (pathname.indexOf("Discography/") === -1) {
                 const path2 = window.location.pathname.replace("/IU/", "");
@@ -38,12 +41,7 @@ class LocationUpdater extends React.Component {
                 document.body.className = path2;
 
                 document.title = text;
-                metaTitle.forEach((title) => {
-                    title.content = text;
-                });
-                metaDesc.forEach((desc) => {
-                    desc.content = `아이유 ${text}`;
-                });
+                updateMetaTag(text, `아이유 ${text}`);
             } else {
                 const albumTitle = decodeURI(
                     pathname.slice(
@@ -54,12 +52,10 @@ class LocationUpdater extends React.Component {
                 document.body.className = "lyrics";
 
                 document.title = `${albumTitle} 가사집`;
-                metaTitle.forEach((title) => {
-                    title.content = `${albumTitle} 가사집`;
-                });
-                metaDesc.forEach((desc) => {
-                    desc.content = `아이유 ${albumTitle} 가사집`;
-                });
+                updateMetaTag(
+                    `${albumTitle} 가사집`,
+                    `아이유 ${albumTitle} 가사집`
+                );
             }
         }
     }
@@ -68,7 +64,7 @@ class LocationUpdater extends React.Component {
         this.update();
     }
 
-    componentDidUpdate({ location }) {
+    componentDidUpdate({ location }: any) {
         if (location.pathname !== this.props.location.pathname) {
             this.update();
         }

@@ -2,9 +2,13 @@ import React from "react";
 import "./Autograph.css";
 
 export default function Autograph() {
-    setTimeout(() => {
-        document.getElementById("loader").classList.add("hide");
-    }, 3200);
+    const loader = document.getElementById("loader");
+
+    if (loader) {
+        setTimeout(() => {
+            loader.classList.add("hide");
+        }, 3200);
+    }
 
     return (
         <svg
@@ -18,7 +22,6 @@ export default function Autograph() {
                 style={{
                     fill: "none",
                     stroke: "#fff",
-                    strokeMiterlimit: "10",
                     strokeWidth: "3px",
                     strokeDasharray: "1878",
                 }}

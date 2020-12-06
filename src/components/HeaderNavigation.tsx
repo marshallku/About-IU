@@ -2,8 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./HeaderNavigation.css";
 
-export default class HeaderNavigation extends React.Component {
-    constructor(props) {
+interface HeaderNavigationProps {}
+
+export default class HeaderNavigation extends React.Component<
+    HeaderNavigationProps,
+    {
+        scrolled: boolean;
+        navOpened: boolean;
+    }
+> {
+    constructor(props: HeaderNavigationProps) {
         super(props);
         this.state = {
             scrolled: false,

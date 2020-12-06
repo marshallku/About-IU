@@ -2,11 +2,18 @@ import React from "react";
 import Loading from "../components/Loading";
 import "./Instagram.css";
 
-export default class Instagram extends React.Component {
-    constructor(props) {
+interface InstagramProps {}
+
+export default class Instagram extends React.Component<
+    InstagramProps,
+    {
+        isStored: boolean;
+    }
+> {
+    constructor(props: InstagramProps) {
         super(props);
         this.state = {
-            isStored: !!window["inList"],
+            isStored: !!window.inList,
         };
     }
 
@@ -26,7 +33,7 @@ export default class Instagram extends React.Component {
                     );
                     const { edges } = media;
 
-                    edges && (window["inList"] = edges);
+                    edges && (window.inList = edges);
                     this.setState({
                         isStored: true,
                     });
@@ -54,7 +61,7 @@ export default class Instagram extends React.Component {
                         </a>
                     </div>
                     <div id="inList" className="flex">
-                        {window["inList"].map((post, index) => {
+                        {window.inList.map((post: any, index: number) => {
                             const { node } = post;
                             return (
                                 <a

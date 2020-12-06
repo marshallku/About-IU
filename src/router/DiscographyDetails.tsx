@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import * as H from "history";
+import { Link, RouteComponentProps } from "react-router-dom";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./DiscographyDetails.css";
 
-class BackButton extends React.Component {
+interface DiscographyDetailsProps extends RouteComponentProps {}
+
+interface BackButtonProps {
+    location: H.Location;
+}
+
+class BackButton extends React.Component<BackButtonProps> {
     render() {
         if (this.props.location.state) {
             return (
@@ -27,9 +34,21 @@ class BackButton extends React.Component {
     }
 }
 
-export default class DiscographyDetails extends React.Component {
-    constructor(props) {
+export default class DiscographyDetails extends React.Component<
+    DiscographyDetailsProps,
+    {
+        isLoading: boolean;
+        activated: number | false;
+        videoRevealed?: boolean;
+        paused?: boolean;
+        videoScrolled?: boolean;
+        data?: discographyDetailJson;
+    }
+> {
+    prevScroll: number;
+    constructor(props: DiscographyDetailsProps) {
         super(props);
+        this.prevScroll = 0;
         this.state = {
             isLoading: true,
             activated: false,
@@ -46,7 +65,7 @@ export default class DiscographyDetails extends React.Component {
             .then((response) => {
                 const contentType = response.headers.get("content-type");
 
-                if (contentType.includes("json")) {
+                if (contentType && contentType.includes("json")) {
                     return response.json();
                 } else {
                     return "";
@@ -70,7 +89,7 @@ export default class DiscographyDetails extends React.Component {
         );
     }
 
-    setActivated = (index) => {
+    setActivated = (index: number) => {
         this.setState({
             activated: index,
         });
@@ -121,9 +140,8 @@ export default class DiscographyDetails extends React.Component {
             pathname.slice(pathname.lastIndexOf("/") + 1, pathname.length)
         );
         const coverImageUrl = `${process.env.PUBLIC_URL}/assets/images/album_cover/${albumTitle}.jpg`;
-        if (!this.state.isLoading) {
+        if (!this.state.isLoading && this.state.data) {
             const { data, activated, paused, videoRevealed } = this.state;
-            const { state } = this.props.location;
             return (
                 <section
                     id="discographyDetail"
@@ -147,7 +165,7 @@ export default class DiscographyDetails extends React.Component {
                             <img
                                 src={coverImageUrl}
                                 className="album-art-img"
-                                alt={state ? state.name : data.name}
+                                alt={data.name}
                             />
                         </div>
                         <div
@@ -168,7 +186,6 @@ export default class DiscographyDetails extends React.Component {
                                 }
                                 vars={{
                                     rel: 0,
-                                    muted: 0,
                                     loop: 1,
                                     playsinline: 1,
                                     controls: 0,
@@ -187,7 +204,8 @@ export default class DiscographyDetails extends React.Component {
                                         window.player.seekTo(
                                             Math.floor(
                                                 window.player.getCurrentTime()
-                                            ) - 10
+                                            ) - 10,
+                                            false
                                         );
                                     }}
                                 ></button>
@@ -209,7 +227,8 @@ export default class DiscographyDetails extends React.Component {
                                         window.player.seekTo(
                                             Math.floor(
                                                 window.player.getCurrentTime()
-                                            ) + 10
+                                            ) + 10,
+                                            false
                                         );
                                     }}
                                 ></button>
@@ -295,6 +314,7 @@ export default class DiscographyDetails extends React.Component {
                     </div>
 
                     {activated !== false &&
+                    data &&
                     data.tracks[activated].video &&
                     videoRevealed ? (
                         <div

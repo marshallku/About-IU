@@ -3,25 +3,26 @@ import YoutubeVideo from "../components/YoutubeVideo";
 import Loading from "../components/Loading";
 import "./Youtube.css";
 
-export default class Youtube extends React.Component {
-    constructor(props) {
+interface YoutubeProps {}
+
+export default class Youtube extends React.Component<
+    YoutubeProps,
+    {
+        isStored: boolean;
+        videoId?: string;
+        error?: boolean;
+    }
+> {
+    constructor(props: YoutubeProps) {
         super(props);
         this.state = {
-            isStored: !!window["ytList"],
+            isStored: !!window.ytList,
         };
     }
 
-    fullScreen(videoId) {
+    fullScreen(videoId: string) {
         const html = document.documentElement;
-        if (html.webkitRequestFullscreen) {
-            html.webkitRequestFullscreen();
-        } else if (html.mozRequestFullScreen) {
-            html.mozRequestFullScreen();
-        } else if (html.msRequestFullscreen) {
-            html.msRequestFullscreen();
-        } else if (html.requestFullscreen) {
-            html.requestFullscreen();
-        }
+        html.requestFullscreen();
         window.screen.orientation.lock("landscape-primary").catch(() => {
             return null;
         });
@@ -35,30 +36,15 @@ export default class Youtube extends React.Component {
         if (!document.fullscreenElement) {
             document.documentElement.classList.remove("overHidden");
             this.setState({
-                videoId: null,
+                videoId: undefined,
             });
         }
     }
 
     componentDidMount() {
-        const html = document.documentElement;
-        if (html.webkitRequestFullscreen) {
-            document.addEventListener("webkitfullscreenchange", () => {
-                this.handleFullScreenChange();
-            });
-        } else if (html.mozRequestFullScreen) {
-            document.addEventListener("mozfullscreenchange", () => {
-                this.handleFullScreenChange();
-            });
-        } else if (html.msRequestFullscreen) {
-            document.addEventListener("msfullscreenchange", () => {
-                this.handleFullScreenChange();
-            });
-        } else if (html.requestFullscreen) {
-            document.addEventListener("fullscreenchange", () => {
-                this.handleFullScreenChange();
-            });
-        }
+        document.addEventListener("fullscreenchange", () => {
+            this.handleFullScreenChange();
+        });
 
         if (!this.state.isStored) {
             fetch(
@@ -82,7 +68,7 @@ export default class Youtube extends React.Component {
                                 .contents[0].itemSectionRenderer.contents[0]
                                 .gridRenderer.items;
 
-                        ytList && (window["ytList"] = ytList);
+                        ytList && (window.ytList = ytList);
                         this.setState({
                             isStored: true,
                         });
@@ -96,28 +82,10 @@ export default class Youtube extends React.Component {
     }
 
     componentWillUnmount() {
-        const html = document.documentElement;
-        if (html.webkitRequestFullscreen) {
-            document.removeEventListener(
-                "webkitfullscreenchange",
-                () => this.handleFullScreenChange
-            );
-        } else if (html.mozRequestFullScreen) {
-            document.removeEventListener(
-                "mozfullscreenchange",
-                () => this.handleFullScreenChange
-            );
-        } else if (html.msRequestFullscreen) {
-            document.removeEventListener(
-                "msfullscreenchange",
-                () => this.handleFullScreenChange
-            );
-        } else if (html.requestFullscreen) {
-            document.removeEventListener(
-                "fullscreenchange",
-                () => this.handleFullScreenChange
-            );
-        }
+        document.removeEventListener(
+            "fullscreenchange",
+            () => this.handleFullScreenChange
+        );
     }
 
     render() {
@@ -141,7 +109,7 @@ export default class Youtube extends React.Component {
                         </a>
                     </div>
                     <div id="ytList" className="flex">
-                        {window["ytList"].map((itemObj) => {
+                        {window.ytList.map((itemObj: any) => {
                             const item = itemObj.gridVideoRenderer;
                             const title = item.title.runs[0].text;
 
@@ -184,7 +152,6 @@ export default class Youtube extends React.Component {
                                 id={videoId}
                                 vars={{
                                     rel: 0,
-                                    muted: 0,
                                     loop: 1,
                                     playsinline: 1,
                                     controls: 1,
