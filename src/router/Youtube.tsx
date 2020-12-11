@@ -58,10 +58,10 @@ export default class Youtube extends React.Component<
                         const parsed = JSON.parse(
                             response
                                 .slice(
-                                    response.indexOf("tabs"),
+                                    response.indexOf('"tabs"'),
                                     response.indexOf('"header') - 3
                                 )
-                                .replace('tabs":', "")
+                                .replace('"tabs":', "")
                         );
                         const ytList =
                             parsed[1].tabRenderer.content.sectionListRenderer
@@ -73,6 +73,7 @@ export default class Youtube extends React.Component<
                             isStored: true,
                         });
                     } catch (err) {
+                        console.error(err);
                         this.setState({
                             error: true,
                         });
