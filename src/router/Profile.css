@@ -4,6 +4,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    user-select: none;
     z-index: -1;
 }
 
@@ -29,6 +30,7 @@
 
 #profile div {
     font-size: 14px;
+    text-shadow: 1px 2px 20px black;
 }
 
 #profile .mainInfo > * {
