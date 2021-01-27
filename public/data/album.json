@@ -1,5 +1,12 @@
 [
     {
+        "name": "Celebrity",
+        "category": "싱글",
+        "releaseDate": "2021-01-27",
+        "language": "ko",
+        "image": "/assets/images/cover/Celebrity.jpg"
+    },
+    {
         "name": "I-LAND Part.1 Signal Song",
         "category": "싱글",
         "releaseDate": "2020-06-19",
@@ -32,7 +39,7 @@
         "category": "미니",
         "releaseDate": "2019-11-18",
         "language": "ko",
-        "image": "/assets/images/cover/love-poem.jpg"
+        "image": "/assets/images/cover/Love-Poem.jpg"
     },
     {
         "name": "삐삐",
@@ -67,7 +74,7 @@
         "category": "미니",
         "releaseDate": "2015-10-23",
         "language": "ko",
-        "image": "/assets/images/cover/chat-shire.jpg"
+        "image": "/assets/images/cover/CHAT-SHIRE.jpg"
     },
     {
         "name": "마음",
@@ -263,6 +270,6 @@
         "category": "미니",
         "releaseDate": "2008-09-20",
         "language": "ko",
-        "image": "/assets/images/cover/lost-and-found.jpg"
+        "image": "/assets/images/cover/Lost-And-Found.jpg"
     }
 ]

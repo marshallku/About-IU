@@ -14,28 +14,7 @@ export default class Home extends React.Component<
     constructor(props: HomeProps) {
         super(props);
 
-        const mvList = [
-            "TgOu00Mf3kI",
-            "D1PvIWdJ8xo",
-            "R3Fwdnij49o",
-            "nM0xDI5R50E",
-            "cxcxskPKtiI",
-            "Rh5ok0ljrzA",
-            "d9IxdwEFk1c",
-            "BzYnNdJhZQw",
-            "42Gtm4-Ax2U",
-            "GHu39FEFIks",
-            "npttud7NkL0",
-            "EiVmQZwJhsA",
-            "Q0xvVgKJxfs",
-            "HiIjdaSlFug",
-            "Ct8NZdYWOFI",
-            "AWtwkrGpp4w",
-            "f_iQRO5BdCM",
-            "8fCksQtuVek",
-            "qGWZUtfV3IU",
-            "jeqdYqsrsA0",
-        ];
+        const mvList = ["0-q1KafFCLU"];
 
         this.state = {
             scrolled: window.scrollY > 0,
