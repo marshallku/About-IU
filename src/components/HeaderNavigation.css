@@ -67,7 +67,7 @@
     display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 860px) {
     #main-nav {
         line-height: 50px;
         height: 50px;

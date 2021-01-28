@@ -7,6 +7,7 @@ function HeaderNavigation(props: RouteComponentProps) {
     const [scrolled, setScrolled] = useState<boolean>(false);
     const [navOpened, setNavOpened] = useState<boolean>(false);
     const [current, setCurrent] = useState<string>("");
+    const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
 
     const hideNav = () => {
         setNavOpened(false);
@@ -25,21 +26,29 @@ function HeaderNavigation(props: RouteComponentProps) {
         }
     };
 
-    useEffect(() => {
-        window.addEventListener(
-            "scroll",
-            () => {
-                window.scrollY === 0
-                    ? setScrolled(false)
-                    : !scrolled && setScrolled(true);
-            },
-            { passive: true }
-        );
-    }, []);
+    const checkScreenSize = () => {
+        const isSmallerThan860 = window.innerWidth <= 860;
+
+        if (isSmallScreen !== isSmallerThan860) {
+            setIsSmallScreen(isSmallerThan860);
+        }
+    };
 
     useEffect(() => {
         setCurrent(props.location.pathname.replace("/IU", ""));
     }, [props.location.pathname]);
+
+    window.addEventListener(
+        "scroll",
+        () => {
+            window.scrollY === 0
+                ? setScrolled(false)
+                : !scrolled && setScrolled(true);
+        },
+        { passive: true }
+    );
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize, { passive: true });
 
     return (
         <>
@@ -50,24 +59,28 @@ function HeaderNavigation(props: RouteComponentProps) {
                 }`}
             >
                 <div className="left">
-                    <Link
-                        className={isCurrent("/")}
-                        to={`${process.env.PUBLIC_URL}/`}
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        className={isCurrent("/Profile")}
-                        to={`${process.env.PUBLIC_URL}/Profile`}
-                    >
-                        Profile
-                    </Link>
-                    <Link
-                        className={isCurrent("/Instagram")}
-                        to={`${process.env.PUBLIC_URL}/Instagram`}
-                    >
-                        Instagram
-                    </Link>
+                    {!isSmallScreen && (
+                        <>
+                            <Link
+                                className={isCurrent("/")}
+                                to={`${process.env.PUBLIC_URL}/`}
+                            >
+                                Home
+                            </Link>
+                            <Link
+                                className={isCurrent("/Profile")}
+                                to={`${process.env.PUBLIC_URL}/Profile`}
+                            >
+                                Profile
+                            </Link>
+                            <Link
+                                className={isCurrent("/Instagram")}
+                                to={`${process.env.PUBLIC_URL}/Instagram`}
+                            >
+                                Instagram
+                            </Link>
+                        </>
+                    )}
                 </div>
                 <div className="flex center">
                     <Link
@@ -101,24 +114,28 @@ function HeaderNavigation(props: RouteComponentProps) {
                     </Link>
                 </div>
                 <div className="right">
-                    <Link
-                        className={isCurrent("/Youtube")}
-                        to={`${process.env.PUBLIC_URL}/Youtube`}
-                    >
-                        Youtube
-                    </Link>
-                    <Link
-                        className={isCurrent("/Discography")}
-                        to={`${process.env.PUBLIC_URL}/Discography`}
-                    >
-                        Discography
-                    </Link>
-                    <Link
-                        className={isCurrent("/Filmography")}
-                        to={`${process.env.PUBLIC_URL}/Filmography`}
-                    >
-                        Filmography
-                    </Link>
+                    {!isSmallScreen && (
+                        <>
+                            <Link
+                                className={isCurrent("/Youtube")}
+                                to={`${process.env.PUBLIC_URL}/Youtube`}
+                            >
+                                Youtube
+                            </Link>
+                            <Link
+                                className={isCurrent("/Discography")}
+                                to={`${process.env.PUBLIC_URL}/Discography`}
+                            >
+                                Discography
+                            </Link>
+                            <Link
+                                className={isCurrent("/Filmography")}
+                                to={`${process.env.PUBLIC_URL}/Filmography`}
+                            >
+                                Filmography
+                            </Link>
+                        </>
+                    )}
                     <div
                         className="hbg openbtn"
                         onClick={() => {
@@ -132,55 +149,57 @@ function HeaderNavigation(props: RouteComponentProps) {
                 </div>
             </nav>
 
-            <nav id="nav" className={navOpened ? "navrevealed" : ""}>
-                <div className="hbg" onClick={hideNav}>
-                    <div className="hbg-top"></div>
-                    <div className="hbg-mid"></div>
-                    <div className="hbg-bot"></div>
-                </div>
-                <Link
-                    className={isCurrent("/")}
-                    onClick={hideNav}
-                    to={`${process.env.PUBLIC_URL}/`}
-                >
-                    Home
-                </Link>
-                <Link
-                    className={isCurrent("/Profile")}
-                    onClick={hideNav}
-                    to={`${process.env.PUBLIC_URL}/Profile`}
-                >
-                    Profile
-                </Link>
-                <Link
-                    className={isCurrent("/Instagram")}
-                    onClick={hideNav}
-                    to={`${process.env.PUBLIC_URL}/Instagram`}
-                >
-                    Instagram
-                </Link>
-                <Link
-                    className={isCurrent("/Youtube")}
-                    onClick={hideNav}
-                    to={`${process.env.PUBLIC_URL}/Youtube`}
-                >
-                    Youtube
-                </Link>
-                <Link
-                    className={isCurrent("/Discography")}
-                    onClick={hideNav}
-                    to={`${process.env.PUBLIC_URL}/Discography`}
-                >
-                    Discography
-                </Link>
-                <Link
-                    className={isCurrent("/Filmography")}
-                    onClick={hideNav}
-                    to={`${process.env.PUBLIC_URL}/Filmography`}
-                >
-                    Filmography
-                </Link>
-            </nav>
+            {isSmallScreen && (
+                <nav id="nav" className={navOpened ? "navrevealed" : ""}>
+                    <div className="hbg" onClick={hideNav}>
+                        <div className="hbg-top"></div>
+                        <div className="hbg-mid"></div>
+                        <div className="hbg-bot"></div>
+                    </div>
+                    <Link
+                        className={isCurrent("/")}
+                        onClick={hideNav}
+                        to={`${process.env.PUBLIC_URL}/`}
+                    >
+                        Home
+                    </Link>
+                    <Link
+                        className={isCurrent("/Profile")}
+                        onClick={hideNav}
+                        to={`${process.env.PUBLIC_URL}/Profile`}
+                    >
+                        Profile
+                    </Link>
+                    <Link
+                        className={isCurrent("/Instagram")}
+                        onClick={hideNav}
+                        to={`${process.env.PUBLIC_URL}/Instagram`}
+                    >
+                        Instagram
+                    </Link>
+                    <Link
+                        className={isCurrent("/Youtube")}
+                        onClick={hideNav}
+                        to={`${process.env.PUBLIC_URL}/Youtube`}
+                    >
+                        Youtube
+                    </Link>
+                    <Link
+                        className={isCurrent("/Discography")}
+                        onClick={hideNav}
+                        to={`${process.env.PUBLIC_URL}/Discography`}
+                    >
+                        Discography
+                    </Link>
+                    <Link
+                        className={isCurrent("/Filmography")}
+                        onClick={hideNav}
+                        to={`${process.env.PUBLIC_URL}/Filmography`}
+                    >
+                        Filmography
+                    </Link>
+                </nav>
+            )}
         </>
     );
 }
