@@ -1,13 +1,28 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import "./HeaderNavigation.css";
 
-export default function HeaderNavigation() {
+function HeaderNavigation(props: RouteComponentProps) {
     const [scrolled, setScrolled] = useState<boolean>(false);
     const [navOpened, setNavOpened] = useState<boolean>(false);
+    const [current, setCurrent] = useState<string>("");
 
     const hideNav = () => {
         setNavOpened(false);
+    };
+
+    const isCurrent = (uri: string): string => {
+        if (uri === current) {
+            return "highlight";
+        } else if (
+            uri.includes("/Discography") &&
+            current.includes("/Discography")
+        ) {
+            return "highlight";
+        } else {
+            return "";
+        }
     };
 
     useEffect(() => {
@@ -20,23 +35,37 @@ export default function HeaderNavigation() {
             },
             { passive: true }
         );
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        setCurrent(props.location.pathname.replace("/IU", ""));
+    }, [props.location.pathname]);
 
     return (
         <>
-            <header
-                id="header"
+            <nav
+                id="main-nav"
                 className={`${scrolled ? "shrink" : ""} ${
                     navOpened ? " navrevealed" : ""
                 }`}
             >
                 <div className="left">
-                    <Link to={`${process.env.PUBLIC_URL}/`}>Home</Link>
-                    <Link to={`${process.env.PUBLIC_URL}/Profile`}>
+                    <Link
+                        className={isCurrent("/")}
+                        to={`${process.env.PUBLIC_URL}/`}
+                    >
+                        Home
+                    </Link>
+                    <Link
+                        className={isCurrent("/Profile")}
+                        to={`${process.env.PUBLIC_URL}/Profile`}
+                    >
                         Profile
                     </Link>
-                    <Link to={`${process.env.PUBLIC_URL}/Instagram`}>
+                    <Link
+                        className={isCurrent("/Instagram")}
+                        to={`${process.env.PUBLIC_URL}/Instagram`}
+                    >
                         Instagram
                     </Link>
                 </div>
@@ -72,13 +101,22 @@ export default function HeaderNavigation() {
                     </Link>
                 </div>
                 <div className="right">
-                    <Link to={`${process.env.PUBLIC_URL}/Youtube`}>
+                    <Link
+                        className={isCurrent("/Youtube")}
+                        to={`${process.env.PUBLIC_URL}/Youtube`}
+                    >
                         Youtube
                     </Link>
-                    <Link to={`${process.env.PUBLIC_URL}/Discography`}>
+                    <Link
+                        className={isCurrent("/Discography")}
+                        to={`${process.env.PUBLIC_URL}/Discography`}
+                    >
                         Discography
                     </Link>
-                    <Link to={`${process.env.PUBLIC_URL}/Filmography`}>
+                    <Link
+                        className={isCurrent("/Filmography")}
+                        to={`${process.env.PUBLIC_URL}/Filmography`}
+                    >
                         Filmography
                     </Link>
                     <div
@@ -92,7 +130,7 @@ export default function HeaderNavigation() {
                         <div className="hbg-bot"></div>
                     </div>
                 </div>
-            </header>
+            </nav>
 
             <nav id="nav" className={navOpened ? "navrevealed" : ""}>
                 <div className="hbg" onClick={hideNav}>
@@ -100,34 +138,43 @@ export default function HeaderNavigation() {
                     <div className="hbg-mid"></div>
                     <div className="hbg-bot"></div>
                 </div>
-                <Link onClick={hideNav} to={`${process.env.PUBLIC_URL}/`}>
+                <Link
+                    className={isCurrent("/")}
+                    onClick={hideNav}
+                    to={`${process.env.PUBLIC_URL}/`}
+                >
                     Home
                 </Link>
                 <Link
+                    className={isCurrent("/Profile")}
                     onClick={hideNav}
                     to={`${process.env.PUBLIC_URL}/Profile`}
                 >
                     Profile
                 </Link>
                 <Link
+                    className={isCurrent("/Instagram")}
                     onClick={hideNav}
                     to={`${process.env.PUBLIC_URL}/Instagram`}
                 >
                     Instagram
                 </Link>
                 <Link
+                    className={isCurrent("/Youtube")}
                     onClick={hideNav}
                     to={`${process.env.PUBLIC_URL}/Youtube`}
                 >
                     Youtube
                 </Link>
                 <Link
+                    className={isCurrent("/Discography")}
                     onClick={hideNav}
                     to={`${process.env.PUBLIC_URL}/Discography`}
                 >
                     Discography
                 </Link>
                 <Link
+                    className={isCurrent("/Filmography")}
                     onClick={hideNav}
                     to={`${process.env.PUBLIC_URL}/Filmography`}
                 >
@@ -137,3 +184,5 @@ export default function HeaderNavigation() {
         </>
     );
 }
+
+export default withRouter(HeaderNavigation);

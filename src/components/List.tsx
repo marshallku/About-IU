@@ -10,8 +10,8 @@ interface ListProps {
 }
 
 export default function List(props: ListProps) {
-    const { name, type } = props;
     const [stored, setStored] = useState<boolean>(!!window[props.name]);
+    const { name, type } = props;
 
     useEffect(() => {
         if (!stored) {

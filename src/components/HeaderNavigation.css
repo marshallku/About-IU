@@ -1,4 +1,4 @@
-#header {
+#main-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,18 +10,18 @@
     z-index: 100;
 }
 
-#header.shrink {
+#main-nav.shrink {
     height: 50px;
     line-height: 50px;
     background: rgba(30, 30, 30, 0.85);
 }
 
-#header > .left,
-#header > .right {
+#main-nav > .left,
+#main-nav > .right {
     flex: 1 1 0;
 }
 
-#header > .left {
+#main-nav > .left {
     text-align: right;
 }
 
@@ -31,30 +31,34 @@
     height: 50px;
 }
 
-#header a {
+#main-nav a {
     display: inline-block;
     padding: 0 5px;
     margin: 0 5px;
     font-size: 13px;
 }
 
-#header svg {
+#main-nav a.highlight {
+    color: #cc7dfd;
+}
+
+#main-nav svg {
     fill: #f1f1f1;
 }
 
-.lyrics #header {
+.lyrics #main-nav {
     display: none;
 }
 
-.home #header {
+.home #main-nav {
     border-bottom: 0;
 }
 
-.home #header.shrink {
+.home #main-nav.shrink {
     background: 0;
 }
 
-.home #header a {
+.home #main-nav a {
     text-shadow: 0 0 10px #121212;
 }
 
@@ -64,23 +68,23 @@
 }
 
 @media screen and (max-width: 960px) {
-    #header {
+    #main-nav {
         line-height: 50px;
         height: 50px;
         padding: 0 10px;
     }
 
-    #header #logo {
+    #main-nav #logo {
         width: 40px;
         height: 40px;
     }
 
-    #header > .left,
-    #header a:not(.logoWrap) {
+    #main-nav > .left,
+    #main-nav a:not(.logoWrap) {
         display: none;
     }
 
-    #header > .right {
+    #main-nav > .right {
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -102,7 +106,7 @@
     }
 
     #nav .hbg div,
-    body.home #header .hbg div {
+    body.home #main-nav .hbg div {
         background: #fff;
     }
 
@@ -158,5 +162,9 @@
         color: #fff;
         padding: 10px 0;
         margin: 10px 0;
+    }
+
+    #nav a.highlight {
+        color: #cc7dfd;
     }
 }

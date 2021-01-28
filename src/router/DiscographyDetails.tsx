@@ -31,11 +31,11 @@ function BackButton(props: BackButtonProps) {
 }
 
 export default function DiscographyDetails(props: RouteComponentProps) {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
     const [activated, setActivated] = useState<number | false>(false);
-    const [videoRevealed, setVideoRevealed] = useState(false);
-    const [paused, setPaused] = useState(false);
-    const [videoScrolled, setVideoScrolled] = useState(false);
+    const [videoRevealed, setVideoRevealed] = useState<boolean>(false);
+    const [paused, setPaused] = useState<boolean>(false);
+    const [videoScrolled, setVideoScrolled] = useState<boolean>(false);
     const [data, setData] = useState<discographyDetailJson>();
 
     const { pathname } = window.location;
