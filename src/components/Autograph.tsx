@@ -1,4 +1,3 @@
-import React from "react";
 import "./Autograph.css";
 
 export default function Autograph() {
