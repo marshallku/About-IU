@@ -25,10 +25,25 @@ html {
     font-family: "Jal_Onuel", sans-serif;
     background: #121212;
     color: #f1f1f1;
+    scrollbar-width: thin;
+    scrollbar-color: #cc7dfd #121212;
 }
 
 html.overHidden {
     overflow: hidden;
+}
+
+html.untouchable ::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+html.untouchable ::-webkit-scrollbar {
+    width: 5px;
+    background-color: #121212;
+}
+
+html.untouchable ::-webkit-scrollbar-thumb {
+    background: #cc7dfd;
 }
 
 a,
