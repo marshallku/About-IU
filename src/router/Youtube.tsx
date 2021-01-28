@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import YoutubeVideo from "../components/YoutubeVideo";
+import ErrorMsg from "../components/ErrorMsg";
 import Loading from "../components/Loading";
 import "./Youtube.css";
 
@@ -145,16 +146,7 @@ export default function Youtube() {
         );
     } else {
         if (error) {
-            return (
-                <section>
-                    <div className="center">
-                        뭔가 잘못됐어요
-                        <span role="img" aria-label="ㅠㅠ">
-                            😰
-                        </span>
-                    </div>
-                </section>
-            );
+            return <ErrorMsg />;
         } else {
             return <Loading />;
         }

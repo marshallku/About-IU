@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import ErrorMsg from "../components/ErrorMsg";
 import Loading from "../components/Loading";
 import "./Instagram.css";
 
 export default function Instagram() {
     const [stored, setStored] = useState<boolean>(!!window.inList);
+    const [error, setError] = useState<boolean>(false);
 
     const fetchList = () => {
         fetch("https://www.instagram.com/dlwlrma/")
@@ -11,7 +13,7 @@ export default function Instagram() {
                 return response.text();
             })
             .then((response) => {
-                if (response.indexOf("edge_owner_to_timeline_media") !== -1) {
+                if (response.includes("edge_owner_to_timeline_media")) {
                     const media = JSON.parse(
                         response.slice(
                             response.indexOf("edge_owner_to_timeline_media") +
@@ -23,13 +25,26 @@ export default function Instagram() {
 
                     edges && (window.inList = edges);
                     setStored(true);
+                } else {
+                    throw new Error("Can't parse list");
                 }
+            })
+            .catch((error) => {
+                console.error(error);
+                setError(true);
             });
     };
 
-    if (!stored) {
-        fetchList();
+    useEffect(() => {
+        if (!stored) {
+            fetchList();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
+    if (error) {
+        return <ErrorMsg />;
+    } else if (!stored) {
         return <Loading />;
     } else {
         return (
