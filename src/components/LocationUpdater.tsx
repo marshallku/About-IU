@@ -1,7 +1,5 @@
-import React from "react";
+import { useEffect } from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-
-interface LocationUpdaterProps extends RouteComponentProps {}
 
 function updateMetaTag(title: string, desc: string) {
     document.head.querySelectorAll("meta").forEach((element) => {
@@ -15,10 +13,11 @@ function updateMetaTag(title: string, desc: string) {
     });
 }
 
-class LocationUpdater extends React.Component<LocationUpdaterProps> {
-    update() {
-        const pathname = window.location.pathname;
+function LocationUpdater(props: RouteComponentProps) {
+    const update = () => {
+        const { pathname } = props.location;
 
+        window.scrollTo(0, 0);
         if (pathname === "/IU/") {
             document.body.className = "home";
 
@@ -26,7 +25,7 @@ class LocationUpdater extends React.Component<LocationUpdaterProps> {
             updateMetaTag("About IU", "About IU");
         } else {
             if (pathname.indexOf("Discography/") === -1) {
-                const path2 = window.location.pathname.replace("/IU/", "");
+                const path2 = pathname.replace("/IU/", "");
                 const text =
                     path2 === "Profile"
                         ? "프로필"
@@ -58,21 +57,14 @@ class LocationUpdater extends React.Component<LocationUpdaterProps> {
                 );
             }
         }
-    }
+    };
 
-    componentDidMount() {
-        this.update();
-    }
+    useEffect(() => {
+        update();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props, props.location]);
 
-    componentDidUpdate({ location }: any) {
-        if (location.pathname !== this.props.location.pathname) {
-            this.update();
-        }
-    }
-
-    render() {
-        return null;
-    }
+    return null;
 }
 
 export default withRouter(LocationUpdater);

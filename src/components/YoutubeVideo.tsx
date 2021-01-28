@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 interface YoutubeVideoProps {
     id: string;
@@ -6,57 +6,33 @@ interface YoutubeVideoProps {
     mute?: boolean;
 }
 
-class YoutubeVideo extends React.Component<
-    YoutubeVideoProps,
-    {
-        queued: string;
-    }
-> {
-    constructor(props: YoutubeVideoProps) {
-        super(props);
-        this.state = {
-            queued: "",
-        };
-    }
+export default function YoutubeVideo(props: YoutubeVideoProps) {
+    const [queued, setQueued] = useState<string>("");
+    const [videoId, setVideoId] = useState<string>("");
 
-    componentDidMount = () => {
-        if (!window.YT) {
-            const script = document.createElement("script");
-            script.src = "https://www.youtube.com/iframe_api";
-            window.onYouTubeIframeAPIReady = this.loadVideo;
-            document.body.append(script);
-        } else {
-            this.loadVideo();
-        }
-    };
-
-    loadVideo = () => {
-        const { id, vars } = this.props;
+    const loadVideo = () => {
+        const { id, vars } = props;
 
         window.player = new window.YT.Player("player", {
             videoId: id,
             playerVars: vars,
             events: {
-                onReady: this.onPlayerReady,
-                onStateChange: this.restartVideo,
+                onReady: onPlayerReady,
+                onStateChange: restartVideo,
             },
         });
     };
 
-    loadVideoById = (id: string) => {
+    const loadVideoById = (id: string) => {
         if (typeof window.player.loadVideoById === "function") {
             window.player.loadVideoById(id);
         } else {
-            this.setState({
-                queued: id,
-            });
+            setQueued(id);
         }
     };
 
-    onPlayerReady = (event: YT.PlayerEvent) => {
-        const { queued } = this.state;
-
-        if (this.props.mute) {
+    const onPlayerReady = (event: YT.PlayerEvent) => {
+        if (props.mute) {
             event.target.mute();
         }
 
@@ -67,21 +43,30 @@ class YoutubeVideo extends React.Component<
         event.target.playVideo();
     };
 
-    restartVideo = () => {
+    const restartVideo = () => {
         0 === window.player.getPlayerState() && window.player.playVideo();
     };
 
-    componentDidUpdate(prevProps: YoutubeVideoProps) {
-        const { id } = this.props;
-
-        if (prevProps.id !== id) {
-            this.loadVideoById(id);
+    useEffect(() => {
+        if (!window.YT) {
+            const script = document.createElement("script");
+            script.src = "https://www.youtube.com/iframe_api";
+            window.onYouTubeIframeAPIReady = loadVideo;
+            document.body.append(script);
+        } else {
+            loadVideo();
         }
-    }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-    render() {
-        return <div id="player" />;
-    }
+    useEffect(() => {
+        const { id } = props;
+
+        if (videoId !== id) {
+            setVideoId(id);
+            loadVideoById(id);
+        }
+    }, [props, props.id, videoId]);
+
+    return <div id="player" />;
 }
-
-export default YoutubeVideo;
