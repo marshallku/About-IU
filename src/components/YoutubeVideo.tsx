@@ -13,6 +13,11 @@ export default function YoutubeVideo(props: YoutubeVideoProps) {
     const loadVideo = () => {
         const { id, vars } = props;
 
+        // Turn off captions by default
+        vars.cc_load_policy = 0;
+        // I don't know what's happening, but cc_load_policy=0 doesn't work without this
+        vars.hl = "ko-KR";
+
         window.player = new window.YT.Player("player", {
             videoId: id,
             playerVars: vars,
