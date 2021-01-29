@@ -43,7 +43,26 @@ export default function Instagram() {
     }, []);
 
     if (error) {
-        return <ErrorMsg />;
+        return (
+            <section id="instagram">
+                <div id="info" className="center">
+                    <img
+                        className="circle"
+                        src={`${process.env.PUBLIC_URL}/assets/images/insta_profile.jpg`}
+                        alt="이지금"
+                    ></img>
+                    <h1>dlwlrma</h1>
+                    <a
+                        href="https://www.instagram.com/dlwlrma/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                    >
+                        인스타 바로가기
+                    </a>
+                </div>
+                <ErrorMsg />
+            </section>
+        );
     } else if (!stored) {
         return <Loading />;
     } else {

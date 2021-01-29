@@ -146,7 +146,26 @@ export default function Youtube() {
         );
     } else {
         if (error) {
-            return <ErrorMsg />;
+            return (
+                <section id="youtube" className="max-1400">
+                    <div id="info" className="center">
+                        <img
+                            className="circle"
+                            src="https://yt3.ggpht.com/a/AATXAJzM1nsL7mNxOXuc626lhqXuKxjJW-Z6H4Elern5lw=s150-c-k-c0xffffffff-no-rj-mo"
+                            alt="이지금"
+                        ></img>
+                        <h1>이지금 [IU Official]</h1>
+                        <a
+                            href="https://www.youtube.com/c/dlwlrma/featured"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            채널 바로가기
+                        </a>
+                    </div>
+                    <ErrorMsg />
+                </section>
+            );
         } else {
             return <Loading />;
         }
