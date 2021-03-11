@@ -96,6 +96,7 @@ export default function Youtube() {
                 <div id="ytList" className="flex">
                     {window.ytList.map((itemObj: any) => {
                         const item = itemObj.gridVideoRenderer;
+                        if (!item) return <></>;
                         const title = item.title.runs[0].text;
 
                         return (
