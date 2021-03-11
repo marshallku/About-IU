@@ -3,12 +3,6 @@ import { Link } from "react-router-dom";
 import Loading from "./Loading";
 import "./List.css";
 
-interface ListProps {
-    name: "filmography" | "discography";
-    uri: string;
-    type: string;
-}
-
 export default function List(props: ListProps) {
     const [stored, setStored] = useState<boolean>(!!window[props.name]);
     const { name, type } = props;

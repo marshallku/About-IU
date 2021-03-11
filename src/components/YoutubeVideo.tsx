@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
 
-interface YoutubeVideoProps {
-    id: string;
-    vars: YT.PlayerVars;
-    mute?: boolean;
-}
-
 export default function YoutubeVideo(props: YoutubeVideoProps) {
     const [queued, setQueued] = useState<string>("");
     const [videoId, setVideoId] = useState<string>("");
