@@ -5,7 +5,20 @@ import "./List.css";
 
 export default function List(props: ListProps) {
     const [stored, setStored] = useState<boolean>(!!window[props.name]);
-    const { name, type } = props;
+    const { name, type, animate } = props;
+    const observe = (element: HTMLElement | null) => {
+        if (element && animate) observer.observe(element);
+    };
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const target = entry.target;
+            if (entry.isIntersecting) {
+                target.classList.add("animate--active");
+            } else {
+                target.classList.remove("animate--active");
+            }
+        });
+    });
 
     useEffect(() => {
         if (!stored) {
@@ -33,8 +46,9 @@ export default function List(props: ListProps) {
                                 fromList: true,
                             },
                         }}
-                        className="grid-item"
+                        className={`grid-item ${animate ? "animate" : ""}`}
                         data-language={item.language}
+                        ref={observe}
                     >
                         <div
                             className="grid-item-bg"
@@ -55,7 +69,11 @@ export default function List(props: ListProps) {
         } else if (type === "timeline") {
             return window[name].map((item: any, index: number) => {
                 return (
-                    <div key={index} className="timeline-item">
+                    <div
+                        key={index}
+                        className={`timeline-item ${animate ? "animate" : ""}`}
+                        ref={observe}
+                    >
                         <h2 className="title">
                             {item.title}
                             <time className="date">({item.date})</time>

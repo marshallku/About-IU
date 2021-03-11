@@ -7,6 +7,7 @@ export default function Discography() {
                 name="discography"
                 uri={`${process.env.PUBLIC_URL}/data/album.json`}
                 type="grid"
+                animate={true}
             />
         </section>
     );

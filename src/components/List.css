@@ -15,6 +15,15 @@
     background: #000;
 }
 
+.grid-item.animate {
+    opacity: 0;
+    transition: opacity 0.35s ease-in-out;
+}
+
+.grid-item.animate--active {
+    opacity: 1;
+}
+
 .grid-item-bg {
     position: absolute;
     top: 0;
