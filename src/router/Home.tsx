@@ -3,7 +3,7 @@ import YoutubeVideo from "../components/YoutubeVideo";
 import "./Home.css";
 
 export default function Home() {
-    const mvList = ["0-q1KafFCLU"];
+    const mvList = ["v7bnOxV4jAc"];
     const video = mvList[Math.round(Math.random() * (mvList.length - 1))];
 
     const toggleMute = (
