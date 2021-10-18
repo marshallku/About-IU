@@ -1,5 +1,12 @@
 [
     {
+        "name": "strawberry moon",
+        "category": "싱글",
+        "releaseDate": "2021-10-19",
+        "language": "ko",
+        "image": "/assets/images/cover/strawberry-moon.jpg"
+    },
+    {
         "name": "LILAC",
         "category": "정규",
         "releaseDate": "2021-03-25",
