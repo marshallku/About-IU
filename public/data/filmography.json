@@ -1,9 +1,23 @@
 [
     {
         "title": "드림",
-        "date": "2021 예정",
+        "date": "2022 예정",
         "name": "이소민",
         "image": "https://t1.daumcdn.net/cfile/tistory/990FB93A5F9AE32944?original",
+        "category": "영화"
+    },
+    {
+        "title": "브로커",
+        "date": "2021 예정",
+        "name": "???",
+        "image": "",
+        "category": "영화"
+    },
+    {
+        "title": "아무도 없는 곳",
+        "date": "2021",
+        "name": "미영",
+        "image": "https://blog.kakaocdn.net/dn/b5lstz/btrijqnGIfn/NG904DfPd35dwWg7H0xTfK/img.jpg",
         "category": "영화"
     },
     {

@@ -81,7 +81,7 @@ export default function List(props: ListProps) {
                         <h3 className="name">{item.name}</h3>
                         {item.image ? (
                             <img src={item.image} alt={item.title} />
-                        ) : (
+                        ) : item.video ? (
                             <video
                                 autoPlay
                                 playsInline
@@ -89,7 +89,7 @@ export default function List(props: ListProps) {
                                 muted
                                 src={item.video}
                             ></video>
-                        )}
+                        ) : null}
                         <div className="category">{item.category}</div>
                     </div>
                 );
