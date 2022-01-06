@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
-import * as H from "history";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./DiscographyDetails.css";
 
-interface BackButtonProps {
-    location: H.Location;
-}
-
-function BackButton(props: BackButtonProps) {
-    if (props.location.state) {
+function BackButton() {
+    if (window.history.length > 1) {
         return (
             <button
                 onClick={() => {
@@ -30,7 +25,9 @@ function BackButton(props: BackButtonProps) {
     }
 }
 
-export default function DiscographyDetails(props: RouteComponentProps) {
+export default function DiscographyDetails() {
+    const location = useLocation();
+    const { album } = useParams();
     const [loading, setLoading] = useState<boolean>(true);
     const [activated, setActivated] = useState<number | false>(false);
     const [videoRevealed, setVideoRevealed] = useState<boolean>(false);
@@ -38,11 +35,8 @@ export default function DiscographyDetails(props: RouteComponentProps) {
     const [videoScrolled, setVideoScrolled] = useState<boolean>(false);
     const [data, setData] = useState<discographyDetailJson>();
 
-    const { pathname } = window.location;
-    const albumTitle = decodeURI(
-        pathname.slice(pathname.lastIndexOf("/") + 1, pathname.length)
-    );
-    const coverImageUrl = `${process.env.PUBLIC_URL}/assets/images/album_cover/${albumTitle}.jpg`;
+    const albumTitle = album ? decodeURI(album) : "";
+    const coverImageUrl = `${process.env.PUBLIC_URL}/assets/images/album_cover/${album}.jpg`;
     let prevScroll = 0;
 
     const shrinkVideo = () => {
@@ -71,12 +65,7 @@ export default function DiscographyDetails(props: RouteComponentProps) {
     };
 
     useEffect(() => {
-        const data = `${props.location.pathname.replace(
-            "Discography",
-            "data/albums"
-        )}.json`;
-
-        fetch(data)
+        fetch(`${process.env.PUBLIC_URL}/data/albums/${album}.json`)
             .then((response) => {
                 const contentType = response.headers.get("content-type");
 
@@ -107,7 +96,7 @@ export default function DiscographyDetails(props: RouteComponentProps) {
                 id="discographyDetail"
                 className={activated !== false ? "lyric-activated" : ""}
             >
-                <BackButton location={props.location} />
+                <BackButton />
                 <div
                     className="back-to-tracklist icon-arrow-left"
                     onClick={() => {
@@ -319,7 +308,7 @@ export default function DiscographyDetails(props: RouteComponentProps) {
     } else {
         return (
             <section id="discographyDetail" className="loading">
-                <BackButton location={props.location} />
+                <BackButton />
                 <div
                     className="back-to-tracklist icon-arrow-left"
                     onClick={() => {

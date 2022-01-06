@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function updateMetaTag(title: string, desc: string) {
     document.head.querySelectorAll("meta").forEach((element) => {
@@ -13,11 +13,11 @@ function updateMetaTag(title: string, desc: string) {
     });
 }
 
-function LocationUpdater(props: RouteComponentProps) {
+export default function LocationUpdater() {
+    const location = useLocation();
     const update = () => {
-        const { pathname } = props.location;
+        const { pathname } = location;
 
-        window.scrollTo(0, 0);
         if (pathname === "/IU/") {
             document.body.className = "home";
 
@@ -62,9 +62,7 @@ function LocationUpdater(props: RouteComponentProps) {
     useEffect(() => {
         update();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props, props.location]);
+    }, [location]);
 
     return null;
 }
-
-export default withRouter(LocationUpdater);

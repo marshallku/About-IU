@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Link, withRouter, RouteComponentProps } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./HeaderNavigation.css";
 
-function HeaderNavigation(props: RouteComponentProps) {
+export default function HeaderNavigation() {
+    const location = useLocation();
     const [scrolled, setScrolled] = useState<boolean>(false);
     const [navOpened, setNavOpened] = useState<boolean>(false);
     const [current, setCurrent] = useState<string>("");
@@ -35,8 +36,8 @@ function HeaderNavigation(props: RouteComponentProps) {
     };
 
     useEffect(() => {
-        setCurrent(props.location.pathname.replace("/IU", ""));
-    }, [props.location.pathname]);
+        setCurrent(location.pathname.replace("/IU", ""));
+    }, [location.pathname]);
 
     window.addEventListener(
         "scroll",
@@ -203,5 +204,3 @@ function HeaderNavigation(props: RouteComponentProps) {
         </>
     );
 }
-
-export default withRouter(HeaderNavigation);

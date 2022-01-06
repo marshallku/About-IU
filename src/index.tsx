@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HeaderNavigation from "./components/HeaderNavigation";
 import Home from "./router/Home";
 import Profile from "./router/Profile";
@@ -19,41 +19,36 @@ ReactDOM.render(
         <BrowserRouter>
             <HeaderNavigation />
             <main id="main">
-                <Route
-                    exact
-                    path={`${process.env.PUBLIC_URL}/`}
-                    component={Home}
-                />
-                <Route
-                    exact
-                    path={`${process.env.PUBLIC_URL}/Profile`}
-                    component={Profile}
-                />
-                <Route
-                    exact
-                    path={`${process.env.PUBLIC_URL}/Discography`}
-                    component={Discography}
-                />
-                <Route
-                    strict
-                    path={`${process.env.PUBLIC_URL}/Discography/`}
-                    component={DiscographyDetails}
-                />
-                <Route
-                    exact
-                    path={`${process.env.PUBLIC_URL}/Filmography`}
-                    component={Filmography}
-                />
-                <Route
-                    exact
-                    path={`${process.env.PUBLIC_URL}/Youtube`}
-                    component={Youtube}
-                />
-                <Route
-                    exact
-                    path={`${process.env.PUBLIC_URL}/Instagram`}
-                    component={Instagram}
-                />
+                <Routes>
+                    <Route
+                        path={`${process.env.PUBLIC_URL}/`}
+                        element={<Home />}
+                    />
+                    <Route
+                        path={`${process.env.PUBLIC_URL}/Profile`}
+                        element={<Profile />}
+                    />
+                    <Route
+                        path={`${process.env.PUBLIC_URL}/Discography`}
+                        element={<Discography />}
+                    />
+                    <Route
+                        path={`${process.env.PUBLIC_URL}/Discography/:album`}
+                        element={<DiscographyDetails />}
+                    />
+                    <Route
+                        path={`${process.env.PUBLIC_URL}/Filmography`}
+                        element={<Filmography />}
+                    />
+                    <Route
+                        path={`${process.env.PUBLIC_URL}/Youtube`}
+                        element={<Youtube />}
+                    />
+                    <Route
+                        path={`${process.env.PUBLIC_URL}/Instagram`}
+                        element={<Instagram />}
+                    />
+                </Routes>
             </main>
             <LocationUpdater />
         </BrowserRouter>

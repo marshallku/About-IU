@@ -40,12 +40,7 @@ export default function List(props: ListProps) {
                 return (
                     <Link
                         key={index}
-                        to={{
-                            pathname: `${process.env.PUBLIC_URL}/Discography/${item.name}`,
-                            state: {
-                                fromList: true,
-                            },
-                        }}
+                        to={`${process.env.PUBLIC_URL}/Discography/${item.name}`}
                         className={`grid-item ${animate ? "animate" : ""}`}
                         data-language={item.language}
                         ref={observe}
