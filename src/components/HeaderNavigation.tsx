@@ -1,6 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactChild } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./HeaderNavigation.css";
+
+function LinkWithScroll({
+    className,
+    to,
+    callback,
+    children,
+}: {
+    className: string;
+    to: string;
+    callback?: () => void;
+    children: ReactChild;
+}) {
+    return (
+        <Link
+            to={to}
+            className={className}
+            onClick={() => {
+                window.scrollTo(0, 0);
+                callback?.();
+            }}
+        >
+            {children}
+        </Link>
+    );
+}
 
 export default function HeaderNavigation() {
     const location = useLocation();
@@ -61,29 +86,29 @@ export default function HeaderNavigation() {
                 <div className="left">
                     {!isSmallScreen && (
                         <>
-                            <Link
+                            <LinkWithScroll
                                 className={isCurrent("/")}
                                 to={`${process.env.PUBLIC_URL}/`}
                             >
                                 Home
-                            </Link>
-                            <Link
+                            </LinkWithScroll>
+                            <LinkWithScroll
                                 className={isCurrent("/Profile")}
                                 to={`${process.env.PUBLIC_URL}/Profile`}
                             >
                                 Profile
-                            </Link>
-                            <Link
+                            </LinkWithScroll>
+                            <LinkWithScroll
                                 className={isCurrent("/Instagram")}
                                 to={`${process.env.PUBLIC_URL}/Instagram`}
                             >
                                 Instagram
-                            </Link>
+                            </LinkWithScroll>
                         </>
                     )}
                 </div>
                 <div className="flex center">
-                    <Link
+                    <LinkWithScroll
                         to={`${process.env.PUBLIC_URL}/`}
                         className="logoWrap"
                     >
@@ -111,29 +136,29 @@ export default function HeaderNavigation() {
                                 />
                             </g>
                         </svg>
-                    </Link>
+                    </LinkWithScroll>
                 </div>
                 <div className="right">
                     {!isSmallScreen && (
                         <>
-                            <Link
+                            <LinkWithScroll
                                 className={isCurrent("/Youtube")}
                                 to={`${process.env.PUBLIC_URL}/Youtube`}
                             >
                                 Youtube
-                            </Link>
-                            <Link
+                            </LinkWithScroll>
+                            <LinkWithScroll
                                 className={isCurrent("/Discography")}
                                 to={`${process.env.PUBLIC_URL}/Discography`}
                             >
                                 Discography
-                            </Link>
-                            <Link
+                            </LinkWithScroll>
+                            <LinkWithScroll
                                 className={isCurrent("/Filmography")}
                                 to={`${process.env.PUBLIC_URL}/Filmography`}
                             >
                                 Filmography
-                            </Link>
+                            </LinkWithScroll>
                         </>
                     )}
                     <div
@@ -156,48 +181,48 @@ export default function HeaderNavigation() {
                         <div className="hbg-mid"></div>
                         <div className="hbg-bot"></div>
                     </div>
-                    <Link
+                    <LinkWithScroll
                         className={isCurrent("/")}
-                        onClick={hideNav}
+                        callback={hideNav}
                         to={`${process.env.PUBLIC_URL}/`}
                     >
                         Home
-                    </Link>
-                    <Link
+                    </LinkWithScroll>
+                    <LinkWithScroll
                         className={isCurrent("/Profile")}
-                        onClick={hideNav}
+                        callback={hideNav}
                         to={`${process.env.PUBLIC_URL}/Profile`}
                     >
                         Profile
-                    </Link>
-                    <Link
+                    </LinkWithScroll>
+                    <LinkWithScroll
                         className={isCurrent("/Instagram")}
-                        onClick={hideNav}
+                        callback={hideNav}
                         to={`${process.env.PUBLIC_URL}/Instagram`}
                     >
                         Instagram
-                    </Link>
-                    <Link
+                    </LinkWithScroll>
+                    <LinkWithScroll
                         className={isCurrent("/Youtube")}
-                        onClick={hideNav}
+                        callback={hideNav}
                         to={`${process.env.PUBLIC_URL}/Youtube`}
                     >
                         Youtube
-                    </Link>
-                    <Link
+                    </LinkWithScroll>
+                    <LinkWithScroll
                         className={isCurrent("/Discography")}
-                        onClick={hideNav}
+                        callback={hideNav}
                         to={`${process.env.PUBLIC_URL}/Discography`}
                     >
                         Discography
-                    </Link>
-                    <Link
+                    </LinkWithScroll>
+                    <LinkWithScroll
                         className={isCurrent("/Filmography")}
-                        onClick={hideNav}
+                        callback={hideNav}
                         to={`${process.env.PUBLIC_URL}/Filmography`}
                     >
                         Filmography
-                    </Link>
+                    </LinkWithScroll>
                 </nav>
             )}
         </>
