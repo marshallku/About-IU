@@ -59,10 +59,7 @@ export default function LocationUpdater() {
         }
     };
 
-    useEffect(() => {
-        update();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [location]);
+    useEffect(update, [location]);
 
     return null;
 }
