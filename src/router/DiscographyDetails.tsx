@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./DiscographyDetails.css";
 
@@ -26,7 +26,6 @@ function BackButton() {
 }
 
 export default function DiscographyDetails() {
-    const location = useLocation();
     const { album } = useParams();
     const [loading, setLoading] = useState<boolean>(true);
     const [activated, setActivated] = useState<number | false>(false);

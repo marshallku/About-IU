@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ErrorMsg from "../components/ErrorMsg";
 import Loading from "../components/Loading";
 import "./Instagram.css";
