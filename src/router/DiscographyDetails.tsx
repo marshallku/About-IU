@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./DiscographyDetails.css";
@@ -29,20 +29,30 @@ export default function DiscographyDetails() {
     const { album } = useParams();
     const [loading, setLoading] = useState<boolean>(true);
     const [activated, setActivated] = useState<number | false>(false);
-    const [videoRevealed, setVideoRevealed] = useState<boolean>(false);
+    const [_videoRevealed, _setVideoRevealed] = useState<boolean>(false);
+    const videoRevealed = useRef(_videoRevealed);
+    const setVideoRevealed = (revealed: boolean) => {
+        videoRevealed.current = revealed;
+        _setVideoRevealed(revealed);
+    };
     const [paused, setPaused] = useState<boolean>(false);
     const [videoScrolled, setVideoScrolled] = useState<boolean>(false);
+    const [_prevScroll, _setPrevScroll] = useState(0);
+    const prevScroll = useRef(_prevScroll);
+    const setPrevScroll = (number: number) => {
+        prevScroll.current = number;
+        _setPrevScroll(number);
+    };
     const [data, setData] = useState<discographyDetailJson>();
 
     const albumTitle = album ? decodeURI(album) : "";
     const coverImageUrl = `${process.env.PUBLIC_URL}/assets/images/album_cover/${album}.jpg`;
-    let prevScroll = 0;
 
     const shrinkVideo = () => {
-        if (!videoRevealed) return;
-
-        setVideoScrolled(prevScroll < window.scrollY);
-        prevScroll = window.scrollY;
+        if (!videoRevealed.current) return;
+        const { scrollY } = window;
+        setVideoScrolled(prevScroll.current < scrollY);
+        setPrevScroll(scrollY);
     };
 
     const pauseVideo = () => {
@@ -257,7 +267,7 @@ export default function DiscographyDetails() {
                 {activated !== false &&
                 data &&
                 data.tracks[activated].video &&
-                videoRevealed ? (
+                videoRevealed.current ? (
                     <div
                         className={`video-popup${
                             videoScrolled ? " scrolled" : ""
