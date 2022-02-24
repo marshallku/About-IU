@@ -46,7 +46,9 @@ export default function DiscographyDetails() {
     const [data, setData] = useState<discographyDetailJson>();
 
     const albumTitle = album ? decodeURI(album) : "";
-    const coverImageUrl = `${process.env.PUBLIC_URL}/assets/images/album_cover/${album}.jpg`;
+    const coverImageUrl = `${
+        import.meta.env.BASE_URL
+    }/assets/images/album_cover/${album}.jpg`;
 
     const shrinkVideo = () => {
         if (!videoRevealed.current) return;
@@ -74,7 +76,7 @@ export default function DiscographyDetails() {
     };
 
     useEffect(() => {
-        fetch(`${process.env.PUBLIC_URL}/data/albums/${album}.json`)
+        fetch(`${import.meta.env.BASE_URL}/data/albums/${album}.json`)
             .then((response) => {
                 const contentType = response.headers.get("content-type");
 

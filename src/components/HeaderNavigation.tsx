@@ -86,32 +86,20 @@ export default function HeaderNavigation() {
                 <div className="left">
                     {!isSmallScreen && (
                         <>
-                            <LinkWithScroll
-                                className={isCurrent("/")}
-                                to={`${process.env.PUBLIC_URL}/`}
-                            >
+                            <LinkWithScroll className={isCurrent("/")} to="/">
                                 Home
                             </LinkWithScroll>
                             <LinkWithScroll
-                                className={isCurrent("/Profile")}
-                                to={`${process.env.PUBLIC_URL}/Profile`}
+                                className={isCurrent("/Youtube")}
+                                to="/Youtube"
                             >
-                                Profile
-                            </LinkWithScroll>
-                            <LinkWithScroll
-                                className={isCurrent("/Instagram")}
-                                to={`${process.env.PUBLIC_URL}/Instagram`}
-                            >
-                                Instagram
+                                Youtube
                             </LinkWithScroll>
                         </>
                     )}
                 </div>
                 <div className="flex center">
-                    <LinkWithScroll
-                        to={`${process.env.PUBLIC_URL}/`}
-                        className="logoWrap"
-                    >
+                    <LinkWithScroll to="/" className="logoWrap">
                         <svg
                             version="1.1"
                             id="logo"
@@ -142,20 +130,14 @@ export default function HeaderNavigation() {
                     {!isSmallScreen && (
                         <>
                             <LinkWithScroll
-                                className={isCurrent("/Youtube")}
-                                to={`${process.env.PUBLIC_URL}/Youtube`}
-                            >
-                                Youtube
-                            </LinkWithScroll>
-                            <LinkWithScroll
                                 className={isCurrent("/Discography")}
-                                to={`${process.env.PUBLIC_URL}/Discography`}
+                                to="/Discography"
                             >
                                 Discography
                             </LinkWithScroll>
                             <LinkWithScroll
                                 className={isCurrent("/Filmography")}
-                                to={`${process.env.PUBLIC_URL}/Filmography`}
+                                to="/Filmography"
                             >
                                 Filmography
                             </LinkWithScroll>
@@ -184,42 +166,28 @@ export default function HeaderNavigation() {
                     <LinkWithScroll
                         className={isCurrent("/")}
                         callback={hideNav}
-                        to={`${process.env.PUBLIC_URL}/`}
+                        to="/"
                     >
                         Home
                     </LinkWithScroll>
                     <LinkWithScroll
-                        className={isCurrent("/Profile")}
-                        callback={hideNav}
-                        to={`${process.env.PUBLIC_URL}/Profile`}
-                    >
-                        Profile
-                    </LinkWithScroll>
-                    <LinkWithScroll
-                        className={isCurrent("/Instagram")}
-                        callback={hideNav}
-                        to={`${process.env.PUBLIC_URL}/Instagram`}
-                    >
-                        Instagram
-                    </LinkWithScroll>
-                    <LinkWithScroll
                         className={isCurrent("/Youtube")}
                         callback={hideNav}
-                        to={`${process.env.PUBLIC_URL}/Youtube`}
+                        to="/Youtube"
                     >
                         Youtube
                     </LinkWithScroll>
                     <LinkWithScroll
                         className={isCurrent("/Discography")}
                         callback={hideNav}
-                        to={`${process.env.PUBLIC_URL}/Discography`}
+                        to="/Discography"
                     >
                         Discography
                     </LinkWithScroll>
                     <LinkWithScroll
                         className={isCurrent("/Filmography")}
                         callback={hideNav}
-                        to={`${process.env.PUBLIC_URL}/Filmography`}
+                        to="/Filmography"
                     >
                         Filmography
                     </LinkWithScroll>

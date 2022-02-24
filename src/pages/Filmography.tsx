@@ -9,7 +9,7 @@ export default function Filmography() {
         >
             <List
                 name="filmography"
-                uri={`${process.env.PUBLIC_URL}/data/filmography.json`}
+                uri={`${import.meta.env.BASE_URL}/data/filmography.json`}
                 type="timeline"
             />
         </section>

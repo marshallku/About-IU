@@ -123,3 +123,28 @@ body:not(.lyrics) #main > section.less-top-margin {
     width: 100%;
     padding: 150px 0;
 }
+
+/* loader */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(
+        left,
+        #f5a1b1 15%,
+        #a277bc 50%,
+        #4dd6d3 85%
+    );
+    background: linear-gradient(
+        to right,
+        #f5a1b1 15%,
+        #a277bc 50%,
+        #4dd6d3 85%
+    );
+    z-index: 10000;
+}

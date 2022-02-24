@@ -40,7 +40,7 @@ export default function List(props: ListProps) {
                 return (
                     <Link
                         key={index}
-                        to={`${process.env.PUBLIC_URL}/Discography/${item.name}`}
+                        to={`/Discography/${item.name}`}
                         className={`grid-item ${animate ? "animate" : ""}`}
                         data-language={item.language}
                         ref={observe}
@@ -49,7 +49,7 @@ export default function List(props: ListProps) {
                             className="grid-item-bg"
                             style={{
                                 backgroundImage: `url("${
-                                    process.env.PUBLIC_URL
+                                    import.meta.env.BASE_URL
                                 }${`/assets/images/album_cover/${item.name}.jpg`}")`,
                             }}
                         ></div>
