@@ -2,7 +2,7 @@
 
 IU Fan Page with React.JS
 
-[Live Preview](https://marshall-ku.com/IU/)
+[Live Preview](https://marshallku.com/IU/)
 
 ## Home Page
 

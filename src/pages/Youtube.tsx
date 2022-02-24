@@ -30,9 +30,7 @@ export default function Youtube() {
     useEffect(() => {
         // Fetch youtube video list
         if (!stored) {
-            fetch(
-                "https://marshall-ku.com/get?uri=https://www.youtube.com/c/dlwlrma/videos"
-            )
+            fetch("/get?uri=https://www.youtube.com/c/dlwlrma/videos")
                 .then((response) => {
                     return response.text();
                 })
