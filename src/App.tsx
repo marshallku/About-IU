@@ -13,12 +13,18 @@ function App() {
             <HeaderNavigation />
             <main id="main">
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/Discography" element={<Discography />}>
-                        <Route path=":album" element={<DiscographyDetails />} />
+                    <Route path="/">
+                        <Route index element={<Home />} />
+                        <Route path="Discography">
+                            <Route index element={<Discography />} />
+                            <Route
+                                path=":album"
+                                element={<DiscographyDetails />}
+                            />
+                        </Route>
+                        <Route path="Filmography" element={<Filmography />} />
+                        <Route path="Youtube" element={<Youtube />} />
                     </Route>
-                    <Route path="/Filmography" element={<Filmography />} />
-                    <Route path="/Youtube" element={<Youtube />} />
                 </Routes>
             </main>
             <LocationUpdater />
