@@ -1,7 +1,7 @@
 @font-face {
     font-family: marshallIcon;
-    src: url(assets/icon/marshallIcon.woff?inv9z6) format("woff"),
-        url(assets/icon/marshallIcon.svg?inv9z6#iconfont) format("svg");
+    src: url(/assets/icon/marshallIcon.woff?inv9z6) format("woff"),
+        url(/assets/icon/marshallIcon.svg?inv9z6#iconfont) format("svg");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
