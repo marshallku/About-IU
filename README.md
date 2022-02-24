@@ -8,19 +8,7 @@ IU Fan Page with React.JS
 
 ![Home Page](https://blog.kakaocdn.net/dn/SH5ph/btqGTmJnBYj/nmQrO6U8mxnvlhxKmnyxNK/img.png)
 
-Plays random Music Video.
-
-## Profile Page
-
-![Profile Page](https://blog.kakaocdn.net/dn/YML4z/btqGX24BjIH/kqFj3OPyU5e44OWCziJMlK/img.png)
-
-Just a simple Profile Page.
-
-## Instagram Page
-
-![Instagram Page](https://blog.kakaocdn.net/dn/d5AsnF/btqG1XgOdZb/et4jiO3n0YkK5YyGYlpFE1/img.png)
-
-Displays recent Instagram posts.
+Plays random Video.
 
 ## Youtube Page
 
