@@ -1,13 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
+
+const DEFAULT_TITLE = "About IU";
 
 function updateMetaTag(title: string, desc: string) {
     document.head.querySelectorAll("meta").forEach((element) => {
         if (element.classList.contains(".meta-url")) {
             element.content = window.location.href;
-        } else if (element.classList.contains("meta-title")) {
+            return;
+        }
+
+        if (element.classList.contains("meta-title")) {
             element.content = title;
-        } else if (element.classList.contains("meta-desc")) {
+            return;
+        }
+
+        if (element.classList.contains("meta-desc")) {
             element.content = desc;
         }
     });
@@ -15,51 +23,47 @@ function updateMetaTag(title: string, desc: string) {
 
 export default function LocationUpdater() {
     const location = useLocation();
-    const update = () => {
-        const { pathname } = location;
+    const titleInKr = useMemo(
+        () => ({
+            Youtube: "유튜브 목록",
+            Discography: "음반 목록",
+            Filmography: "연기 목록",
+        }),
+        []
+    );
 
-        if (pathname === "/IU/") {
+    useEffect(() => {
+        const { pathname } = location;
+        const [, path, rawTitle] = pathname.split("/");
+
+        if (path === "") {
             document.body.className = "home";
 
-            document.title = "About IU";
-            updateMetaTag("About IU", "About IU");
-        } else {
-            if (pathname.indexOf("Discography/") === -1) {
-                const path2 = pathname.replace("/IU/", "");
-                const text =
-                    path2 === "Profile"
-                        ? "프로필"
-                        : path2 === "Discography"
-                        ? "가사집"
-                        : path2 === "Filmography"
-                        ? "필모그래피"
-                        : path2 === "Youtube"
-                        ? "유튜브 피드"
-                        : "인스타그램 피드";
-
-                document.body.className = path2;
-
-                document.title = text;
-                updateMetaTag(text, `아이유 ${text}`);
-            } else {
-                const albumTitle = decodeURI(
-                    pathname.slice(
-                        pathname.lastIndexOf("/") + 1,
-                        pathname.length
-                    )
-                );
-                document.body.className = "lyrics";
-
-                document.title = `${albumTitle} 가사집`;
-                updateMetaTag(
-                    `${albumTitle} 가사집`,
-                    `아이유 ${albumTitle} 가사집`
-                );
-            }
+            document.title = DEFAULT_TITLE;
+            updateMetaTag(DEFAULT_TITLE, DEFAULT_TITLE);
+            return;
         }
-    };
 
-    useEffect(update, [location]);
+        if (rawTitle) {
+            const parsedTitle = decodeURI(rawTitle);
+
+            document.body.className = "lyrics";
+            document.title = `${parsedTitle} 가사집`;
+            updateMetaTag(
+                `${parsedTitle} 가사집`,
+                `아이유 ${parsedTitle} 가사집`
+            );
+            return;
+        }
+
+        const koreanTitle =
+            titleInKr[path as keyof typeof titleInKr] || DEFAULT_TITLE;
+
+        document.body.className = path;
+
+        document.title = koreanTitle;
+        updateMetaTag(koreanTitle, `아이유 ${koreanTitle}`);
+    }, [location]);
 
     return null;
 }
