@@ -1,5 +1,12 @@
 [
     {
+        "name": "조각집",
+        "category": "스페셜 EP",
+        "releaseDate": "2021-12-29",
+        "language": "ko",
+        "image": "/assets/images/cover/조각집.jpg"
+    },
+    {
         "name": "strawberry moon",
         "category": "싱글",
         "releaseDate": "2021-10-19",
