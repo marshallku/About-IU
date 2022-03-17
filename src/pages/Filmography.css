@@ -1,4 +1,20 @@
-#filmography::after {
+.timeline {
+    position: relative;
+    padding: 100px 0;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    background: linear-gradient(180deg, #f5a1b1, #a277bc, #4dd6d3);
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    z-index: 5;
+}
+
+.timeline::after {
     content: "";
     position: absolute;
     top: 0;
@@ -8,4 +24,92 @@
     pointer-events: none;
     background: linear-gradient(180deg, #f5a1b1, #a277bc, #4dd6d3);
     mix-blend-mode: hue;
+}
+
+.timeline-item {
+    position: relative;
+    width: calc(100% - 46px);
+    margin-left: 10px;
+    margin-bottom: 50px;
+    padding: 10px 30px;
+    background: #ffaa99;
+    color: #121212;
+    border-radius: 5px;
+}
+
+.timeline-item::before {
+    content: "";
+    box-sizing: content-box;
+    position: absolute;
+    top: 5px;
+    right: -37.3px;
+    display: block;
+    width: 17.5px;
+    height: 25px;
+    border: 0 solid #ffaa99;
+    border-width: 0 20px;
+    border-radius: 50%;
+    clip: rect(0, 28px, 10px, 19px);
+}
+
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    right: -18px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: rgba(85, 85, 85, 0.75);
+    border-radius: 50%;
+    z-index: 6;
+}
+
+.timeline-item > * {
+    margin-bottom: 10px;
+}
+
+.timeline-item > img,
+.timeline-item > video {
+    position: relative;
+    z-index: 5;
+}
+
+.timeline-item > .title {
+    font-size: 1.5rem;
+}
+
+.timeline-item > .title > .date {
+    margin-left: 5px;
+    font-size: 0.8rem;
+}
+
+.timeline-item > .category {
+    font-size: 0.8rem;
+}
+
+@media screen and (min-width: 680px) {
+    .timeline::before {
+        left: calc(50% - 3px);
+        right: auto;
+    }
+
+    .timeline-item {
+        width: calc(50% - 23px);
+    }
+
+    .timeline-item:nth-child(2n) {
+        left: calc(50% + 13px);
+        margin-left: 0;
+    }
+
+    .timeline-item:nth-child(2n)::before {
+        right: auto;
+        left: -37.4px;
+        clip: rect(0, 41px, 15px, 28px);
+    }
+
+    .timeline-item:nth-child(2n)::after {
+        right: auto;
+        left: -18px;
+    }
 }

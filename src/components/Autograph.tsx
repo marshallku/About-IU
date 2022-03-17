@@ -24,7 +24,7 @@ export default function Autograph() {
                     strokeWidth: "3px",
                     strokeDasharray: "1878",
                 }}
-            />{" "}
+            />
         </svg>
     );
 }

@@ -2,12 +2,35 @@ import { useState, useEffect } from "react";
 import YoutubeVideo from "../components/YoutubeVideo";
 import ErrorMsg from "../components/ErrorMsg";
 import Loading from "../components/Loading";
+import { useYoutubeStore } from "../store";
 import "./Youtube.css";
 
+function YoutubeContainer({ children }: { children: React.ReactChild }) {
+    return (
+        <section id="youtube" className="max-1400">
+            <div id="info" className="center">
+                <img
+                    className="circle"
+                    src="https://yt3.ggpht.com/a/AATXAJzM1nsL7mNxOXuc626lhqXuKxjJW-Z6H4Elern5lw=s150-c-k-c0xffffffff-no-rj-mo"
+                    alt="이지금"
+                ></img>
+                <h1>이지금 [IU Official]</h1>
+                <a
+                    href="https://www.youtube.com/c/dlwlrma/featured"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
+                    채널 바로가기
+                </a>
+            </div>
+            {children}
+        </section>
+    );
+}
+
 export default function Youtube() {
-    const [stored, setStored] = useState(!!window.ytList);
-    const [videoId, setVideoId] = useState("");
-    const [error, setError] = useState(false);
+    const [poppedUpVideoId, setPoppedUpVideoId] = useState("");
+    const { data, fetchList } = useYoutubeStore();
 
     const fullScreen = (videoId: string) => {
         const { documentElement } = document;
@@ -17,51 +40,18 @@ export default function Youtube() {
             return null;
         });
         documentElement.classList.add("overHidden");
-        setVideoId(videoId);
+        setPoppedUpVideoId(videoId);
     };
 
     const handleFullScreenChange = () => {
         if (!document.fullscreenElement) {
             document.documentElement.classList.remove("overHidden");
-            setVideoId("");
+            setPoppedUpVideoId("");
         }
     };
 
     useEffect(() => {
-        // Fetch youtube video list
-        if (!stored) {
-            fetch("/get?uri=https://www.youtube.com/c/dlwlrma/videos")
-                .then((response) => {
-                    return response.text();
-                })
-                .then((response) => {
-                    try {
-                        const parsed = JSON.parse(
-                            response
-                                .slice(
-                                    response.indexOf('"tabs"'),
-                                    response.indexOf('"header') - 3
-                                )
-                                .replace('"tabs":', "")
-                        );
-                        const ytList =
-                            parsed[1].tabRenderer.content.sectionListRenderer
-                                .contents[0].itemSectionRenderer.contents[0]
-                                .gridRenderer.items;
-
-                        ytList && (window.ytList = ytList);
-                        setStored(true);
-                    } catch (error) {
-                        console.error(error);
-                        setError(true);
-                    }
-                })
-                .catch((error) => {
-                    console.error(error);
-                    setError(true);
-                });
-        }
-
+        fetchList();
         document.addEventListener("fullscreenchange", handleFullScreenChange);
 
         return () => {
@@ -70,67 +60,45 @@ export default function Youtube() {
                 handleFullScreenChange
             );
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (stored) {
-        return (
-            <section id="youtube" className="max-1400">
-                <div id="info" className="center">
-                    <img
-                        className="circle"
-                        src="https://yt3.ggpht.com/a/AATXAJzM1nsL7mNxOXuc626lhqXuKxjJW-Z6H4Elern5lw=s150-c-k-c0xffffffff-no-rj-mo"
-                        alt="이지금"
-                    ></img>
-                    <h1>이지금 [IU Official]</h1>
-                    <a
-                        href="https://www.youtube.com/c/dlwlrma/featured"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        채널 바로가기
-                    </a>
-                </div>
-                <div id="ytList" className="flex">
-                    {window.ytList.map((itemObj: any) => {
-                        const item = itemObj.gridVideoRenderer;
-                        if (!item) return <></>;
-                        const title = item.title.runs[0].text;
+    if (!data) {
+        return <Loading />;
+    }
 
-                        return (
-                            <span
-                                key={item.videoId}
-                                onClick={() => {
-                                    fullScreen(item.videoId);
-                                }}
-                                className="ytItem"
-                            >
-                                <div className="thumbnail">
-                                    <img
-                                        src={`https://i.ytimg.com/vi/${item.videoId}/sddefault.jpg`}
-                                        alt={title}
-                                    />
+    return (
+        <YoutubeContainer>
+            <>
+                <div id="ytList" className="flex">
+                    {data.map(({ title, videoId, viewCount, publishedAt }) => (
+                        <span
+                            key={videoId}
+                            onClick={() => {
+                                fullScreen(videoId);
+                            }}
+                            className="ytItem"
+                        >
+                            <div className="thumbnail">
+                                <img
+                                    src={`https://i.ytimg.com/vi/${videoId}/sddefault.jpg`}
+                                    alt={title}
+                                />
+                            </div>
+                            <div className="details">
+                                <h2>{title}</h2>
+                                <div>
+                                    <span>{viewCount}</span>
+                                    <span className="dot">•</span>
+                                    <span>{publishedAt}</span>
                                 </div>
-                                <div className="details">
-                                    <h2>{title}</h2>
-                                    <div>
-                                        <span>
-                                            {item.viewCountText.simpleText}
-                                        </span>
-                                        <span className="dot">•</span>
-                                        <span>
-                                            {item.publishedTimeText.simpleText}
-                                        </span>
-                                    </div>
-                                </div>
-                            </span>
-                        );
-                    })}
+                            </div>
+                        </span>
+                    ))}
                 </div>
-                {videoId && (
+                {poppedUpVideoId && (
                     <div id="popup">
                         <YoutubeVideo
-                            id={videoId}
+                            id={poppedUpVideoId}
                             vars={{
                                 rel: 0,
                                 loop: 1,
@@ -141,32 +109,7 @@ export default function Youtube() {
                         />
                     </div>
                 )}
-            </section>
-        );
-    } else {
-        if (error) {
-            return (
-                <section id="youtube" className="max-1400">
-                    <div id="info" className="center">
-                        <img
-                            className="circle"
-                            src="https://yt3.ggpht.com/a/AATXAJzM1nsL7mNxOXuc626lhqXuKxjJW-Z6H4Elern5lw=s150-c-k-c0xffffffff-no-rj-mo"
-                            alt="이지금"
-                        ></img>
-                        <h1>이지금 [IU Official]</h1>
-                        <a
-                            href="https://www.youtube.com/c/dlwlrma/featured"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            채널 바로가기
-                        </a>
-                    </div>
-                    <ErrorMsg />
-                </section>
-            );
-        } else {
-            return <Loading />;
-        }
-    }
+            </>
+        </YoutubeContainer>
+    );
 }
