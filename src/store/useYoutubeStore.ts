@@ -6,7 +6,6 @@ const useYoutubeStore = create<YoutubeStore>((set) => ({
             "/get?uri=https://www.youtube.com/c/dlwlrma/videos"
         );
         const text = await response.text();
-
         const parsed = JSON.parse(
             text
                 .slice(text.indexOf('"tabs"'), text.indexOf('"header') - 3)
@@ -21,6 +20,10 @@ const useYoutubeStore = create<YoutubeStore>((set) => ({
             data: ytList
                 .filter(
                     (x: { gridVideoRenderer: any }) => !!x.gridVideoRenderer
+                )
+                .map(
+                    ({ gridVideoRenderer }: { gridVideoRenderer: any }) =>
+                        gridVideoRenderer
                 )
                 .map(
                     ({
