@@ -3,294 +3,252 @@
         "name": "조각집",
         "category": "스페셜 EP",
         "releaseDate": "2021-12-29",
-        "language": "ko",
         "image": "/assets/images/cover/조각집.jpg"
     },
     {
         "name": "strawberry moon",
         "category": "싱글",
         "releaseDate": "2021-10-19",
-        "language": "ko",
         "image": "/assets/images/cover/strawberry-moon.jpg"
     },
     {
         "name": "LILAC",
         "category": "정규",
         "releaseDate": "2021-03-25",
-        "language": "ko",
         "image": "/assets/images/cover/LILAC.jpg"
     },
     {
         "name": "Celebrity",
         "category": "싱글",
         "releaseDate": "2021-01-27",
-        "language": "ko",
         "image": "/assets/images/cover/Celebrity.jpg"
     },
     {
         "name": "I-LAND Part.1 Signal Song",
         "category": "싱글",
         "releaseDate": "2020-06-19",
-        "language": "ko",
         "image": "/assets/images/cover/into-the-i-land.jpg"
     },
     {
         "name": "에잇",
         "category": "싱글",
         "releaseDate": "2020-05-06",
-        "language": "ko",
         "image": "/assets/images/cover/eight.jpg"
     },
     {
         "name": "사랑의 불시착 OST Part.11",
         "category": "OST",
         "releaseDate": "2020-02-15",
-        "language": "ko",
         "image": "/assets/images/cover/give-you-my-heart.jpg"
     },
     {
         "name": "첫 겨울이니까",
         "category": "싱글",
         "releaseDate": "2019-12-09",
-        "language": "ko",
         "image": "/assets/images/cover/first-winter.jpg"
     },
     {
         "name": "Love Poem",
         "category": "미니",
         "releaseDate": "2019-11-18",
-        "language": "ko",
         "image": "/assets/images/cover/Love-Poem.jpg"
     },
     {
         "name": "삐삐",
         "category": "싱글",
         "releaseDate": "2018-10-10",
-        "language": "ko",
         "image": "/assets/images/cover/bbibbi.jpg"
     },
     {
         "name": "꽃갈피 둘",
         "category": "리메이크",
         "releaseDate": "2017-09-22",
-        "language": "ko",
         "image": "/assets/images/cover/flower-bookmark-2.jpg"
     },
     {
         "name": "Palette",
         "category": "정규",
         "releaseDate": "2017-04-21",
-        "language": "ko",
         "image": "/assets/images/cover/palette.jpg"
     },
     {
         "name": "사랑이 잘",
         "category": "싱글",
         "releaseDate": "2017-04-07",
-        "language": "ko",
         "image": "/assets/images/cover/cant-love-u.jpg"
     },
     {
         "name": "CHAT-SHIRE",
         "category": "미니",
         "releaseDate": "2015-10-23",
-        "language": "ko",
         "image": "/assets/images/cover/CHAT-SHIRE.jpg"
     },
     {
         "name": "마음",
         "category": "싱글",
         "releaseDate": "2015-05-18",
-        "language": "ko",
         "image": "/assets/images/cover/heart.jpg"
     },
     {
         "name": "피아노포르테 (PIANOFORTE)",
         "category": "미니",
         "releaseDate": "2014-10-31",
-        "language": "ko",
         "image": "/assets/images/cover/PIANOFORTE.jpg"
     },
     {
         "name": "소격동",
         "category": "싱글",
         "releaseDate": "2014-10-02",
-        "language": "ko",
         "image": "/assets/images/cover/sogyeokdong.jpg"
     },
     {
         "name": "애타는 마음",
         "category": "싱글",
         "releaseDate": "2014-06-30",
-        "language": "ko",
         "image": "/assets/images/cover/anxious-heart.jpg"
     },
     {
         "name": "꽃갈피",
         "category": "리메이크",
         "releaseDate": "2014-05-16",
-        "language": "ko",
         "image": "/assets/images/cover/flower-bookmark.jpg"
     },
     {
         "name": "봄 사랑 벚꽃 말고",
         "category": "싱글",
         "releaseDate": "2014-10-02",
-        "language": "ko",
         "image": "/assets/images/cover/not-spring-love.jpg"
     },
     {
         "name": "Modern Times Epilogue",
         "category": "정규 (리패키지)",
         "releaseDate": "2013-12-20",
-        "language": "ko",
         "image": "/assets/images/cover/modern-times-epilogue.jpg"
     },
     {
         "name": "Modern Times",
         "category": "정규",
         "releaseDate": "2013-10-10",
-        "language": "ko",
         "image": "/assets/images/cover/modern-times.jpg"
     },
     {
         "name": "LOEN TREE Summer Story",
         "category": "싱글",
         "releaseDate": "2012-08-02",
-        "language": "ko",
         "image": "/assets/images/cover/sea-of-moonlight.jpg"
     },
     {
         "name": "스무 살의 봄",
         "category": "싱글",
         "releaseDate": "2012-05-11",
-        "language": "ko",
         "image": "/assets/images/cover/spring-of-a-20-yo.jpg"
     },
     {
         "name": "Last Fantasy",
         "category": "정규",
         "releaseDate": "2011-11-29",
-        "language": "ko",
         "image": "/assets/images/cover/last-fantasy.jpg"
     },
     {
         "name": "얼음꽃",
         "category": "싱글",
         "releaseDate": "2011-06-21",
-        "language": "ko",
         "image": "/assets/images/cover/ice-flower.jpg"
     },
     {
         "name": "최고의 사랑 OST Part.4",
         "category": "OST",
         "releaseDate": "2011-05-25",
-        "language": "ko",
         "image": "/assets/images/cover/hold-my-hand.jpg"
     },
     {
         "name": "Real+",
         "category": "싱글",
         "releaseDate": "2011-02-17",
-        "language": "ko",
         "image": "/assets/images/cover/real+.jpg"
     },
     {
         "name": "드림하이 OST Part.1",
         "category": "OST",
         "releaseDate": "2011-01-03",
-        "language": "ko",
         "image": "/assets/images/cover/someday.jpg"
     },
     {
         "name": "Real",
         "category": "미니",
         "releaseDate": "2010-12-09",
-        "language": "ko",
         "image": "/assets/images/cover/real.jpg"
     },
     {
         "name": "그대네요",
         "category": "싱글",
         "releaseDate": "2010-09-28",
-        "language": "ko",
         "image": "/assets/images/cover/its-you.jpg"
     },
     {
         "name": "사랑의 리퀘스트",
         "category": "싱글",
         "releaseDate": "2010-08-02",
-        "language": "ko",
         "image": "/assets/images/cover/believe-in-love.jpg"
     },
     {
         "name": "로드 넘버원 OST Part.3",
         "category": "싱글",
         "releaseDate": "2010-07-14",
-        "language": "ko",
         "image": "/assets/images/cover/because-im-a-woman.jpg"
     },
     {
         "name": "잔소리",
         "category": "싱글",
         "releaseDate": "2010-06-03",
-        "language": "ko",
         "image": "/assets/images/cover/nitpicking.jpg"
     },
     {
         "name": "텔레시네마 프로젝트 Vol.6",
         "category": "싱글",
         "releaseDate": "2010-02-24",
-        "language": "ko",
         "image": "/assets/images/cover/fifth-finger.jpg"
     },
     {
         "name": "첫사랑이죠",
         "category": "싱글",
         "releaseDate": "2010-01-12",
-        "language": "ko",
         "image": "/assets/images/cover/its-first-love.jpg"
     },
     {
         "name": "낙원 OST",
         "category": "OST",
         "releaseDate": "2009-12-03",
-        "language": "ko",
         "image": "/assets/images/cover/danny-boy.jpg"
     },
     {
         "name": "IU...IM",
         "category": "미니",
         "releaseDate": "2009-10-27",
-        "language": "ko",
         "image": "/assets/images/cover/iu...im.jpg"
     },
     {
         "name": "선덕여왕 OST",
         "category": "OST",
         "releaseDate": "2009-09-14",
-        "language": "ko",
         "image": "/assets/images/cover/araro.jpg"
     },
     {
         "name": "2009 외인구단 OST",
         "category": "OST",
         "releaseDate": "2009-06-02",
-        "language": "ko",
         "image": "/assets/images/cover/you-are-always-like-that.jpg"
     },
     {
         "name": "Growing Up",
         "category": "정규",
         "releaseDate": "2009-04-23",
-        "language": "ko",
         "image": "/assets/images/cover/growing-up.jpg"
     },
     {
         "name": "Lost And Found",
         "category": "미니",
         "releaseDate": "2008-09-20",
-        "language": "ko",
         "image": "/assets/images/cover/Lost-And-Found.jpg"
     }
 ]
