@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import fcls from "../utils/fcls";
 import "./YoutubeVideo.css";
 
-export default function YoutubeVideo(props: YoutubeVideoProps) {
+export default function YoutubeVideo({
+    id,
+    vars,
+    fixed,
+    mute,
+}: YoutubeVideoProps) {
     const [queued, setQueued] = useState<string>("");
     const [videoId, setVideoId] = useState<string>("");
-    const { id, vars, fixed } = props;
 
     const loadVideo = () => {
         // Turn off captions by default
@@ -32,15 +36,17 @@ export default function YoutubeVideo(props: YoutubeVideoProps) {
     };
 
     const onPlayerReady = (event: YT.PlayerEvent) => {
-        if (props.mute) {
-            event.target.mute();
+        const { target } = event;
+
+        if (mute) {
+            target.mute();
         }
 
         if (queued) {
             window.player.loadVideoById(queued);
         }
 
-        event.target.playVideo();
+        target.playVideo();
     };
 
     const restartVideo = () => {
@@ -62,13 +68,13 @@ export default function YoutubeVideo(props: YoutubeVideoProps) {
     }, []);
 
     useEffect(() => {
-        const { id } = props;
-
-        if (videoId !== id) {
-            setVideoId(id);
-            loadVideoById(id);
+        if (videoId === id) {
+            return;
         }
-    }, [props, props.id, videoId]);
+
+        setVideoId(id);
+        loadVideoById(id);
+    }, [id, videoId]);
 
     return <div id="player" className={fcls(fixed && "fixed")} />;
 }
