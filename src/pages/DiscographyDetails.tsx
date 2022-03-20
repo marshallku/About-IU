@@ -15,15 +15,15 @@ function BackButton() {
                 aria-label="back"
             />
         );
-    } else {
-        return (
-            <Link
-                to="../Discography"
-                className="album__closer icon-times"
-                aria-label="back"
-            />
-        );
     }
+
+    return (
+        <Link
+            to="../Discography"
+            className="album__closer icon-times"
+            aria-label="back"
+        />
+    );
 }
 
 export default function DiscographyDetails() {
@@ -51,8 +51,12 @@ export default function DiscographyDetails() {
     }/assets/images/album_cover/${album}.jpg`;
 
     const shrinkVideo = () => {
-        if (!videoRevealed.current) return;
+        if (!videoRevealed.current) {
+            return;
+        }
+
         const { scrollY } = window;
+
         setVideoScrolled(prevScroll.current < scrollY);
         setPrevScroll(scrollY);
     };
@@ -82,9 +86,9 @@ export default function DiscographyDetails() {
 
                 if (contentType && contentType.includes("json")) {
                     return response.json();
-                } else {
-                    return "";
                 }
+
+                return "";
             })
             .then((response: discographyDetailJson) => {
                 if (response) {
@@ -218,15 +222,12 @@ export default function DiscographyDetails() {
                 <>
                     <div
                         className="track-list"
-                        style={
-                            activated !== false
-                                ? { maxHeight: 0 }
-                                : {
-                                      maxHeight: `${
-                                          data.tracks.length * 2.5 + 2.3
-                                      }rem`,
-                                  }
-                        }
+                        style={{
+                            maxHeight:
+                                activated !== false
+                                    ? 0
+                                    : `${data.tracks.length * 2.5 + 2.3}rem`,
+                        }}
                     >
                         <h2 className="track-list__title">수록곡</h2>
                         <ul>

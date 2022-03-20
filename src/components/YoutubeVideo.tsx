@@ -48,14 +48,16 @@ export default function YoutubeVideo(props: YoutubeVideoProps) {
     };
 
     useEffect(() => {
-        if (!window.YT) {
-            const script = document.createElement("script");
-            script.src = "https://www.youtube.com/iframe_api";
-            window.onYouTubeIframeAPIReady = loadVideo;
-            document.body.append(script);
-        } else {
+        if (!!window.YT) {
             loadVideo();
+            return;
         }
+
+        const script = document.createElement("script");
+
+        script.src = "https://www.youtube.com/iframe_api";
+        window.onYouTubeIframeAPIReady = loadVideo;
+        document.body.append(script);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

@@ -42,14 +42,13 @@ export default function HeaderNavigation() {
     const isCurrent = (uri: string): string => {
         if (uri === current) {
             return "highlight";
-        } else if (
-            uri.includes("/Discography") &&
-            current.includes("/Discography")
-        ) {
-            return "highlight";
-        } else {
-            return "";
         }
+
+        if (uri.includes("/Discography") && current.includes("/Discography")) {
+            return "highlight";
+        }
+
+        return "";
     };
 
     const checkScreenSize = () => {

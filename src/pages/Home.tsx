@@ -11,14 +11,16 @@ export default function Home() {
     ) => {
         const target = event.target as HTMLElement;
 
-        if (typeof window.player.mute === "function") {
-            if (window.player.isMuted()) {
-                window.player.unMute();
-                target.classList.remove("home__toggle-mute--muted");
-            } else {
-                window.player.mute();
-                target.classList.add("home__toggle-mute--muted");
-            }
+        if (typeof window.player.mute !== "function") {
+            return;
+        }
+
+        if (window.player.isMuted()) {
+            window.player.unMute();
+            target.classList.remove("home__toggle-mute--muted");
+        } else {
+            window.player.mute();
+            target.classList.add("home__toggle-mute--muted");
         }
     };
 
