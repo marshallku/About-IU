@@ -78,9 +78,8 @@ export default function HeaderNavigation() {
     return (
         <>
             <nav
-                id="main-nav"
-                className={`${scrolled ? "shrink" : ""} ${
-                    navOpened ? " navrevealed" : ""
+                className={`main-nav ${scrolled ? "main-nav--shrink" : ""} ${
+                    navOpened ? " main-nav--revealed" : ""
                 }`}
             >
                 <div className="left">
@@ -99,10 +98,10 @@ export default function HeaderNavigation() {
                     )}
                 </div>
                 <div className="flex center">
-                    <LinkWithScroll to="/" className="logoWrap">
+                    <LinkWithScroll to="/" className="logo">
                         <svg
                             version="1.1"
-                            id="logo"
+                            className="logo__icon"
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"
                             y="0px"
@@ -144,24 +143,26 @@ export default function HeaderNavigation() {
                         </>
                     )}
                     <div
-                        className="hbg openbtn"
+                        className="hbg"
                         onClick={() => {
                             setNavOpened(true);
                         }}
                     >
-                        <div className="hbg-top"></div>
-                        <div className="hbg-mid"></div>
-                        <div className="hbg-bot"></div>
+                        <div className="hbg__top"></div>
+                        <div className="hbg__mid"></div>
+                        <div className="hbg__bot"></div>
                     </div>
                 </div>
             </nav>
 
             {isSmallScreen && (
-                <nav id="nav" className={navOpened ? "navrevealed" : ""}>
+                <nav
+                    className={`drawer ${navOpened ? "drawer--revealed" : ""}`}
+                >
                     <div className="hbg" onClick={hideNav}>
-                        <div className="hbg-top"></div>
-                        <div className="hbg-mid"></div>
-                        <div className="hbg-bot"></div>
+                        <div className="hbg__top"></div>
+                        <div className="hbg__mid"></div>
+                        <div className="hbg__bot"></div>
                     </div>
                     <LinkWithScroll
                         className={isCurrent("/")}

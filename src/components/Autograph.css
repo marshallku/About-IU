@@ -7,15 +7,15 @@
     }
 }
 
-#loader {
+#global-loader {
     pointer-events: none;
     transition: opacity 0.25s ease-in-out;
 }
 
-#loader.hide {
+#global-loader.hide {
     opacity: 0;
 }
 
-#loader > svg {
+#global-loader > svg {
     animation: draw 3s ease-in-out;
 }

@@ -12,4 +12,4 @@ ReactDOM.render(
     document.getElementById("root")
 );
 
-ReactDOM.render(<Autograph />, document.getElementById("loader"));
+ReactDOM.render(<Autograph />, document.getElementById("global-loader"));

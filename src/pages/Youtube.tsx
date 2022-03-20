@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import YoutubeVideo from "../components/YoutubeVideo";
-import ErrorMsg from "../components/ErrorMsg";
-import Loading from "../components/Loading";
+import Loader from "../components/Loader";
 import { useYoutubeStore } from "../store";
 import "./Youtube.css";
 
 function YoutubeContainer({ children }: { children: React.ReactChild }) {
     return (
-        <section id="youtube" className="max-1400">
+        <section className="max-1400">
             <div id="info" className="center">
                 <img
                     className="circle"
@@ -63,38 +62,38 @@ export default function Youtube() {
     }, []);
 
     if (!data) {
-        return <Loading />;
+        return <Loader />;
     }
 
     return (
         <YoutubeContainer>
             <>
-                <div id="ytList" className="flex">
+                <section className="youtube-list">
                     {data.map(({ title, videoId, viewCount, publishedAt }) => (
-                        <span
+                        <article
                             key={videoId}
                             onClick={() => {
                                 fullScreen(videoId);
                             }}
-                            className="ytItem"
+                            className="youtube-item"
                         >
-                            <div className="thumbnail">
+                            <figure className="youtube-item__thumbnail">
                                 <img
                                     src={`https://i.ytimg.com/vi/${videoId}/sddefault.jpg`}
                                     alt={title}
                                 />
-                            </div>
-                            <div className="details">
-                                <h2>{title}</h2>
+                            </figure>
+                            <header className="youtube-item__content">
+                                <h2 className="youtube-item__title">{title}</h2>
                                 <div>
                                     <span>{viewCount}</span>
                                     <span className="dot">•</span>
                                     <span>{publishedAt}</span>
                                 </div>
-                            </div>
-                        </span>
+                            </header>
+                        </article>
                     ))}
-                </div>
+                </section>
                 {poppedUpVideoId && (
                     <div id="popup">
                         <YoutubeVideo

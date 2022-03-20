@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
+import "./YoutubeVideo.css";
 
 export default function YoutubeVideo(props: YoutubeVideoProps) {
     const [queued, setQueued] = useState<string>("");
     const [videoId, setVideoId] = useState<string>("");
+    const { id, vars, fixed } = props;
 
     const loadVideo = () => {
-        const { id, vars } = props;
-
         // Turn off captions by default
         vars.cc_load_policy = 0;
         // I don't know what's happening, but cc_load_policy=0 doesn't work without this
@@ -67,5 +67,5 @@ export default function YoutubeVideo(props: YoutubeVideoProps) {
         }
     }, [props, props.id, videoId]);
 
-    return <div id="player" />;
+    return <div id="player" className={fixed ? "fixed" : ""} />;
 }

@@ -68,22 +68,21 @@
     margin-bottom: 10px;
 }
 
-.timeline-item > img,
-.timeline-item > video {
+.timeline-item > :is(img, video) {
     position: relative;
     z-index: 5;
 }
 
-.timeline-item > .title {
+.timeline-item__title {
     font-size: 1.5rem;
 }
 
-.timeline-item > .title > .date {
+.timeline-item__title > .date {
     margin-left: 5px;
     font-size: 0.8rem;
 }
 
-.timeline-item > .category {
+.timeline-item__category {
     font-size: 0.8rem;
 }
 

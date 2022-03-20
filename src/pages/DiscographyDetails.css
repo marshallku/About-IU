@@ -1,4 +1,4 @@
-#discographyDetail {
+.album {
     position: absolute;
     top: 0;
     left: 0;
@@ -10,8 +10,8 @@
     z-index: 10000;
 }
 
-#discographyDetail .album-closer,
-#discographyDetail .back-to-tracklist {
+.album__closer,
+.album__back {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -26,16 +26,16 @@
     z-index: 10010;
 }
 
-#discographyDetail .back-to-tracklist,
-#discographyDetail.lyric-activated .album-closer {
+.album__back,
+.album--lyric .album__closer {
     display: none;
 }
 
-#discographyDetail.lyric-activated .back-to-tracklist {
+.album--lyric .album__back {
     display: flex;
 }
 
-#discographyDetail .album-bg {
+.album__bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -49,13 +49,13 @@
     z-index: 10000;
 }
 
-#discographyDetail .album-art {
+.album-cover {
     position: fixed;
     width: 30%;
     z-index: 10005;
 }
 
-#albumart {
+.album-cover__image {
     position: absolute;
     width: 100%;
     height: 0;
@@ -63,45 +63,7 @@
     overflow: hidden;
 }
 
-#discographyDetail .song-info {
-    margin-top: 10px;
-}
-
-#discographyDetail .song-info > div {
-    margin-bottom: 10px;
-}
-
-#discographyDetail .song-title {
-    font-size: 1.5rem;
-}
-
-#discographyDetail .detail,
-#discographyDetail .lyrics {
-    position: relative;
-    margin-left: 35%;
-    z-index: 10005;
-}
-
-#discographyDetail .detail .tracklist {
-    overflow: hidden;
-    transition: 0.5s;
-}
-
-#discographyDetail .detail-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-}
-
-#discographyDetail .song-list {
-    cursor: pointer;
-}
-
-#discographyDetail .song-list,
-#discographyDetail p {
-    line-height: 2.5;
-}
-
-.album-art-img {
+.album-cover__image > img {
     position: absolute;
     top: 0;
     left: 0;
@@ -111,7 +73,19 @@
     object-fit: cover;
 }
 
-#bgmVid {
+.song-info {
+    margin-top: 10px;
+}
+
+.song-info > * {
+    margin-bottom: 10px;
+}
+
+.song-info__title {
+    font-size: 1.5rem;
+}
+
+.album-cover__player {
     position: relative;
     width: 100%;
     height: 0;
@@ -120,7 +94,7 @@
     z-index: 2;
 }
 
-#bgmVid #player {
+.album-cover__player #player {
     display: none;
     position: absolute;
     width: 100%;
@@ -128,35 +102,55 @@
     pointer-events: none;
 }
 
-#bgmHandle {
-    display: none;
-    margin-bottom: 10px;
+.album-cover__controller {
     text-align: center;
+    margin-bottom: 10px;
 }
 
-#bgmHandle.reveal {
-    display: block;
-}
-
-#playVideo {
+.album-cover__play-button {
     margin: 0 10px;
 }
 
-#bgmVid.reveal #player {
+.album-cover__player--reveal #player {
     display: block;
 }
 
-#discographyDetail .lyric,
-#discographyDetail .lyrics {
+.track-list,
+.lyric-list {
+    position: relative;
+    margin-left: 35%;
+    z-index: 10005;
+}
+
+.track-list {
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.track-list__title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.track-list__song {
+    cursor: pointer;
+}
+
+.track-list__song {
+    line-height: 2.5;
+}
+
+.lyric-list__item,
+.lyric-list {
     display: none;
 }
 
-#discographyDetail .lyric.reveal,
-#discographyDetail .lyrics.reveal {
+.lyric-list__item--reveal,
+.lyric-list--reveal {
     display: block;
 }
 
-#discographyDetail .lyrics > div {
+.lyric-list__item {
     white-space: pre-wrap;
     line-height: 2.5;
 }
@@ -171,19 +165,19 @@
         width: 47.5%;
     }
 
-    #discographyDetail .detail,
-    #discographyDetail .lyrics {
+    .track-list,
+    .lyric-list {
         margin-left: 0;
     }
 
-    #discographyDetail .album-art {
+    .album-cover {
         position: relative;
         width: 80%;
         text-align: center;
         margin: 0 auto 15px;
     }
 
-    #discographyDetail .song-title {
+    .song-info__title {
         margin-top: 10px;
     }
 }
@@ -223,7 +217,7 @@
     z-index: 10020;
 }
 
-.video-popup .video-wrapper {
+.video-popup__container {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -231,44 +225,44 @@
     transition: 0.5s;
 }
 
-.video-popup.scrolled .video-wrapper {
+.video-popup--scrolled .video-popup__container {
     transform: translateY(-30vh);
 }
 
 @media screen and (min-width: 700px) {
-    .video-popup.scrolled .video-wrapper {
+    .video-popup--scrolled .video-popup__container {
         transform: translateY(-20vh);
     }
 }
 
 @media screen and (min-width: 861px) {
-    .video-popup.scrolled .video-wrapper {
+    .video-popup--scrolled .video-popup__container {
         max-width: 400px;
         transform: translate3d(30vw, 35vh, 0);
     }
 }
 
 @media screen and (min-width: 1200px) {
-    .video-popup.scrolled .video-wrapper {
+    .video-popup--scrolled .video-popup__container {
         max-width: 400px;
         transform: translate3d(35vw, 35vh, 0);
     }
 }
 
-.video-popup .iframe-wrapper {
+.video-popup__ratio-container {
     position: relative;
     width: 80%;
     padding-bottom: 45%;
     z-index: 10021;
 }
 
-.video-popup .iframe-wrapper iframe {
+.video-popup__ratio-container iframe {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.video-popup .video-popup-closer {
+.video-popup__closer {
     position: fixed;
     top: 0;
     left: 0;
@@ -279,6 +273,6 @@
     transition: opacity 0.5s;
 }
 
-.video-popup.scrolled .video-popup-closer {
+.video-popup--scrolled .video-popup__closer {
     opacity: 0;
 }

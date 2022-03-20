@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import Loading from "../components/Loading";
+import Loader from "../components/Loader";
 import { useDiscographyStore } from "../store";
 import "./Discography.css";
 
@@ -20,11 +20,11 @@ export default function Discography() {
                     const { target, isIntersecting } = entry;
 
                     if (isIntersecting) {
-                        target.classList.add("animate--active");
+                        target.classList.add("grid-item--active");
                         return;
                     }
 
-                    target.classList.remove("animate--active");
+                    target.classList.remove("grid-item--active");
                 });
             }),
         []
@@ -35,32 +35,29 @@ export default function Discography() {
     }, []);
 
     if (!data) {
-        return <Loading />;
+        return <Loader />;
     }
 
     return (
-        <section className="list grid max-1060">
+        <section className="grid max-1060">
             {data.map(({ name, category, releaseDate }) => (
-                <Link
-                    key={name}
-                    to={`/Discography/${name}`}
-                    className="grid-item animate"
-                    ref={observe}
-                >
-                    <div
-                        className="grid-item-bg"
-                        style={{
-                            backgroundImage: `url("${
-                                import.meta.env.BASE_URL
-                            }${`/assets/images/album_cover/${name}.jpg`}")`,
-                        }}
-                    ></div>
-                    <div className="grid-item-content">
-                        <div>{category}</div>
-                        <h3>{name}</h3>
-                        <time>{releaseDate}</time>
-                    </div>
-                </Link>
+                <article key={name} className="grid-item" ref={observe}>
+                    <Link to={`/Discography/${name}`}>
+                        <div
+                            className="grid-item__bg"
+                            style={{
+                                backgroundImage: `url("${
+                                    import.meta.env.BASE_URL
+                                }${`/assets/images/album_cover/${name}.jpg`}")`,
+                            }}
+                        ></div>
+                        <header className="grid-item__content">
+                            <div>{category}</div>
+                            <h2 className="grid-item__title">{name}</h2>
+                            <time>{releaseDate}</time>
+                        </header>
+                    </Link>
+                </article>
             ))}
         </section>
     );

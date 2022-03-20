@@ -88,7 +88,7 @@ video {
     margin: 0 auto;
 }
 
-body:not(.lyrics) #main > section:not(#home):not(.less-top-margin) {
+body:not(.lyrics) #main > section:not(:is(.home, .less-top-margin)) {
     margin-top: 140px;
 }
 
@@ -125,7 +125,7 @@ body:not(.lyrics) #main > section.less-top-margin {
 }
 
 /* loader */
-#loader {
+#global-loader {
     position: fixed;
     top: 0;
     left: 0;

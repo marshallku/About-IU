@@ -1,6 +1,8 @@
-export default function Loading() {
+import "./Loader.css";
+
+export default function Loader() {
     return (
-        <div id="loading" className="center">
+        <div className="loader">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 200 200"

@@ -8,7 +8,7 @@
     }
 }
 
-#homeVideo {
+.home__video {
     position: fixed;
     top: 0;
     left: 0;
@@ -19,34 +19,26 @@
     height: 100vh;
     overflow: hidden;
     color: #fff;
+    background: #000;
     z-index: -1;
 }
 
-.videoWrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #000;
-}
-
 @media (min-aspect-ratio: 16/9) {
-    .videoWrapper {
+    .home__video {
         height: 300%;
         top: -100%;
     }
 }
 
 @media (max-aspect-ratio: 16/9) {
-    .videoWrapper {
+    .home__video {
         width: 600%;
         left: -250%;
     }
 }
 
 @media (min-aspect-ratio: 16/9) and (max-aspect-ratio: 16/9) {
-    .videoWrapper {
+    .home__video {
         width: 100%;
         height: 100%;
         top: 0;
@@ -54,7 +46,7 @@
     }
 }
 
-.videoWrapper iframe {
+.home__video iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -63,31 +55,11 @@
     pointer-events: none;
 }
 
-.videoWrapper.expand iframe {
+.home__video--expand iframe {
     transform: scale(1.325);
 }
 
-.fsb {
-    position: fixed;
-    font-size: 1.5rem;
-    bottom: 15px;
-    color: #fff;
-}
-
-.fsb.ts {
-    right: 15px;
-    cursor: pointer;
-}
-
-.fsb.icon-youtube-play {
-    left: 15px;
-}
-
-.fsb:hover {
-    color: #aaa;
-}
-
-#ringWrap {
+.home__content {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -170,7 +142,7 @@
         rotateX(90deg);
 }
 
-#toggleMute {
+.home__toggle-mute {
     position: fixed;
     bottom: 5px;
     right: 5px;
@@ -179,7 +151,7 @@
     opacity: 1;
 }
 
-#toggleMute.disabled {
+.home__toggle-mute--muted {
     color: #a0a0a0;
     opacity: 0.8;
     transition: 0.5s;

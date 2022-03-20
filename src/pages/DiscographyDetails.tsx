@@ -10,17 +10,17 @@ function BackButton() {
                 onClick={() => {
                     window.history.back();
                 }}
-                className="album-closer icon-times"
+                className="album__closer icon-times"
                 aria-label="back"
-            ></button>
+            />
         );
     } else {
         return (
             <Link
                 to="../Discography"
-                className="album-closer icon-times"
+                className="album__closer icon-times"
                 aria-label="back"
-            ></Link>
+            />
         );
     }
 }
@@ -44,7 +44,6 @@ export default function DiscographyDetails() {
         _setPrevScroll(number);
     };
     const [data, setData] = useState<discographyDetailJson>();
-
     const albumTitle = album ? decodeURI(album) : "";
     const coverImageUrl = `${
         import.meta.env.BASE_URL
@@ -101,126 +100,122 @@ export default function DiscographyDetails() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (!loading && data) {
-        return (
-            <section
-                id="discographyDetail"
-                className={activated !== false ? "lyric-activated" : ""}
-            >
-                <BackButton />
-                <div
-                    className="back-to-tracklist icon-arrow-left"
-                    onClick={() => {
-                        setActivated(false);
-                    }}
-                ></div>
-                <div
-                    className="album-bg"
-                    style={{
-                        backgroundImage: `url("${coverImageUrl}")`,
-                    }}
-                ></div>
-                <div className="album-art">
-                    <div id="albumart">
-                        <img
-                            src={coverImageUrl}
-                            className="album-art-img"
-                            alt={data.name}
-                        />
-                    </div>
-                    <div
-                        id="bgmVid"
-                        className={
-                            activated !== false
-                                ? data.tracks[activated].music
-                                    ? "reveal"
-                                    : ""
-                                : ""
-                        }
-                    >
-                        <YoutubeVideo
-                            id={
+    return (
+        <section
+            className={`album${activated !== false ? " album--lyric" : ""}${
+                loading ? " loading" : ""
+            }`}
+        >
+            <BackButton />
+            <div
+                className="album__back icon-arrow-left"
+                onClick={() => {
+                    setActivated(false);
+                }}
+            />
+            <div
+                className="album__bg"
+                style={{
+                    backgroundImage: `url("${coverImageUrl}")`,
+                }}
+            />
+            <div className="album-cover">
+                <figure className="album-cover__image">
+                    <img src={coverImageUrl} alt={albumTitle} />
+                </figure>
+                {!!data && (
+                    <>
+                        <div
+                            className={`album-cover__player${
                                 activated !== false
                                     ? data.tracks[activated].music
+                                        ? " album-cover__player--reveal"
+                                        : ""
                                     : ""
-                            }
-                            vars={{
-                                rel: 0,
-                                loop: 1,
-                                playsinline: 1,
-                                controls: 0,
-                                showinfo: 0,
-                            }}
-                        />
-                    </div>
-                    {activated !== false && data.tracks[activated].music ? (
-                        <div className="center">
-                            <button
-                                id="rewind10"
-                                className="icon-backward"
-                                title="10초 되감기"
-                                aria-label="10초 되감기"
-                                onClick={() => {
-                                    window.player.seekTo(
-                                        Math.floor(
-                                            window.player.getCurrentTime()
-                                        ) - 10,
-                                        false
-                                    );
+                            }`}
+                        >
+                            <YoutubeVideo
+                                id={
+                                    activated !== false
+                                        ? data.tracks[activated].music
+                                        : ""
+                                }
+                                vars={{
+                                    rel: 0,
+                                    loop: 1,
+                                    playsinline: 1,
+                                    controls: 0,
+                                    showinfo: 0,
                                 }}
-                            ></button>
-                            <button
-                                id="playVideo"
-                                className={paused ? "icon-play" : "icon-pause"}
-                                title="일시 정지 / 재생"
-                                aria-label="일시 정지 / 재생"
-                                onClick={toggleVideo}
-                            ></button>
-                            <button
-                                id="forward10"
-                                className="icon-forward"
-                                title="10초 빨리 감기"
-                                aria-label="10초 빨리 감기"
-                                onClick={() => {
-                                    window.player.seekTo(
-                                        Math.floor(
-                                            window.player.getCurrentTime()
-                                        ) + 10,
-                                        false
-                                    );
-                                }}
-                            ></button>
+                            />
                         </div>
-                    ) : (
-                        ""
-                    )}
-                    <div className="song-info">
-                        <div className="song-title">
-                            {activated !== false &&
-                                data.tracks[activated].title}
-                        </div>
-                        <div className="song-artist">
-                            {data.artist ? data.artist : "아이유"}
-                        </div>
-                        <div className="song-album">{data.name}</div>
-                        {activated !== false && data.tracks[activated].video ? (
-                            <div>
+                        {activated !== false && data.tracks[activated].music && (
+                            <div className="album-cover__controller">
                                 <button
-                                    className="icon-youtube-play"
+                                    className="icon-backward"
+                                    title="10초 되감기"
+                                    aria-label="10초 되감기"
                                     onClick={() => {
-                                        pauseVideo();
-                                        setVideoRevealed(true);
+                                        window.player.seekTo(
+                                            Math.floor(
+                                                window.player.getCurrentTime()
+                                            ) - 10,
+                                            false
+                                        );
                                     }}
-                                ></button>
+                                />
+                                <button
+                                    className={`album-cover__play-button ${
+                                        paused ? "icon-play" : "icon-pause"
+                                    }`}
+                                    title="일시 정지 / 재생"
+                                    aria-label="일시 정지 / 재생"
+                                    onClick={toggleVideo}
+                                />
+                                <button
+                                    className="icon-forward"
+                                    title="10초 빨리 감기"
+                                    aria-label="10초 빨리 감기"
+                                    onClick={() => {
+                                        window.player.seekTo(
+                                            Math.floor(
+                                                window.player.getCurrentTime()
+                                            ) + 10,
+                                            false
+                                        );
+                                    }}
+                                />
                             </div>
-                        ) : (
-                            ""
                         )}
-                    </div>
-                </div>
-                <div className="detail">
+                        <div className="song-info">
+                            <h2 className="song-info__title">
+                                {activated !== false &&
+                                    data.tracks[activated].title}
+                            </h2>
+                            <div className="song-info__artist">
+                                {data.artist ? data.artist : "아이유"}
+                            </div>
+                            <div className="song-info__album">{albumTitle}</div>
+                            {activated !== false &&
+                                data.tracks[activated].video && (
+                                    <div>
+                                        <button
+                                            className="icon-youtube-play"
+                                            onClick={() => {
+                                                pauseVideo();
+                                                setVideoRevealed(true);
+                                            }}
+                                        />
+                                    </div>
+                                )}
+                        </div>
+                    </>
+                )}
+            </div>
+            {!!data && (
+                <>
                     <div
-                        className="tracklist"
+                        className="track-list"
                         style={
                             activated !== false
                                 ? { maxHeight: 0 }
@@ -231,7 +226,7 @@ export default function DiscographyDetails() {
                                   }
                         }
                     >
-                        <h2 className="detail-title">Tracklist</h2>
+                        <h2 className="track-list__title">수록곡</h2>
                         <ul>
                             {data.tracks.map((track, index) => {
                                 return (
@@ -240,7 +235,7 @@ export default function DiscographyDetails() {
                                         onClick={() => {
                                             setActivated(index);
                                         }}
-                                        className="song-list"
+                                        className="track-list__song"
                                     >
                                         {track.title}
                                     </li>
@@ -248,117 +243,68 @@ export default function DiscographyDetails() {
                             })}
                         </ul>
                     </div>
-                </div>
-                <div
-                    className={`lyrics ${activated !== false ? "reveal" : ""}`}
-                >
-                    {data.lyrics.map((lyric, index) => {
-                        return (
-                            <div
-                                key={index}
-                                className={`lyric ${
-                                    activated === index ? "reveal" : ""
-                                }`}
-                            >
-                                {lyric}
-                            </div>
-                        );
-                    })}
-                </div>
-
-                {activated !== false &&
-                data &&
-                data.tracks[activated].video &&
-                videoRevealed.current ? (
                     <div
-                        className={`video-popup${
-                            videoScrolled ? " scrolled" : ""
+                        className={`lyric-list ${
+                            activated !== false ? "lyric-list--reveal" : ""
                         }`}
                     >
-                        <div
-                            className="video-popup-closer"
-                            onClick={() => {
-                                playVideo();
-                                setVideoRevealed(false);
-                                setVideoScrolled(false);
-                            }}
-                        ></div>
-                        <div className="video-wrapper">
-                            <div className="iframe-wrapper">
-                                <iframe
-                                    width="560"
-                                    height="315"
-                                    title="Music Video Popup"
-                                    src={`https://youtube.com/embed/${data.tracks[activated].video}?rel=0&playsinline=1&autoplay=1`}
-                                ></iframe>
+                        {data.lyrics.map((lyric, index) => {
+                            return (
+                                <div
+                                    key={index}
+                                    className={`lyric-list__item ${
+                                        activated === index
+                                            ? "lyric-list__item--reveal"
+                                            : ""
+                                    }`}
+                                >
+                                    {lyric}
+                                </div>
+                            );
+                        })}
+                    </div>
+                    {activated !== false &&
+                        data.tracks[activated].video &&
+                        videoRevealed.current && (
+                            <div
+                                className={`video-popup${
+                                    videoScrolled
+                                        ? " video-popup--scrolled"
+                                        : ""
+                                }`}
+                            >
+                                <div
+                                    className="video-popup__closer"
+                                    onClick={() => {
+                                        playVideo();
+                                        setVideoRevealed(false);
+                                        setVideoScrolled(false);
+                                    }}
+                                />
+                                <div className="video-popup__container">
+                                    <div className="video-popup__ratio-container">
+                                        <iframe
+                                            width="560"
+                                            height="315"
+                                            title="Music Video Popup"
+                                            src={`https://youtube.com/embed/${data.tracks[activated].video}?rel=0&playsinline=1&autoplay=1`}
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                ) : (
-                    ""
-                )}
-
-                <svg width="0" height="0">
-                    <defs>
-                        <filter
-                            id="blur"
-                            x="0"
-                            y="0"
-                            width="100%"
-                            height="100%"
-                        >
-                            <feGaussianBlur stdDeviation="20" />
-                            <feComponentTransfer>
-                                <feFuncA type="discrete" tableValues="1 1" />
-                            </feComponentTransfer>
-                        </filter>
-                    </defs>
-                </svg>
-            </section>
-        );
-    } else {
-        return (
-            <section id="discographyDetail" className="loading">
-                <BackButton />
-                <div
-                    className="back-to-tracklist icon-arrow-left"
-                    onClick={() => {
-                        setActivated(false);
-                    }}
-                ></div>
-                <div
-                    className="album-bg"
-                    style={{
-                        backgroundImage: `url("${coverImageUrl}")`,
-                    }}
-                ></div>
-                <div className="album-art">
-                    <div id="albumart">
-                        <img
-                            src={coverImageUrl}
-                            className="album-art-img"
-                            alt={albumTitle}
-                        />
-                    </div>
-                </div>
-
-                <svg width="0" height="0">
-                    <defs>
-                        <filter
-                            id="blur"
-                            x="0"
-                            y="0"
-                            width="100%"
-                            height="100%"
-                        >
-                            <feGaussianBlur stdDeviation="20" />
-                            <feComponentTransfer>
-                                <feFuncA type="discrete" tableValues="1 1" />
-                            </feComponentTransfer>
-                        </filter>
-                    </defs>
-                </svg>
-            </section>
-        );
-    }
+                        )}
+                </>
+            )}
+            <svg width="0" height="0">
+                <defs>
+                    <filter id="blur" x="0" y="0" width="100%" height="100%">
+                        <feGaussianBlur stdDeviation="20" />
+                        <feComponentTransfer>
+                            <feFuncA type="discrete" tableValues="1 1" />
+                        </feComponentTransfer>
+                    </filter>
+                </defs>
+            </svg>
+        </section>
+    );
 }

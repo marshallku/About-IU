@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Loading from "../components/Loading";
+import Loader from "../components/Loader";
 import { useFilmographyStore } from "../store";
 import "./Filmography.css";
 
@@ -11,19 +11,21 @@ export default function Filmography() {
     }, []);
 
     if (!data) {
-        return <Loading />;
+        return <Loader />;
     }
 
     return (
-        <section className="list timeline max-1400 less-top-margin">
+        <section className="timeline max-1400 less-top-margin">
             {data.map(({ title, date, name, category, image, video }) => {
                 return (
-                    <div key={title} className="timeline-item">
-                        <h2 className="title">
+                    <article key={title} className="timeline-item">
+                        <h2 className="timeline-item__title">
                             {title}
-                            <time className="date">({date})</time>
+                            <time className="timeline-item__date">
+                                ({date})
+                            </time>
                         </h2>
-                        <h3 className="name">{name}</h3>
+                        <h3 className="timeline-item__name">{name}</h3>
                         {image ? (
                             <img src={image} alt={title} />
                         ) : video ? (
@@ -35,8 +37,10 @@ export default function Filmography() {
                                 src={video}
                             ></video>
                         ) : null}
-                        <div className="category">{category}</div>
-                    </div>
+                        <div className="timeline-item__category">
+                            {category}
+                        </div>
+                    </article>
                 );
             })}
         </section>

@@ -13,18 +13,15 @@
     margin-bottom: 10px;
     overflow: hidden;
     background: #000;
-}
-
-.grid-item.animate {
-    opacity: 0;
     transition: opacity 0.35s ease-in-out;
+    opacity: 0;
 }
 
-.grid-item.animate--active {
+.grid-item--active {
     opacity: 1;
 }
 
-.grid-item-bg {
+.grid-item__bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -36,7 +33,7 @@
     opacity: 0.75;
 }
 
-.grid-item-content {
+.grid-item__content {
     position: absolute;
     top: 0;
     left: 0;
@@ -51,7 +48,7 @@
     z-index: 2;
 }
 
-.grid-item-content h3 {
+.grid-item__title {
     font-size: 24px;
     text-align: center;
     margin: auto 0;
@@ -113,12 +110,12 @@
         margin-right: 0;
     }
 
-    .grid-item-content {
+    .grid-item__content {
         opacity: 0;
         transition: opacity 0.5s;
     }
 
-    .grid-item:hover .grid-item-content {
+    .grid-item:hover .grid-item__content {
         opacity: 1;
     }
 
@@ -126,7 +123,7 @@
         background: #fff;
     }
 
-    .grid-item-bg {
+    .grid-item__bg {
         opacity: 1;
     }
 }

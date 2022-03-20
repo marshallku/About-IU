@@ -1,11 +1,11 @@
 import "./Autograph.css";
 
 export default function Autograph() {
-    const loader = document.getElementById("loader");
+    const globalLoader = document.getElementById("global-loader");
 
-    if (loader) {
+    if (globalLoader) {
         setTimeout(() => {
-            loader.classList.add("hide");
+            globalLoader.classList.add("hide");
         }, 3200);
     }
 
