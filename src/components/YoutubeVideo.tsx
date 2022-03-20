@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import fcls from "../utils/fcls";
 import "./YoutubeVideo.css";
 
 export default function YoutubeVideo(props: YoutubeVideoProps) {
@@ -67,5 +68,5 @@ export default function YoutubeVideo(props: YoutubeVideoProps) {
         }
     }, [props, props.id, videoId]);
 
-    return <div id="player" className={fixed ? "fixed" : ""} />;
+    return <div id="player" className={fcls(fixed && "fixed")} />;
 }

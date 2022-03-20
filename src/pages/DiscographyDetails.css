@@ -27,11 +27,11 @@
 }
 
 .album__back,
-.album--lyric .album__closer {
+.album--lyric-revealed .album__closer {
     display: none;
 }
 
-.album--lyric .album__back {
+.album--lyric-revealed .album__back {
     display: flex;
 }
 
@@ -111,7 +111,7 @@
     margin: 0 10px;
 }
 
-.album-cover__player--reveal #player {
+.album-cover__player--revealed #player {
     display: block;
 }
 
@@ -145,8 +145,8 @@
     display: none;
 }
 
-.lyric-list__item--reveal,
-.lyric-list--reveal {
+.lyric-list__item--revealed,
+.lyric-list--revealed {
     display: block;
 }
 
@@ -179,21 +179,6 @@
 
     .song-info__title {
         margin-top: 10px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #album-wrapper .cross-fade {
-        width: 100%;
-        padding-bottom: 100%;
-    }
-
-    .album-gutter {
-        width: 0;
-    }
-
-    .album-column {
-        width: 80%;
     }
 }
 

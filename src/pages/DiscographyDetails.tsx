@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import YoutubeVideo from "../components/YoutubeVideo";
+import fcls from "../utils/fcls";
 import "./DiscographyDetails.css";
 
 function BackButton() {
@@ -102,9 +103,11 @@ export default function DiscographyDetails() {
 
     return (
         <section
-            className={`album${activated !== false ? " album--lyric" : ""}${
-                loading ? " loading" : ""
-            }`}
+            className={fcls(
+                "album",
+                activated !== false && "album--lyric-revealed",
+                loading && "loading"
+            )}
         >
             <BackButton />
             <div
@@ -126,13 +129,12 @@ export default function DiscographyDetails() {
                 {!!data && (
                     <>
                         <div
-                            className={`album-cover__player${
-                                activated !== false
-                                    ? data.tracks[activated].music
-                                        ? " album-cover__player--reveal"
-                                        : ""
-                                    : ""
-                            }`}
+                            className={fcls(
+                                "album-cover__player",
+                                activated !== false &&
+                                    data.tracks[activated].music &&
+                                    "album-cover__player--revealed"
+                            )}
                         >
                             <YoutubeVideo
                                 id={
@@ -244,19 +246,20 @@ export default function DiscographyDetails() {
                         </ul>
                     </div>
                     <div
-                        className={`lyric-list ${
-                            activated !== false ? "lyric-list--reveal" : ""
-                        }`}
+                        className={fcls(
+                            "lyric-list",
+                            activated !== false && "lyric-list--revealed"
+                        )}
                     >
                         {data.lyrics.map((lyric, index) => {
                             return (
                                 <div
                                     key={index}
-                                    className={`lyric-list__item ${
-                                        activated === index
-                                            ? "lyric-list__item--reveal"
-                                            : ""
-                                    }`}
+                                    className={fcls(
+                                        "lyric-list__item",
+                                        activated === index &&
+                                            "lyric-list__item--revealed"
+                                    )}
                                 >
                                     {lyric}
                                 </div>
@@ -267,11 +270,10 @@ export default function DiscographyDetails() {
                         data.tracks[activated].video &&
                         videoRevealed.current && (
                             <div
-                                className={`video-popup${
-                                    videoScrolled
-                                        ? " video-popup--scrolled"
-                                        : ""
-                                }`}
+                                className={fcls(
+                                    "video-popup",
+                                    videoScrolled && "video-popup--scrolled"
+                                )}
                             >
                                 <div
                                     className="video-popup__closer"

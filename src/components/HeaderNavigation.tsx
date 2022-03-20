@@ -1,5 +1,6 @@
 import { useState, useEffect, ReactChild } from "react";
 import { Link, useLocation } from "react-router-dom";
+import fcls from "../utils/fcls";
 import "./HeaderNavigation.css";
 
 function LinkWithScroll({
@@ -78,9 +79,11 @@ export default function HeaderNavigation() {
     return (
         <>
             <nav
-                className={`main-nav ${scrolled ? "main-nav--shrink" : ""} ${
-                    navOpened ? " main-nav--revealed" : ""
-                }`}
+                className={fcls(
+                    "main-nav",
+                    scrolled && "main-nav--shrink",
+                    navOpened && "main-nav--revealed"
+                )}
             >
                 <div className="left">
                     {!isSmallScreen && (
@@ -157,7 +160,7 @@ export default function HeaderNavigation() {
 
             {isSmallScreen && (
                 <nav
-                    className={`drawer ${navOpened ? "drawer--revealed" : ""}`}
+                    className={fcls("drawer", navOpened && "drawer--revealed")}
                 >
                     <div className="hbg" onClick={hideNav}>
                         <div className="hbg__top"></div>
