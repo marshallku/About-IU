@@ -1,0 +1,28 @@
+name: Get recent youtube videos
+
+on:
+    schedule:
+        - cron: "0 * * * *"
+    push:
+        paths:
+            - ".github/scripts"
+    workflow_dispatch:
+
+jobs:
+    fetch-youtube:
+        name: Get recent youtube videos
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: "16"
+                  check-latest: true
+                  registry-url: https://registry.npmjs.org/
+            - name: Set permission
+              run: chmod +x ./.github/scripts/fetch-youtube.sh
+            - name: Run script
+              run: ./.github/scripts/fetch-youtube.sh
+              env:
+                  TOKEN: ${{ secrets.TOKEN }}
+                  REPOSITORY: ${{ github.repository }}
