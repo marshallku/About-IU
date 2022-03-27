@@ -60,7 +60,7 @@ export default function HeaderNavigation() {
     };
 
     useEffect(() => {
-        setCurrent(location.pathname.replace("/IU", ""));
+        setCurrent(location.pathname);
     }, [location.pathname]);
 
     window.addEventListener(
