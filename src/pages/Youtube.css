@@ -1,4 +1,13 @@
-.youtube-list {
+.youtube__info {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.youtube__title {
+    margin: 10px 0;
+}
+
+.youtube__list {
     display: flex;
     padding: 0 15px;
     flex-wrap: wrap;

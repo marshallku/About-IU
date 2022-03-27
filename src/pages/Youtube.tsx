@@ -7,14 +7,14 @@ import fcls from "../utils/fcls";
 
 function YoutubeContainer({ children }: { children: React.ReactChild }) {
     return (
-        <section className="max-1400">
-            <div id="info" className="center">
+        <section className="youtube max-1400">
+            <div className="youtube__info">
                 <img
                     className="circle"
                     src="https://yt3.ggpht.com/a/AATXAJzM1nsL7mNxOXuc626lhqXuKxjJW-Z6H4Elern5lw=s150-c-k-c0xffffffff-no-rj-mo"
                     alt="이지금"
                 />
-                <h1>이지금 [IU Official]</h1>
+                <h1 className="youtube__title">이지금 [IU Official]</h1>
                 <a
                     href="https://www.youtube.com/c/dlwlrma/featured"
                     rel="noopener noreferrer"
@@ -69,7 +69,7 @@ export default function Youtube() {
     return (
         <YoutubeContainer>
             <>
-                <section className="youtube-list">
+                <section className="youtube__list">
                     {data.map(({ title, videoId }) => (
                         <article
                             key={videoId}
