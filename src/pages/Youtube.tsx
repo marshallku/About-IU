@@ -3,6 +3,7 @@ import YoutubeVideo from "../components/YoutubeVideo";
 import Loader from "../components/Loader";
 import { useYoutubeStore } from "../store";
 import "./Youtube.css";
+import fcls from "../utils/fcls";
 
 function YoutubeContainer({ children }: { children: React.ReactChild }) {
     return (
@@ -94,20 +95,24 @@ export default function Youtube() {
                         </article>
                     ))}
                 </section>
-                {poppedUpVideoId && (
-                    <div id="popup">
-                        <YoutubeVideo
-                            id={poppedUpVideoId}
-                            vars={{
-                                rel: 0,
-                                loop: 1,
-                                playsinline: 1,
-                                controls: 1,
-                                showinfo: 1,
-                            }}
-                        />
-                    </div>
-                )}
+                <div
+                    className={fcls(
+                        "youtube-popup",
+                        poppedUpVideoId !== "" && "youtube-popup--revealed"
+                    )}
+                >
+                    <YoutubeVideo
+                        id={poppedUpVideoId}
+                        vars={{
+                            rel: 0,
+                            loop: 1,
+                            playsinline: 1,
+                            controls: 1,
+                            showinfo: 1,
+                            autoplay: 1,
+                        }}
+                    />
+                </div>
             </>
         </YoutubeContainer>
     );
