@@ -29,7 +29,7 @@ html {
     scrollbar-color: #cc7dfd #121212;
 }
 
-html.overHidden {
+html.overflow-hidden {
     overflow: hidden;
 }
 

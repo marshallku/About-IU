@@ -39,13 +39,13 @@ export default function Youtube() {
         window.screen.orientation.lock("landscape-primary").catch(() => {
             return null;
         });
-        documentElement.classList.add("overHidden");
+        documentElement.classList.add("overflow-hidden");
         setPoppedUpVideoId(videoId);
     };
 
     const handleFullScreenChange = () => {
         if (!document.fullscreenElement) {
-            document.documentElement.classList.remove("overHidden");
+            document.documentElement.classList.remove("overflow-hidden");
             setPoppedUpVideoId("");
         }
     };
