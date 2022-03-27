@@ -80,7 +80,7 @@ export default function Youtube() {
                         >
                             <figure className="youtube-item__thumbnail">
                                 <img
-                                    src={`https://i.ytimg.com/vi/${videoId}/sddefault.jpg`}
+                                    src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
                                     alt={title}
                                 />
                             </figure>
