@@ -25,21 +25,21 @@ export default function Loader() {
                             dur="1.5s"
                             values="#f5a1b1;#a277bc;#4dd6d3;#f5a1b1"
                             begin="0s"
-                        ></animate>
+                        />
                         <animate
                             attributeName="stroke-dasharray"
                             repeatCount="indefinite"
                             dur="1.5s"
                             values="486,316.1593;942.4778,316.1593;942.4778,316.1593"
                             begin="0s"
-                        ></animate>
+                        />
                         <animate
                             attributeName="stroke-dashoffset"
                             repeatCount="indefinite"
                             dur="1.5s"
                             values="0;-300.5;-800"
                             begin="0s"
-                        ></animate>
+                        />
                     </circle>
                     <animateTransform
                         attributeName="transform"
@@ -49,7 +49,7 @@ export default function Loader() {
                         to="360 100 100"
                         dur="1.5s"
                         repeatCount="indefinite"
-                    ></animateTransform>
+                    />
                 </g>
             </svg>
         </div>

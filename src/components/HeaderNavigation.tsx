@@ -150,9 +150,9 @@ export default function HeaderNavigation() {
                             setNavOpened(true);
                         }}
                     >
-                        <div className="hbg__top"></div>
-                        <div className="hbg__mid"></div>
-                        <div className="hbg__bot"></div>
+                        <div className="hbg__top" />
+                        <div className="hbg__mid" />
+                        <div className="hbg__bot" />
                     </div>
                 </div>
             </nav>
@@ -162,9 +162,9 @@ export default function HeaderNavigation() {
                     className={fcls("drawer", navOpened && "drawer--revealed")}
                 >
                     <div className="hbg" onClick={hideNav}>
-                        <div className="hbg__top"></div>
-                        <div className="hbg__mid"></div>
-                        <div className="hbg__bot"></div>
+                        <div className="hbg__top" />
+                        <div className="hbg__mid" />
+                        <div className="hbg__bot" />
                     </div>
                     <LinkWithScroll
                         className={isCurrent("/")}

@@ -50,7 +50,7 @@ export default function Discography() {
                                     import.meta.env.BASE_URL
                                 }${`/assets/images/album_cover/${name}.jpg`}")`,
                             }}
-                        ></div>
+                        />
                         <header className="grid-item__content">
                             <div>{category}</div>
                             <h2 className="grid-item__title">{name}</h2>

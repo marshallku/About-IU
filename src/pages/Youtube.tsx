@@ -13,7 +13,7 @@ function YoutubeContainer({ children }: { children: React.ReactChild }) {
                     className="circle"
                     src="https://yt3.ggpht.com/a/AATXAJzM1nsL7mNxOXuc626lhqXuKxjJW-Z6H4Elern5lw=s150-c-k-c0xffffffff-no-rj-mo"
                     alt="이지금"
-                ></img>
+                />
                 <h1>이지금 [IU Official]</h1>
                 <a
                     href="https://www.youtube.com/c/dlwlrma/featured"

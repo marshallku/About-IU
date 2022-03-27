@@ -35,7 +35,7 @@ export default function Filmography() {
                                 loop
                                 muted
                                 src={video}
-                            ></video>
+                            />
                         ) : null}
                         <div className="timeline-item__category">
                             {category}
