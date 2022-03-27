@@ -13,11 +13,9 @@ const list =
 const parsedList = list
     .filter((x) => !!x.gridVideoRenderer)
     .map(({ gridVideoRenderer }) => gridVideoRenderer)
-    .map(({ title, videoId, viewCountText, publishedTimeText }) => ({
+    .map(({ title, videoId }) => ({
         title: `${title.runs[0].text}`,
         videoId: `${videoId}`,
-        viewCount: `${viewCountText.simpleText}`,
-        publishedAt: `${publishedTimeText.simpleText}`,
     }));
 
 process.stdout.write(JSON.stringify(parsedList));

@@ -70,7 +70,7 @@ export default function Youtube() {
         <YoutubeContainer>
             <>
                 <section className="youtube-list">
-                    {data.map(({ title, videoId, viewCount, publishedAt }) => (
+                    {data.map(({ title, videoId }) => (
                         <article
                             key={videoId}
                             onClick={() => {
@@ -86,11 +86,6 @@ export default function Youtube() {
                             </figure>
                             <header className="youtube-item__content">
                                 <h2 className="youtube-item__title">{title}</h2>
-                                <div>
-                                    <span>{viewCount}</span>
-                                    <span className="dot">•</span>
-                                    <span>{publishedAt}</span>
-                                </div>
                             </header>
                         </article>
                     ))}
