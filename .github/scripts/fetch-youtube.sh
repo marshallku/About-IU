@@ -1,7 +1,9 @@
 #!/bin/bash
 response=$(curl "https://www.youtube.com/c/dlwlrma/videos")
 
-node .github/scripts/parse-data.js $response > public/data/youtube.json
+echo $response > tmp.txt
+node .github/scripts/parse-data.js > public/data/youtube.json
+rm tmp.txt
 
 # Commit if possible
 if [[ `git status --porcelain` ]]; then
