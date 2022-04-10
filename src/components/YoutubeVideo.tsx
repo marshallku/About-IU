@@ -64,7 +64,6 @@ export default function YoutubeVideo({
         script.src = "https://www.youtube.com/iframe_api";
         window.onYouTubeIframeAPIReady = loadVideo;
         document.body.append(script);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {

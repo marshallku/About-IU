@@ -36,8 +36,8 @@ export default function Youtube() {
         const { documentElement } = document;
 
         documentElement.requestFullscreen();
-        window.screen.orientation.lock("landscape-primary").catch(() => {
-            return null;
+        window.screen.orientation.lock("landscape-primary").catch((error) => {
+            console.log(error);
         });
         documentElement.classList.add("overflow-hidden");
         setPoppedUpVideoId(videoId);

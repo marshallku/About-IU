@@ -81,20 +81,10 @@ export default function DiscographyDetails() {
 
     useEffect(() => {
         fetch(`${import.meta.env.BASE_URL}/data/albums/${album}.json`)
-            .then((response) => {
-                const contentType = response.headers.get("content-type");
-
-                if (contentType && contentType.includes("json")) {
-                    return response.json();
-                }
-
-                return "";
-            })
+            .then((response) => response.json())
             .then((response: discographyDetailJson) => {
-                if (response) {
-                    setLoading(false);
-                    setData(response);
-                }
+                setLoading(false);
+                setData(response);
             });
 
         window.addEventListener("scroll", shrinkVideo, { passive: true });

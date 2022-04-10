@@ -18,10 +18,11 @@ export default function Home() {
         if (window.player.isMuted()) {
             window.player.unMute();
             target.classList.remove("home__toggle-mute--muted");
-        } else {
-            window.player.mute();
-            target.classList.add("home__toggle-mute--muted");
+            return;
         }
+
+        window.player.mute();
+        target.classList.add("home__toggle-mute--muted");
     };
 
     return (

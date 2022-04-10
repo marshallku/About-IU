@@ -60,7 +60,6 @@ export default function LocationUpdater() {
             titleInKr[path as keyof typeof titleInKr] || DEFAULT_TITLE;
 
         document.body.className = path;
-
         document.title = koreanTitle;
         updateMetaTag(koreanTitle, `아이유 ${koreanTitle}`);
     }, [location]);
