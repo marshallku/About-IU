@@ -11,7 +11,20 @@ export default function YoutubeVideo({
     const [queued, setQueued] = useState<string>("");
     const [videoId, setVideoId] = useState<string>("");
 
-    const loadVideo = () => {
+    const loadApiScript = () => {
+        if (document.getElementById("iframe-api")) {
+            return;
+        }
+
+        const script = document.createElement("script");
+
+        script.id = "iframe-api";
+        script.src = "https://www.youtube.com/iframe_api";
+        window.onYouTubeIframeAPIReady = loadPlayer;
+        document.body.append(script);
+    };
+
+    const loadPlayer = () => {
         // Turn off captions by default
         vars.cc_load_policy = 0;
         // I don't know what's happening, but cc_load_policy=0 doesn't work without this
@@ -55,15 +68,11 @@ export default function YoutubeVideo({
 
     useEffect(() => {
         if (!!window.YT) {
-            loadVideo();
+            loadPlayer();
             return;
         }
 
-        const script = document.createElement("script");
-
-        script.src = "https://www.youtube.com/iframe_api";
-        window.onYouTubeIframeAPIReady = loadVideo;
-        document.body.append(script);
+        loadApiScript();
     }, []);
 
     useEffect(() => {
