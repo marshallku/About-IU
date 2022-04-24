@@ -8,15 +8,17 @@ IU Fan Page with React.JS
 
 ![Home Page](https://blog.kakaocdn.net/dn/SH5ph/btqGTmJnBYj/nmQrO6U8mxnvlhxKmnyxNK/img.png)
 
-Plays random Video.
+Play the randomly picked video in the background.\
+You can toggle mute by clicking the note icon at the bottom right.
 
-## Youtube Page
+## YouTube Page
 
-![Youtube Page](https://blog.kakaocdn.net/dn/w1WvI/btqG1WWw4iK/Sj4XnKMnGK62lLGlwXhKsk/img.png)
+![YouTube Page](https://blog.kakaocdn.net/dn/w1WvI/btqG1WWw4iK/Sj4XnKMnGK62lLGlwXhKsk/img.png)
 
-Displays recent Youtube videos.
+Displays recent YouTube videos.
 
-_I used my internal server to fetch youtube data. If you clone this, you must use yours to make it work properly._
+Click the thumbnail to see the video on the full screen.\
+Press ESC or go back to close the video.
 
 ## Discography Page
 
@@ -26,17 +28,17 @@ Displays IU's discography.
 
 ![Discography Detail Page](https://blog.kakaocdn.net/dn/dlRgqp/btqGYLOJrDT/6zR5KJmUJjkkT09DeYk9iK/img.png)
 
-Album detail page.
+The album detail page.
 
-If you click a song, you can see the lyrics of that song.
+If you click a song, you can see the lyrics of the song.
 
-And if that song had uploaded in youtube officially, the song will be auto-played.
+And if that song is **officially** uploaded in YouTube, the song will play automatically.
 
-And if the song has Music Video, you can watch it by clicking youtube icon under the song's information.
-You can watch lyrics even Music Video is popped up, just by scrolling down little bit.
+And for songs with music videos, you can watch it by clicking the YouTube icon under the song's information.
+Even if the video is popped up, you can see the lyrics if you scroll down a little.
 
 ## Filmography Page
 
 ![Filmography Page](https://blog.kakaocdn.net/dn/UFaB2/btqGULvMUAe/0uTRKeKJQ7bQ5OLHdCYGJk/img.png)
 
-Filmography page with connected gradient in background of item.
+Filmography page with gradients in the background.
