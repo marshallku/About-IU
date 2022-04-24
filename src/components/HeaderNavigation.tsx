@@ -63,17 +63,19 @@ export default function HeaderNavigation() {
         setCurrent(location.pathname);
     }, [location.pathname]);
 
-    window.addEventListener(
-        "scroll",
-        () => {
-            window.scrollY === 0
-                ? setScrolled(false)
-                : !scrolled && setScrolled(true);
-        },
-        { passive: true }
-    );
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize, { passive: true });
+    useEffect(() => {
+        window.addEventListener(
+            "scroll",
+            () => {
+                window.scrollY === 0
+                    ? setScrolled(false)
+                    : !scrolled && setScrolled(true);
+            },
+            { passive: true }
+        );
+        checkScreenSize();
+        window.addEventListener("resize", checkScreenSize, { passive: true });
+    }, []);
 
     return (
         <>
