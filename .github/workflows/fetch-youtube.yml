@@ -19,10 +19,15 @@ jobs:
                   node-version: "16"
                   check-latest: true
                   registry-url: https://registry.npmjs.org/
-            - name: Set permission
-              run: chmod +x ./.github/scripts/fetch-youtube.sh
             - name: Run script
-              run: ./.github/scripts/fetch-youtube.sh
+              run: |
+                  chmod +x ./.github/scripts/fetch-youtube.sh
+                  ./.github/scripts/fetch-youtube.sh
+            - name: Commit
+              run: |
+                  chmod +x ./.github/scripts/commit.sh
+                  ./.github/scripts/commit.sh
               env:
                   TOKEN: ${{ secrets.TOKEN }}
                   REPOSITORY: ${{ github.repository }}
+                  MESSAGE: "Update YouTube video list"
