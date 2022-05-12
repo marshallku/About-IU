@@ -38,4 +38,4 @@ jobs:
                   script_stop: true
                   script: |
                       cd /var/www
-                      bash IU.sh
+                      bash deploy.sh IU
