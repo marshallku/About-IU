@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactChild } from "react";
+import { useState, useEffect, ReactChild, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import fcls from "../utils/fcls";
 import "./HeaderNavigation.css";
@@ -31,21 +31,21 @@ function LinkWithScroll({
 export default function HeaderNavigation() {
     const [scrolled, setScrolled] = useState<boolean>(false);
     const [navOpened, setNavOpened] = useState<boolean>(false);
-
-    const hideNav = () => {
+    const handleScroll = useCallback(() => {
+        window.scrollY === 0
+            ? setScrolled(false)
+            : !scrolled && setScrolled(true);
+    }, [setScrolled]);
+    const hideNav = useCallback(() => {
         setNavOpened(false);
-    };
+    }, [setNavOpened]);
 
     useEffect(() => {
-        window.addEventListener(
-            "scroll",
-            () => {
-                window.scrollY === 0
-                    ? setScrolled(false)
-                    : !scrolled && setScrolled(true);
-            },
-            { passive: true }
-        );
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
     }, []);
 
     return (
