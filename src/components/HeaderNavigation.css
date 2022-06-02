@@ -97,7 +97,7 @@
         transition: transform 0.5s, opacity 0.5s;
     }
 
-    .hbg div {
+    .hbg span {
         width: 25px;
         height: 4px;
         border-radius: 5px;
@@ -105,8 +105,8 @@
         transition: 0.5s cubic-bezier(0.6, 0.05, 0.28, 0.91);
     }
 
-    .drawer .hbg div,
-    body.home .main-nav .hbg div {
+    .drawer .hbg span,
+    body.home .main-nav .hbg span {
         background: #fff;
     }
 

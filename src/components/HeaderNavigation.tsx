@@ -91,25 +91,26 @@ export default function HeaderNavigation() {
                     <LinkWithScroll to="/Filmography">
                         Filmography
                     </LinkWithScroll>
-                    <div
+                    <button
+                        type="button"
                         className="hbg"
                         onClick={() => {
                             setNavOpened(true);
                         }}
                     >
-                        <div className="hbg__top" />
-                        <div className="hbg__mid" />
-                        <div className="hbg__bot" />
-                    </div>
+                        <span className="hbg__top" />
+                        <span className="hbg__mid" />
+                        <span className="hbg__bot" />
+                    </button>
                 </div>
             </nav>
 
             <nav className={fcls("drawer", navOpened && "drawer--revealed")}>
-                <div className="hbg" onClick={hideNav}>
-                    <div className="hbg__top" />
-                    <div className="hbg__mid" />
-                    <div className="hbg__bot" />
-                </div>
+                <button type="button" className="hbg" onClick={hideNav}>
+                    <span className="hbg__top" />
+                    <span className="hbg__mid" />
+                    <span className="hbg__bot" />
+                </button>
                 <LinkWithScroll callback={hideNav} to="/">
                     Home
                 </LinkWithScroll>
