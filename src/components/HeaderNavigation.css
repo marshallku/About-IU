@@ -80,7 +80,7 @@
     }
 
     .main-nav > .left,
-    .main-nav a:not(.logo) {
+    .main-nav .main-nav__link:not(.logo) {
         display: none;
     }
 

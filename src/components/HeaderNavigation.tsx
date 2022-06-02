@@ -17,7 +17,7 @@ function LinkWithScroll({
     return (
         <Link
             to={to}
-            className={className}
+            className={fcls("main-nav__link", className)}
             onClick={() => {
                 window.scrollTo(0, 0);
                 callback?.();
@@ -33,7 +33,6 @@ export default function HeaderNavigation() {
     const [scrolled, setScrolled] = useState<boolean>(false);
     const [navOpened, setNavOpened] = useState<boolean>(false);
     const [current, setCurrent] = useState<string>("");
-    const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
 
     const hideNav = () => {
         setNavOpened(false);
@@ -51,14 +50,6 @@ export default function HeaderNavigation() {
         return "";
     };
 
-    const checkScreenSize = () => {
-        const isSmallerThan860 = window.innerWidth <= 860;
-
-        if (isSmallScreen !== isSmallerThan860) {
-            setIsSmallScreen(isSmallerThan860);
-        }
-    };
-
     useEffect(() => {
         setCurrent(location.pathname);
     }, [location.pathname]);
@@ -73,8 +64,6 @@ export default function HeaderNavigation() {
             },
             { passive: true }
         );
-        checkScreenSize();
-        window.addEventListener("resize", checkScreenSize, { passive: true });
     }, []);
 
     return (
@@ -87,19 +76,15 @@ export default function HeaderNavigation() {
                 )}
             >
                 <div className="left">
-                    {!isSmallScreen && (
-                        <>
-                            <LinkWithScroll className={isCurrent("/")} to="/">
-                                Home
-                            </LinkWithScroll>
-                            <LinkWithScroll
-                                className={isCurrent("/Youtube")}
-                                to="/Youtube"
-                            >
-                                Youtube
-                            </LinkWithScroll>
-                        </>
-                    )}
+                    <LinkWithScroll className={isCurrent("/")} to="/">
+                        Home
+                    </LinkWithScroll>
+                    <LinkWithScroll
+                        className={isCurrent("/Youtube")}
+                        to="/Youtube"
+                    >
+                        Youtube
+                    </LinkWithScroll>
                 </div>
                 <div className="flex center">
                     <LinkWithScroll to="/" className="logo">
@@ -130,22 +115,18 @@ export default function HeaderNavigation() {
                     </LinkWithScroll>
                 </div>
                 <div className="right">
-                    {!isSmallScreen && (
-                        <>
-                            <LinkWithScroll
-                                className={isCurrent("/Discography")}
-                                to="/Discography"
-                            >
-                                Discography
-                            </LinkWithScroll>
-                            <LinkWithScroll
-                                className={isCurrent("/Filmography")}
-                                to="/Filmography"
-                            >
-                                Filmography
-                            </LinkWithScroll>
-                        </>
-                    )}
+                    <LinkWithScroll
+                        className={isCurrent("/Discography")}
+                        to="/Discography"
+                    >
+                        Discography
+                    </LinkWithScroll>
+                    <LinkWithScroll
+                        className={isCurrent("/Filmography")}
+                        to="/Filmography"
+                    >
+                        Filmography
+                    </LinkWithScroll>
                     <div
                         className="hbg"
                         onClick={() => {
@@ -159,45 +140,41 @@ export default function HeaderNavigation() {
                 </div>
             </nav>
 
-            {isSmallScreen && (
-                <nav
-                    className={fcls("drawer", navOpened && "drawer--revealed")}
+            <nav className={fcls("drawer", navOpened && "drawer--revealed")}>
+                <div className="hbg" onClick={hideNav}>
+                    <div className="hbg__top" />
+                    <div className="hbg__mid" />
+                    <div className="hbg__bot" />
+                </div>
+                <LinkWithScroll
+                    className={isCurrent("/")}
+                    callback={hideNav}
+                    to="/"
                 >
-                    <div className="hbg" onClick={hideNav}>
-                        <div className="hbg__top" />
-                        <div className="hbg__mid" />
-                        <div className="hbg__bot" />
-                    </div>
-                    <LinkWithScroll
-                        className={isCurrent("/")}
-                        callback={hideNav}
-                        to="/"
-                    >
-                        Home
-                    </LinkWithScroll>
-                    <LinkWithScroll
-                        className={isCurrent("/Youtube")}
-                        callback={hideNav}
-                        to="/Youtube"
-                    >
-                        Youtube
-                    </LinkWithScroll>
-                    <LinkWithScroll
-                        className={isCurrent("/Discography")}
-                        callback={hideNav}
-                        to="/Discography"
-                    >
-                        Discography
-                    </LinkWithScroll>
-                    <LinkWithScroll
-                        className={isCurrent("/Filmography")}
-                        callback={hideNav}
-                        to="/Filmography"
-                    >
-                        Filmography
-                    </LinkWithScroll>
-                </nav>
-            )}
+                    Home
+                </LinkWithScroll>
+                <LinkWithScroll
+                    className={isCurrent("/Youtube")}
+                    callback={hideNav}
+                    to="/Youtube"
+                >
+                    Youtube
+                </LinkWithScroll>
+                <LinkWithScroll
+                    className={isCurrent("/Discography")}
+                    callback={hideNav}
+                    to="/Discography"
+                >
+                    Discography
+                </LinkWithScroll>
+                <LinkWithScroll
+                    className={isCurrent("/Filmography")}
+                    callback={hideNav}
+                    to="/Filmography"
+                >
+                    Filmography
+                </LinkWithScroll>
+            </nav>
         </>
     );
 }
