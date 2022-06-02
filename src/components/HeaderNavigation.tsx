@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactChild } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import fcls from "../utils/fcls";
 import "./HeaderNavigation.css";
 
@@ -9,13 +9,13 @@ function LinkWithScroll({
     callback,
     children,
 }: {
-    className: string;
+    className?: string;
     to: string;
     callback?: () => void;
     children: ReactChild;
 }) {
     return (
-        <Link
+        <NavLink
             to={to}
             className={fcls("main-nav__link", className)}
             onClick={() => {
@@ -24,35 +24,17 @@ function LinkWithScroll({
             }}
         >
             {children}
-        </Link>
+        </NavLink>
     );
 }
 
 export default function HeaderNavigation() {
-    const location = useLocation();
     const [scrolled, setScrolled] = useState<boolean>(false);
     const [navOpened, setNavOpened] = useState<boolean>(false);
-    const [current, setCurrent] = useState<string>("");
 
     const hideNav = () => {
         setNavOpened(false);
     };
-
-    const isCurrent = (uri: string): string => {
-        if (uri === current) {
-            return "highlight";
-        }
-
-        if (uri.includes("/Discography") && current.includes("/Discography")) {
-            return "highlight";
-        }
-
-        return "";
-    };
-
-    useEffect(() => {
-        setCurrent(location.pathname);
-    }, [location.pathname]);
 
     useEffect(() => {
         window.addEventListener(
@@ -76,15 +58,8 @@ export default function HeaderNavigation() {
                 )}
             >
                 <div className="left">
-                    <LinkWithScroll className={isCurrent("/")} to="/">
-                        Home
-                    </LinkWithScroll>
-                    <LinkWithScroll
-                        className={isCurrent("/Youtube")}
-                        to="/Youtube"
-                    >
-                        Youtube
-                    </LinkWithScroll>
+                    <LinkWithScroll to="/">Home</LinkWithScroll>
+                    <LinkWithScroll to="/Youtube">Youtube</LinkWithScroll>
                 </div>
                 <div className="flex center">
                     <LinkWithScroll to="/" className="logo">
@@ -115,16 +90,10 @@ export default function HeaderNavigation() {
                     </LinkWithScroll>
                 </div>
                 <div className="right">
-                    <LinkWithScroll
-                        className={isCurrent("/Discography")}
-                        to="/Discography"
-                    >
+                    <LinkWithScroll to="/Discography">
                         Discography
                     </LinkWithScroll>
-                    <LinkWithScroll
-                        className={isCurrent("/Filmography")}
-                        to="/Filmography"
-                    >
+                    <LinkWithScroll to="/Filmography">
                         Filmography
                     </LinkWithScroll>
                     <div
@@ -146,32 +115,16 @@ export default function HeaderNavigation() {
                     <div className="hbg__mid" />
                     <div className="hbg__bot" />
                 </div>
-                <LinkWithScroll
-                    className={isCurrent("/")}
-                    callback={hideNav}
-                    to="/"
-                >
+                <LinkWithScroll callback={hideNav} to="/">
                     Home
                 </LinkWithScroll>
-                <LinkWithScroll
-                    className={isCurrent("/Youtube")}
-                    callback={hideNav}
-                    to="/Youtube"
-                >
+                <LinkWithScroll callback={hideNav} to="/Youtube">
                     Youtube
                 </LinkWithScroll>
-                <LinkWithScroll
-                    className={isCurrent("/Discography")}
-                    callback={hideNav}
-                    to="/Discography"
-                >
+                <LinkWithScroll callback={hideNav} to="/Discography">
                     Discography
                 </LinkWithScroll>
-                <LinkWithScroll
-                    className={isCurrent("/Filmography")}
-                    callback={hideNav}
-                    to="/Filmography"
-                >
+                <LinkWithScroll callback={hideNav} to="/Filmography">
                     Filmography
                 </LinkWithScroll>
             </nav>

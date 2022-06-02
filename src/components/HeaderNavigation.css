@@ -38,7 +38,7 @@
     font-size: 13px;
 }
 
-.main-nav a.highlight {
+.main-nav a.active {
     color: #cc7dfd;
 }
 
@@ -164,7 +164,7 @@
         margin: 10px 0;
     }
 
-    .drawer a.highlight {
+    .drawer a.active {
         color: #cc7dfd;
     }
 }
