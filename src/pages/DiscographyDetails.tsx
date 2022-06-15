@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
-import YoutubeVideo from "../components/YoutubeVideo";
 import fcls from "../utils/fcls";
+import YoutubeVideo from "../components/YoutubeVideo";
 import "./DiscographyDetails.css";
 
 function BackButton() {

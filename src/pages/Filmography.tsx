@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Loader from "../components/Loader";
 import { useFilmographyStore } from "../store";
+import Loader from "../components/Loader";
 import "./Filmography.css";
 
 export default function Filmography() {

@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import Loader from "../components/Loader";
 import { useDiscographyStore } from "../store";
+import Loader from "../components/Loader";
 import "./Discography.css";
 
 export default function Discography() {

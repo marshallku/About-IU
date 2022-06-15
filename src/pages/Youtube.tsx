@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
+import { useYoutubeStore } from "../store";
+import fcls from "../utils/fcls";
 import YoutubeVideo from "../components/YoutubeVideo";
 import Loader from "../components/Loader";
-import { useYoutubeStore } from "../store";
 import "./Youtube.css";
-import fcls from "../utils/fcls";
 
 function YoutubeContainer({ children }: { children: React.ReactChild }) {
     return (

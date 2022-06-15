@@ -1,4 +1,4 @@
-import React from "react";
+import { MouseEvent } from "react";
 import YoutubeVideo from "../components/YoutubeVideo";
 import "./Home.css";
 
@@ -6,9 +6,7 @@ export default function Home() {
     const videoList = ["JpTqSzm4JOk", "nvJeJSrghOI"];
     const video = videoList[Math.round(Math.random() * (videoList.length - 1))];
 
-    const toggleMute = (
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ) => {
+    const toggleMute = (event: MouseEvent) => {
         const target = event.target as HTMLElement;
 
         if (typeof window.player.mute !== "function") {
