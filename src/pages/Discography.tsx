@@ -48,7 +48,7 @@ export default function Discography() {
                             style={{
                                 backgroundImage: `url("${
                                     import.meta.env.BASE_URL
-                                }${`/assets/images/album_cover/${name}.jpg`}")`,
+                                }/assets/images/album_cover/${name}.jpg")`,
                             }}
                         />
                         <header className="grid-item__content">
