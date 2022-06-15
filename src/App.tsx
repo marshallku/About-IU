@@ -7,7 +7,7 @@ import Filmography from "./pages/Filmography";
 import Youtube from "./pages/Youtube";
 import LocationUpdater from "./components/LocationUpdater";
 
-function App() {
+export default function App() {
     return (
         <BrowserRouter basename={import.meta.env.BASE_URL}>
             <HeaderNavigation />
@@ -31,5 +31,3 @@ function App() {
         </BrowserRouter>
     );
 }
-
-export default App;
