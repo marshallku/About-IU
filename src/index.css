@@ -88,12 +88,13 @@ video {
     margin: 0 auto;
 }
 
-body:not(.lyrics) #main > section:not(:is(.home, .less-top-margin)) {
-    margin-top: 140px;
+#root {
+    padding: 10px 10px 50px;
 }
 
 body:not(.lyrics) #main > section.less-top-margin {
-    margin-top: 50px;
+    margin-top: -10px;
+    padding-bottom: 0;
 }
 
 #main > section.max-1400 {
@@ -104,7 +105,11 @@ body:not(.lyrics) #main > section.less-top-margin {
     max-width: 1060px;
 }
 
-@media screen and (min-width: 961px) {
+@media screen and (min-width: 860px) {
+    body:not(.lyrics) #main > section:not(:is(.home, .less-top-margin)) {
+        margin-top: 140px;
+    }
+
     body:not(.lyrics) #main > section.less-top-margin {
         margin-top: 70px;
     }

@@ -144,7 +144,7 @@
 
 .home__toggle-mute {
     position: fixed;
-    bottom: 5px;
+    bottom: 55px;
     right: 5px;
     font-size: 20px;
     color: #fff;
@@ -154,5 +154,11 @@
 .home__toggle-mute--muted {
     color: #a0a0a0;
     opacity: 0.8;
-    transition: 0.5s;
+    transition: color 0.5s, opacity 0.5s;
+}
+
+@media screen and (min-width: 860px) {
+    .home__toggle-mute {
+        bottom: 5px;
+    }
 }
