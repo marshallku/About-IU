@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import fcls from "../utils/fcls";
-import "./HeaderNavigation.css";
+import "./GlobalNavigation.css";
 
 function LinkWithScroll({ to, children, className }: LinkWithScrollProps) {
     return (

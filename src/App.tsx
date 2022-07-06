@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HeaderNavigation from "./components/HeaderNavigation";
+import HeaderNavigation from "./components/GlobalNavigation";
 import Home from "./pages/Home";
 import Discography from "./pages/Discography";
 import DiscographyDetails from "./pages/DiscographyDetails";
