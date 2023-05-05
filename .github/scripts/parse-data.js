@@ -4,15 +4,16 @@ const path = require("path");
 const data = fs.readFileSync(path.resolve(__dirname, "../../tmp.txt"), "utf8");
 const parsed = JSON.parse(
     data
-        .slice(data.indexOf('"tabs"'), data.indexOf('"header') - 3)
+        .slice(
+            data.indexOf('"tabs"'),
+            data.lastIndexOf('"header":{"c4TabbedHeaderRenderer"') - 3
+        )
         .replace('"tabs":', "")
 );
-const list =
-    parsed[1].tabRenderer.content.sectionListRenderer.contents[0]
-        .itemSectionRenderer.contents[0].gridRenderer.items;
+const list = parsed[1].tabRenderer.content.richGridRenderer.contents;
 const parsedList = list
-    .filter((x) => !!x.gridVideoRenderer)
-    .map(({ gridVideoRenderer }) => gridVideoRenderer)
+    .filter((x) => !!x.richItemRenderer)
+    .map(({ richItemRenderer }) => richItemRenderer.content.videoRenderer)
     .map(({ title, videoId }) => ({
         title: `${title.runs[0].text}`,
         videoId: `${videoId}`,
