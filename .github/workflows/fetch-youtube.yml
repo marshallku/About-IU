@@ -20,14 +20,13 @@ jobs:
                   check-latest: true
                   registry-url: https://registry.npmjs.org/
             - name: Run script
-              run: |
-                  chmod +x ./.github/scripts/fetch-youtube.sh
-                  ./.github/scripts/fetch-youtube.sh
+              run: bash .github/scripts/fetch-youtube.sh
+              env:
+                  DISCORD_WEBHOOK_URI: ${{ secrets.DISCORD_WEBHOOK_URI }}
             - name: Commit
-              run: |
-                  chmod +x ./.github/scripts/commit.sh
-                  ./.github/scripts/commit.sh
+              run: bash .github/scripts/commit.sh
               env:
                   TOKEN: ${{ secrets.TOKEN }}
                   REPOSITORY: ${{ github.repository }}
+                  DISCORD_WEBHOOK_URI: ${{ secrets.DISCORD_WEBHOOK_URI }}
                   MESSAGE: "Update YouTube video list"
