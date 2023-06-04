@@ -1,10 +1,10 @@
 #!/bin/bash
+github_env="$1"
+
 if [[ -z $(git status --porcelain) ]]; then
     echo 'status=FALSE' >>"$github_env"
     exit 0
 fi
-
-github_env="$1"
 
 echo 'status=TRUE' >>"$github_env"
 

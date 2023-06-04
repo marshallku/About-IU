@@ -35,19 +35,18 @@ jobs:
                   MESSAGE: "Update YouTube video list"
     trigger-deploy:
         needs: ["fetch-youtube"]
-        if: contains( needs.fetch-youtube.outputs.status , 'TRUE')
+        if: needs.fetch-youtube.outputs.status == 'TRUE'
         name: Trigger deploy workflow
         runs-on: ubuntu-latest
         steps:
             - uses: actions/github-script@v6
               env:
-                GITHUB_TOKEN: ${{ secrets.TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.TOKEN }}
               with:
-                script: |
-                  github.rest.actions.createWorkflowDispatch({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    workflow_id: 'deploy.yml',
-                    ref: 'master',
-                  })
-            
+                  script: |
+                      github.rest.actions.createWorkflowDispatch({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        workflow_id: 'deploy.yml',
+                        ref: 'master',
+                      })
