@@ -1,7 +1,7 @@
 #!/bin/bash
 response=$(curl --header "Accept-Language: ko-KR" "https://www.youtube.com/c/dlwlrma/videos") || exit 1
 
-. .github/scripts/send_notification.sh
+. .github/scripts/send-notification.sh
 
 echo "$response" >tmp.txt
 data=$(node .github/scripts/parse-data.js)

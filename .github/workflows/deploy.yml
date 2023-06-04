@@ -19,7 +19,7 @@ jobs:
             - name: Install dependencies
               run: npm ci
             - name: Build
-              run: npm run build
+              run: npm run build || bash .github/scripts/notify.sh -t 'Failed to build' -m 'Failed to build application.'
             - name: Deploy via SCP
               uses: appleboy/scp-action@master
               with:
@@ -37,6 +37,4 @@ jobs:
                   username: ${{ secrets.MAIN_SERVER_USER }}
                   key: ${{ secrets.ED_KEY }}
                   script_stop: true
-                  script: |
-                      cd /var/www
-                      bash deploy.sh IU
+                  script: cd /var/www && bash deploy.sh IU
