@@ -13,7 +13,3 @@ fi
 
 echo "$data" >public/data/youtube.json
 rm tmp.txt
-
-if [[ $(git status --porcelain) ]]; then
-    send_discord_notification 'New commit alert' 'You should manually run actions in https://github.com/marshallku/About-IU/actions/workflows/deploy.yml'
-fi

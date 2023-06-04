@@ -12,6 +12,8 @@ jobs:
     fetch-youtube:
         name: Get recent youtube videos
         runs-on: ubuntu-latest
+        outputs:
+            status: ${{ steps.commit.outputs.status }}
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
@@ -24,9 +26,28 @@ jobs:
               env:
                   DISCORD_WEBHOOK_URI: ${{ secrets.DISCORD_WEBHOOK_URI }}
             - name: Commit
-              run: bash .github/scripts/commit.sh
+              id: commit
+              run: bash .github/scripts/commit.sh $GITHUB_ENV
               env:
                   TOKEN: ${{ secrets.TOKEN }}
                   REPOSITORY: ${{ github.repository }}
                   DISCORD_WEBHOOK_URI: ${{ secrets.DISCORD_WEBHOOK_URI }}
                   MESSAGE: "Update YouTube video list"
+    trigger-deploy:
+        needs: ["fetch-youtube"]
+        if: contains( needs.fetch-youtube.outputs.status , 'TRUE')
+        name: Trigger deploy workflow
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/github-script@v6
+              env:
+                GITHUB_TOKEN: ${{ secrets.TOKEN }}
+              with:
+                script: |
+                  github.rest.actions.createWorkflowDispatch({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    workflow_id: 'deploy.yml',
+                    ref: 'master',
+                  })
+            
