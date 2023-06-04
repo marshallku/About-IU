@@ -27,17 +27,17 @@ jobs:
                   DISCORD_WEBHOOK_URI: ${{ secrets.DISCORD_WEBHOOK_URI }}
             - name: Commit
               id: commit
-              run: bash .github/scripts/commit.sh $GITHUB_ENV
+              run: bash .github/scripts/commit.sh "$GITHUB_OUTPUT"
               env:
                   TOKEN: ${{ secrets.TOKEN }}
                   REPOSITORY: ${{ github.repository }}
                   DISCORD_WEBHOOK_URI: ${{ secrets.DISCORD_WEBHOOK_URI }}
                   MESSAGE: "Update YouTube video list"
     trigger-deploy:
-        needs: ["fetch-youtube"]
-        if: needs.fetch-youtube.outputs.status == 'TRUE'
-        name: Trigger deploy workflow
         runs-on: ubuntu-latest
+        needs: ["fetch-youtube"]
+        if: ${{ needs.fetch-youtube.outputs.status == 'TRUE' }}
+        name: Trigger deploy workflow
         steps:
             - uses: actions/github-script@v6
               env:
