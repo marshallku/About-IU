@@ -15,12 +15,14 @@ jobs:
         outputs:
             status: ${{ steps.commit.outputs.status }}
         steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
-                  node-version: "16"
+                  node-version: "22"
                   check-latest: true
                   registry-url: https://registry.npmjs.org/
+            - name: Install dependencies
+              run: npm ci
             - name: Run script
               run: bash .github/scripts/fetch-youtube.sh
               env:
